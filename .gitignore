@@ -1,0 +1,3 @@
+dotfiles/config/nvim/plugin/
+dotfiles/config/nvim/lazy-lock.json
+dotfiles/config/hypr/hyprpaper.conf
