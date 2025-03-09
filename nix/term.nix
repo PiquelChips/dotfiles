@@ -1,4 +1,12 @@
 { pkgs, ...}:
+let
+    fzf-tab = pkgs.fetchFromGitHub {
+        owner = "Aloxaf";
+        repo = "fzf-tab";
+        rev = "master";
+        hash = "sha256-q26XVS/LcyZPRqDNwKKA9exgBByE0muyuNb0Bbar2lY=";
+    };
+in
 {
     programs = {
         zsh = {
@@ -14,6 +22,7 @@
                 enable = true;
                 plugins = [ "git" "sudo" "docker" ]; #"fzf-tab" ];
             };
+            shellInit = "source ${fzf-tab}/fzf-tab.plugin.zsh";
             promptInit = ''
                 CASE_SENSITIVE="true"
         
