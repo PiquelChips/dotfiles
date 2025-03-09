@@ -17,6 +17,7 @@
           feh zip unzip wl-clipboard
           ffmpeg fd ripgrep imagemagick poppler
           sqlc docker-buildx neofetch
+          stow
         ];
     };
     
