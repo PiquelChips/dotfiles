@@ -1,0 +1,4 @@
+[[session]]
+name = "dotfiles"
+path = "~/dotfiles"
+startup_command = "git pull"

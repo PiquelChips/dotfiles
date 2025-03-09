@@ -7,7 +7,8 @@
             autosuggestions.enable = true;
             syntaxHighlighting.enable = true;
             shellAliases = {
-                ll = "ls -alF";
+                l = "ls -alF";
+                s = "sesh connect $(sesh list -c -t | fzf)";
             };
             ohMyZsh = {
                 enable = true;
@@ -69,7 +70,7 @@
             '';
             plugins = with pkgs.tmuxPlugins; [
                 sensible vim-tmux-navigator
-                tokyo-night-tmux
+                #tokyo-night-tmux
             ];
             extraConfig = ''
                 bind '"' split-window -v -c "#{pane_current_path}"

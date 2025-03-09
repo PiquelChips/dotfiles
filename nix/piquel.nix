@@ -14,10 +14,9 @@
           # Apps
           blender wofi kitty
           # Utilities
-          feh zip unzip wl-clipboard
+          feh zip unzip wl-clipboard stow
           ffmpeg fd ripgrep imagemagick poppler
-          sqlc docker-buildx neofetch
-          stow
+          sqlc docker-buildx neofetch sesh zoxide
         ];
     };
     
@@ -32,7 +31,6 @@
         variables = {
             LANG="en_US.UTF-8";
             EDITOR="nvim";
-            PERSONAL_PATH="~/Projects/Personal";
         };
     };
 }
