@@ -16,13 +16,17 @@
             ffmpeg fd ripgrep imagemagick poppler fzf
             sqlc docker-buildx neofetch sesh zoxide
             # Apps
-            blender wofi kitty firefox
-            # Hypr
-            hypridle hyprlock hyprpaper hyprland
+            blender wofi kitty firefox hyprpaper
         ];
     };
 
     console.keyMap = "fr";
+
+    programs = {
+        hyprland.enable = true;
+        hyprlock.enable = true;
+    };
+    services.hypridle.enable = true;
 
     fonts = {
         enableDefaultPackages = true;
