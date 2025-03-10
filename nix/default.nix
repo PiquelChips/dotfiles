@@ -7,5 +7,6 @@
         ./boot.nix
 
         ./terminal/default.nix
+        ./users/default.nix
     ];
 }
