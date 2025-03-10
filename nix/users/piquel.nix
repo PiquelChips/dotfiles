@@ -6,26 +6,29 @@
         extraGroups = [ "networkmanager" "wheel" "docker" ];
         shell = pkgs.zsh;
         packages = with pkgs; [
-          # Programming languages
-          cargo gcc go
-          deno nodejs python314
-          # Language servers
-          nil
-          # Apps
-          blender wofi kitty
-          # Utilities
-          feh zip unzip wl-clipboard stow
-          ffmpeg fd ripgrep imagemagick poppler
-          sqlc docker-buildx neofetch sesh zoxide
+            # Programmings languages
+            cargo gcc go
+            deno nodejs
+            # Language servers
+            nil clang-tools libgcc
+            # Utils
+            feh zip unzip wl-clipboard stow tree yazi
+            ffmpeg fd ripgrep imagemagick poppler fzf
+            sqlc docker-buildx neofetch sesh zoxide
+            # Apps
+            blender wofi kitty firefox
+            # Hypr
+            hypridle hyprlock hyprpaper hyprland
         ];
     };
-    
+
     console.keyMap = "fr";
-    
+
     fonts = {
         enableDefaultPackages = true;
         packages = with pkgs; [ nerdfonts ];
     };
+
     environment = {
         shells = with pkgs; [ zsh ];
         variables = {

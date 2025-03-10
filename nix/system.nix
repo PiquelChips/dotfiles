@@ -15,13 +15,7 @@
         LC_TIME = "fr_FR.UTF-8";
     };
     
-    environment.systemPackages = with pkgs; [
-        clang-tools
-        libgcc
-        sbctl
-        niv
-        tree
-    ];
+    environment.systemPackages = with pkgs; [ sbctl niv ];
     
     system = {
         stateVersion = "24.11";
