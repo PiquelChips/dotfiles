@@ -22,6 +22,8 @@
             set-window-option -g pane-base-index 1
             set-window-option -g mode-keys vi
             set-option -g renumber-windows on
+
+            set -g detach-on-destroy off
         '';
         plugins = with pkgs.tmuxPlugins; [
             sensible vim-tmux-navigator
