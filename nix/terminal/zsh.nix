@@ -24,7 +24,12 @@ in
             plugins = [ "git" "sudo" "docker" ];
         };
 
-        shellInit = "source ${fzf-tab}/fzf-tab.plugin.zsh";
+        shellInit = ''
+            export PATH="$HOME/go/bin:$PATH"
+            export PATH="$HOME/.cargo/bin:$PATH"
+            
+            source ${fzf-tab}/fzf-tab.plugin.zsh
+        '';
         promptInit = ''
             CASE_SENSITIVE="true"
             
