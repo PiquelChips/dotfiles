@@ -14,7 +14,7 @@
             # Utils
             feh zip unzip wl-clipboard stow tree yazi
             ffmpeg fd ripgrep imagemagick poppler fzf
-            sqlc docker-buildx neofetch sesh zoxide
+            sqlc docker-buildx neofetch sesh zoxide gnumake
             # Apps
             blender wofi kitty firefox hyprpaper
         ];
