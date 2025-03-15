@@ -12,7 +12,7 @@
         shell = pkgs.zsh;
         packages = with pkgs; [
             # Programmings languages
-            cargo gcc go
+            cargo gcc go python3
             deno nodejs
             # Language servers
             nil clang-tools libgcc
