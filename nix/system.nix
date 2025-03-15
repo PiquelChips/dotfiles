@@ -28,5 +28,6 @@
     system = {
         stateVersion = "24.11";
         userActivationScripts.zshrc = "touch .zshrc";
+        autoUpgrade.enable = true;
     };
 }
