@@ -18,7 +18,7 @@
             nil clang-tools libgcc
             # Utils
             feh zip unzip wl-clipboard stow tree yazi
-            ffmpeg fd ripgrep imagemagick poppler fzf
+            ffmpeg fd ripgrep imagemagick poppler fzf air
             sqlc docker-buildx neofetch zoxide gnumake
             # Apps
             blender wofi kitty firefox hyprpaper
