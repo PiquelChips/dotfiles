@@ -16,7 +16,8 @@ in
 
         shellAliases = {
             l = "ls -alF";
-            s = "sesh connect $(sesh list -c -t | fzf)";
+            p = "piquel-cli load $(piquel-cli list | fzf)";
+            piquel = "piquel-cli";
         };
 
         ohMyZsh = {

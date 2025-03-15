@@ -6,7 +6,6 @@
     };
     
     networking = {
-        hostName = "archbtw";
         networkmanager = {
             enable = true;
             wifi.backend = "iwd";

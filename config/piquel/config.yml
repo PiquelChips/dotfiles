@@ -1,0 +1,42 @@
+sessions:
+  dotfiles:
+    root: "~/dotfiles"
+    windows:
+      - commands:
+        - vim .
+  deployment:
+    root: "~/Projects/Deployment"
+    windows:
+      - commands:
+        - vim .
+      - commands:
+        - git pull
+      - commands:
+        - ssh piquel@piquel.fr
+  piquel-fr:
+    root: "~/Projects/piquel.fr"
+    windows:
+    - commands:
+        - vim .
+    - commands:
+        - git pull
+    - commands:
+        - deno install
+        - deno task dev
+  piquel-api:
+    root: "~/Projects/api.piquel.fr"
+    windows:
+      - commands:
+        - vim .
+      - commands:
+        - git pull
+      - commands:
+        - air
+  piquel-pi:
+    root: "~/Projects/RaspberryPi"
+    windows:
+      - commands:
+        - vim .
+      - commands:
+        - git pull
+

@@ -1,5 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
+    imports = [ 
+        ./terminal/default.nix
+        ./hardware-configuration.nix
+    ];
+
     users.users.piquel = {
         isNormalUser = true;
         description = "piquel";
@@ -14,9 +19,11 @@
             # Utils
             feh zip unzip wl-clipboard stow tree yazi
             ffmpeg fd ripgrep imagemagick poppler fzf
-            sqlc docker-buildx neofetch sesh zoxide gnumake
+            sqlc docker-buildx neofetch zoxide gnumake
             # Apps
             blender wofi kitty firefox hyprpaper
+            # Customs
+            inputs.piquel-cli.packages.${pkgs.system}.default
         ];
     };
 
