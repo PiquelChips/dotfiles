@@ -4,6 +4,9 @@ sessions:
     windows:
       - commands:
         - vim .
+      - commands:
+        - git pull
+        - sudo nixos-rebuild switch --flake .
   deployment:
     root: "~/Projects/Deployment"
     windows:
@@ -39,4 +42,10 @@ sessions:
         - vim .
       - commands:
         - git pull
-
+  piquel-cli:
+    root: "~/Projects/piquel-cli"
+    windows:
+      - commands:
+        - vim .
+      - commands:
+        - git pull
