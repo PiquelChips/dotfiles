@@ -7,8 +7,8 @@ sessions:
       - commands:
         - git pull
         - sudo nixos-rebuild switch --flake .
-  keys:
-    root: "~/keys"
+  secrets:
+    root: "~/secrets"
     windows:
       - commands:
         - git pull
