@@ -7,6 +7,12 @@ sessions:
       - commands:
         - git pull
         - sudo nixos-rebuild switch --flake .
+  keys:
+    root: "~/keys"
+    windows:
+      - commands:
+        - git pull
+        - vim .
   deployment:
     root: "~/Projects/Deployment"
     windows:
