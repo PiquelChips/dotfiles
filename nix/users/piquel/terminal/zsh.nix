@@ -16,8 +16,7 @@ in
 
         shellAliases = {
             l = "ls -alF";
-            p = "piquel-cli load $(piquel-cli list | fzf)";
-            piquel = "piquel-cli";
+            p = "piquel load $(piquel list | fzf)";
         };
 
         ohMyZsh = {
@@ -26,6 +25,8 @@ in
         };
 
         shellInit = ''
+            fpath=(~/dotfiles/config/zsh-completions $fpath)
+
             export PATH="$HOME/go/bin:$PATH"
             export PATH="$HOME/.cargo/bin:$PATH"
             

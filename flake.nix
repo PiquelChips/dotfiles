@@ -10,11 +10,11 @@
     };
     
     outputs = { nixpkgs, ... } @ inputs: {
-        nixosConfigurations.archbtw = nixpkgs.lib.nixosSystem {
+        nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
             specialArgs = { inherit inputs; };
             modules = [
-                ./nix/default.nix
                 ./nix/users/piquel/piquel.nix
+                ./nix/default.nix
             ];
         };
     };
