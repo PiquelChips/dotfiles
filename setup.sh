@@ -2,4 +2,4 @@
 
 sudo nixos-rebuild switch --flake .
 cd ~/dotfiles
-stow config -t ~/.config
+stow dotfiles -t ~/.config
