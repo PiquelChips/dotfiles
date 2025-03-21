@@ -33,7 +33,7 @@
 
     virtualisation.docker = {
         enable = true;
-        storageDriver = "btrfs";
+        #storageDriver = "btrfs";
     };
 
     services.openssh.enable = true;
