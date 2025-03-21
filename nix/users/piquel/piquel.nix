@@ -2,7 +2,6 @@
 {
     imports = [ 
         ./terminal/default.nix
-        ./hardware-configuration.nix
     ];
 
     users.users.piquel = {

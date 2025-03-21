@@ -1,5 +1,15 @@
 { pkgs, ... }:
 {
+    imports = [
+        ./networking.nix
+        ./hardware-configuration.nix
+    ];
+
+    boot.loader = {
+        systemd-boot.enable = true;
+	    efi.canTouchEfiVariables = true;
+    };
+
     time.timeZone = "Europe/Paris";
     
     i18n.defaultLocale = "en_US.UTF-8";
@@ -30,4 +40,6 @@
         userActivationScripts.zshrc = "touch .zshrc";
         autoUpgrade.enable = true;
     };
+  
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }

@@ -14,7 +14,7 @@
             specialArgs = { inherit inputs; };
             modules = [
                 ./nix/users/piquel/piquel.nix
-                ./nix/default.nix
+                ./nix/system.nix
             ];
         };
     };
