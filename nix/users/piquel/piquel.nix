@@ -16,7 +16,7 @@
             # Language servers
             nil clang-tools libgcc
             # Utils
-            feh zip unzip wl-clipboard stow tree yazi
+            feh zip unzip wl-clipboard stow tree yazi lazydocker
             ffmpeg fd ripgrep imagemagick poppler fzf air
             sqlc docker-buildx neofetch zoxide gnumake mpv
             # Apps
