@@ -36,8 +36,6 @@
         pulse.enable = true;
     };
     
-    environment.systemPackages = with pkgs; [ sbctl niv ];
-    
     system = {
         stateVersion = "24.11";
         userActivationScripts.zshrc = "touch .zshrc";
