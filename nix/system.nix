@@ -6,8 +6,11 @@
     ];
 
     boot.loader = {
-        systemd-boot.enable = true;
-	    efi.canTouchEfiVariables = true;
+        systemd-boot = {
+            enable = true;
+            configurationLimit = 20;
+        };
+        efi.canTouchEfiVariables = true;
     };
 
     time.timeZone = "Europe/Paris";
