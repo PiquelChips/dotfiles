@@ -7,7 +7,7 @@ sessions:
         - vim .
       - commands:
         - git pull
-        - sudo nixos-rebuild switch --flake .
+        - sudo nixos-rebuild switch --flake . --upgrade
   secrets:
     root: "~/secrets"
     windows:
@@ -63,3 +63,22 @@ sessions:
         - vim .
       - commands:
         - git pull
+  openmc:
+    root: "~/Projects/OpenMC"
+    windows:
+      - commands:
+        - cd PluginV2
+        - vim .
+      - commands:
+        - docker compose up -d
+        - cd PluginV2
+        - git pull
+        - ./gradlew shadowJar
+      - commands:
+        - cd ItemsAdder
+        - git pull
+        - cd ../Server
+        - vim plugins/OpenMC
+      - commands:
+        - cd Server
+        - ./start.sh

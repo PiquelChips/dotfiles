@@ -12,7 +12,7 @@
         packages = with pkgs; [
             # Programmings languages
             cargo gcc go python3
-            deno nodejs
+            deno nodejs jdk21
             # Language servers
             nil clang-tools libgcc
             # Utils
@@ -20,7 +20,7 @@
             ffmpeg fd ripgrep imagemagick poppler fzf air
             sqlc docker-buildx neofetch zoxide gnumake mpv
             # Apps
-            blender wofi kitty firefox hyprpaper gimp
+            blender wofi kitty firefox hyprpaper gimp prismlauncher
             # Customs
             inputs.piquel-cli.packages.${pkgs.system}.default
         ];
