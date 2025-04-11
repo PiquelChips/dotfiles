@@ -40,7 +40,14 @@
         stateVersion = "24.11";
         userActivationScripts.zshrc = "touch .zshrc";
         autoUpgrade.enable = true;
+        autoUpgrade.dates = "daily";
     };
   
-    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    nix = {
+        gc.automatic = true;
+        gc.options = "--delete-older-than 10d";
+        gc.dates = "weekly";
+        settings.auto-optimise-store = true;
+        settings.experimental-features = [ "nix-command" "flakes" ];
+    };
 }
