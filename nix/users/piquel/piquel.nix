@@ -14,7 +14,7 @@
             cargo gcc go python3
             deno nodejs jdk21
             # Language servers
-            nil clang-tools libgcc
+            nil clang-tools libgcc marksman
             # Utils
             feh zip unzip wl-clipboard stow tree yazi lazydocker
             ffmpeg fd ripgrep imagemagick poppler fzf air

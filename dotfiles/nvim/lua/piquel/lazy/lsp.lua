@@ -34,7 +34,7 @@ return {
                 'jsonls',
                 'lua_ls',
                 'autotools_ls',
-                'markdown_oxide',
+                'marksman',
                 'tailwindcss',
                 'sqls',
                 'svelte',
