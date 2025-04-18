@@ -42,6 +42,15 @@ sessions:
         - git pull
       - commands:
         - air
+  piquel-docs:
+    root: "~/Projects/docs.piquel.fr"
+    windows:
+      - commands:
+        - vim .
+      - commands:
+        - git pull
+      - commands:
+        - air
   piquel-pi:
     root: "~/Projects/RaspberryPi"
     windows:
