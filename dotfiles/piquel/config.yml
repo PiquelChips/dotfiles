@@ -58,6 +58,8 @@ sessions:
         - vim .
       - commands:
         - git pull
+      - commands:
+        - ssh piquel@remote.piquel.fr
   piquel-cli:
     root: "~/Projects/piquel-cli"
     windows:
