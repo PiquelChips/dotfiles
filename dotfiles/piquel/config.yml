@@ -81,7 +81,6 @@ sessions:
         - cd PluginV2
         - vim .
       - commands:
-        - docker compose up -d
         - cd PluginV2
         - git pull
         - ./gradlew shadowJar
@@ -89,7 +88,7 @@ sessions:
         - cd ItemsAdder
         - git pull
         - cd ../Server
-        - vim plugins/OpenMC
+        - vim .
       - commands:
         - cd Server
         - ./start.sh
