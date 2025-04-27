@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
     imports = [
         ./networking.nix
@@ -34,6 +34,14 @@
         alsa.enable = true;
         alsa.support32Bit = true;
         pulse.enable = true;
+    };
+
+    programs.nix-ld = {
+        enable = true;
+        libraries = with pkgs; [
+            stdenv.cc.cc
+            icu
+        ];
     };
     
     system = {
