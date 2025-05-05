@@ -9,5 +9,4 @@ My dotfiles
 ## Left on Windows
 
 - GOG & Epic Games
-- Rider & Unreal Engine
 - Microsoft 365
