@@ -50,7 +50,9 @@
         autoUpgrade.enable = true;
         autoUpgrade.dates = "daily";
     };
-  
+
+    environment.systemPackages = with pkgs; [ xdg-user-dirs ];
+
     nix = {
         gc.automatic = true;
         gc.options = "--delete-older-than 10d";
