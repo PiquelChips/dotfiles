@@ -1,4 +1,9 @@
 validate_session_root: false
+default_session:
+  - commands:
+    - vim .
+  - commands:
+    - git pull
 sessions:
   dotfiles:
     root: "~/dotfiles"
