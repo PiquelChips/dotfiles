@@ -68,12 +68,13 @@
             vulkan-loader
             vulkan-validation-layers
             vulkan-tools
+            glib
         ];
         variables = {
             LANG="en_US.UTF-8";
             EDITOR="nvim";
 
-            LD_LIBRARY_PATH="${pkgs.vulkan-loader}/lib:${pkgs.vulkan-validation-layers}/lib";
+            LD_LIBRARY_PATH="${pkgs.glib}/lib:${pkgs.vulkan-loader}/lib:${pkgs.vulkan-validation-layers}/lib";
             VULKAN_SDK = "${pkgs.vulkan-headers}";
             VK_LAYER_PATH = "${pkgs.vulkan-validation-layers}/share/vulkan/explicit_layer.d";
         };
