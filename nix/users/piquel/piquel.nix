@@ -21,7 +21,7 @@
                 feh zip unzip wl-clipboard stow tree yazi lazydocker
                 ffmpeg fd ripgrep imagemagick poppler fzf air
                 sqlc docker-buildx neofetch zoxide gnumake mpv
-                p7zip
+                p7zip nix-index
                 # Apps
                 blender wofi kitty firefox hyprpaper gimp prismlauncher
                 discord jetbrains.rider
@@ -63,18 +63,10 @@
 
     environment = {
         shells = with pkgs; [ zsh ];
-        systemPackages = with pkgs; [
-            vulkan-headers
-            vulkan-loader
-            vulkan-validation-layers
-            vulkan-tools
-            glib
-        ];
         variables = {
             LANG="en_US.UTF-8";
             EDITOR="nvim";
 
-            LD_LIBRARY_PATH="${pkgs.glib}/lib:${pkgs.vulkan-loader}/lib:${pkgs.vulkan-validation-layers}/lib";
             VULKAN_SDK = "${pkgs.vulkan-headers}";
             VK_LAYER_PATH = "${pkgs.vulkan-validation-layers}/share/vulkan/explicit_layer.d";
         };

@@ -41,6 +41,22 @@
         libraries = with pkgs; [
             stdenv.cc.cc
             icu
+
+            vulkan-headers
+            vulkan-loader
+            vulkan-validation-layers
+            vulkan-tools
+
+            mesa
+            dbus
+            pango
+            cairo
+            alsa-lib
+            glib
+            nss
+            nspr
+            at-spi2-core
+            libxkbcommon
         ];
     };
     
