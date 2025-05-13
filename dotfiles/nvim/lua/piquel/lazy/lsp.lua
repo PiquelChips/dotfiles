@@ -1,52 +1,47 @@
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-cmdline",
         "hrsh7th/nvim-cmp",
+
         "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
+
         "j-hui/fidget.nvim",
     },
 
     config = function()
+        local servers = {
+            'clangd',
+            'gopls',
+            'bashls',
+            'cssls',
+            'dockerls',
+            'jsonls',
+            'lua_ls',
+            'autotools_ls',
+            'marksman',
+            'tailwindcss',
+            'sqls',
+            'svelte',
+            'denols',
+            'jdtls',
+            'nil_ls'
+        }
+
         local cmp = require('cmp')
-        local cmp_lsp = require("cmp_nvim_lsp")
-        local capabilities = vim.tbl_deep_extend(
-            "force",
-            {},
-            vim.lsp.protocol.make_client_capabilities(),
-            cmp_lsp.default_capabilities())
-
-        require('mason').setup({})
-        require('mason-lspconfig').setup({
-            ensure_installed = {
-                'clangd',
-                'gopls',
-                'bashls',
-                'cssls',
-                'dockerls',
-                'docker_compose_language_service',
-                'jsonls',
-                'lua_ls',
-                'autotools_ls',
-                'marksman',
-                'tailwindcss',
-                'sqls',
-                'svelte',
-                'denols',
-                'jdtls',
-                'nil_ls'
-            },
-            handlers = { function(server_name) require('lspconfig')[server_name].setup({ capabilities = capabilities }) end, },
-        })
-
-
+        local capabilities = require("cmp_nvim_lsp").default_capabilities()
+        local lspconfig = require('lspconfig')
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
+
+        for _, lsp in ipairs(servers) do
+            lspconfig[lsp].setup {
+                capabilities = capabilities,
+            }
+        end
 
         cmp.setup({
             mapping = cmp.mapping.preset.insert({
