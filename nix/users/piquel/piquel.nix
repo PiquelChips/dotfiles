@@ -17,7 +17,7 @@
                 deno nodejs jdk21
                 # Language servers
                 nil clang-tools libgcc marksman jdt-language-server
-                lombok
+                lombok gopls
                 # Utils
                 feh zip unzip wl-clipboard stow tree yazi lazydocker
                 ffmpeg fd ripgrep imagemagick poppler fzf air
@@ -70,7 +70,7 @@
 
             VULKAN_SDK = "${pkgs.vulkan-headers}";
             VK_LAYER_PATH = "${pkgs.vulkan-validation-layers}/share/vulkan/explicit_layer.d";
-            JDTLS_JVM_ARGS= "-javaagent:${pkgs.lombok}/share/java/lombok.jar";
+            JDTLS_JVM_ARGS = "-javaagent:${pkgs.lombok}/share/java/lombok.jar";
         };
     };
 }
