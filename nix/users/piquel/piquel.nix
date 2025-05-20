@@ -17,7 +17,8 @@
                 deno nodejs jdk21
                 # Language servers
                 nil clang-tools libgcc marksman jdt-language-server
-                lombok gopls
+                lombok gopls dockerfile-language-server-nodejs
+                bash-language-server
                 # Utils
                 feh zip unzip wl-clipboard stow tree yazi lazydocker
                 ffmpeg fd ripgrep imagemagick poppler fzf air
