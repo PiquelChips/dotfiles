@@ -25,7 +25,6 @@ return {
             'autotools_ls',
             'marksman',
             'tailwindcss',
-            'sqls',
             'svelte',
             'denols',
             'jdtls',
