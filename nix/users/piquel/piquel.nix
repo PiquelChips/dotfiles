@@ -9,7 +9,7 @@
         users.piquel = {
             isNormalUser = true;
             description = "piquel";
-            extraGroups = [ "networkmanager" "wheel" "docker" ];
+            extraGroups = [ "networkmanager" "wheel" "docker" ]; # "scanner" "lp" ];
             shell = pkgs.zsh;
             packages = with pkgs; [
                 # Programmings languages
@@ -44,6 +44,14 @@
         "steam-run"
     ];
 
+    # hardware.sane = {
+    #     enable = true;
+    #     extraBackends = [
+    #         pkgs.sane-airscan
+    #         #pkgs.hplipWithPlugin
+    #     ];
+    # };
+
     programs = {
         hyprland.enable = true;
         hyprlock.enable = true;
@@ -56,11 +64,20 @@
             #remotePlay.openFirewall = true; # Remote play
         };
     };
-    services.hypridle.enable = true;
+    services = {
+        hypridle.enable = true;
+        # printing.enable = true;
+        # avahi = {
+        #     enable = true;
+        #     nssmdns4 = true;
+        #     openFirewall = true;
+        # };
+        # udev.packages = [ pkgs.sane-airscan ];
+    };
 
     fonts = {
         enableDefaultPackages = true;
-        packages = with pkgs; [ nerdfonts ];
+        packages = with pkgs; [ nerd-fonts ];
     };
 
     environment = {

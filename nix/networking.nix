@@ -6,6 +6,11 @@
     };
     
     networking = {
+        # firewall = {
+        #     enable = false;
+        #     allowedTCPPorts = [ 5432 ];
+        #     allowedUDPPorts = [ 5432 ];
+        # };
         networkmanager = {
             enable = true;
             wifi.backend = "iwd";
