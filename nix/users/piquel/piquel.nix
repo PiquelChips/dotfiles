@@ -18,17 +18,25 @@
                 # Language servers
                 nil clang-tools libgcc marksman jdt-language-server
                 lombok gopls dockerfile-language-server-nodejs
-                bash-language-server
+                bash-language-server autotools-language-server
                 # Utils
                 feh zip unzip wl-clipboard stow tree yazi lazydocker
                 ffmpeg fd ripgrep imagemagick poppler fzf air
                 sqlc docker-buildx neofetch zoxide gnumake mpv
-                p7zip nix-index
+                p7zip nix-index postgresql
                 # Apps
                 blender wofi kitty firefox hyprpaper gimp prismlauncher
                 discord jetbrains.rider
                 # Customs
                 inputs.piquel-cli.packages.${pkgs.system}.default
+
+                # Vulkan dev
+                vulkan-headers
+                vulkan-loader
+                vulkan-validation-layers
+                vulkan-tools
+                spirv-tools
+                glfw glm shaderc
             ];
         };
     };

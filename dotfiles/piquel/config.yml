@@ -72,6 +72,14 @@ sessions:
         - vim .
       - commands:
         - git pull
+  dirkengine:
+    root: "~/Projects/DirkEngine"
+    windows:
+      - commands:
+        - vim .
+      - commands:
+        - git pull
+        - make
   homework:
     root: "~/Projects/homework"
     windows:
