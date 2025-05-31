@@ -12,7 +12,7 @@ sessions:
         - vim .
       - commands:
         - git pull
-        - sudo nixos-rebuild switch --flake . --upgrade
+        - sudo nixos-rebuild switch --flake .#piquel --upgrade
   secrets:
     root: "~/secrets"
     windows:

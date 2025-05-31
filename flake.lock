@@ -20,16 +20,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1747862697,
-        "narHash": "sha256-U4HaNZ1W26cbOVm0Eb5OdGSnfQVWQKbLSPrSSa78KC0=",
+        "lastModified": 1748437600,
+        "narHash": "sha256-hYKMs3ilp09anGO7xzfGs3JqEgUqFMnZ8GMAqI6/k04=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "2baa12ff69913392faf0ace833bc54bba297ea95",
+        "rev": "7282cb574e0607e65224d33be8241eae7cfe0979",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixos-24.11",
+        "ref": "nixos-25.05",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -42,11 +42,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1742576088,
-        "narHash": "sha256-H535IRCnXx6XZ6Ket1O/rDpEkKpqqVzXCHIOFyWqLr0=",
+        "lastModified": 1748685463,
+        "narHash": "sha256-trzGEW86rlB7Z+mbjDp9uzYNpzoNhXiJJaDU/Ipn1xU=",
         "owner": "PiquelChips",
         "repo": "piquel-cli",
-        "rev": "0497e3c81e9292f21b9450cceba6c38547c6fe0d",
+        "rev": "732c2ff2ea25d4142457dc9e0e0905beef6267ef",
         "type": "github"
       },
       "original": {
