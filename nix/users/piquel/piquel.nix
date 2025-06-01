@@ -94,6 +94,7 @@
             LANG="en_US.UTF-8";
             EDITOR="nvim";
 
+            LIBRARY_PATH = "${pkgs.spirv-tools}/lib:${pkgs.glm}/lib:${pkgs.glfw}/lib:${pkgs.vulkan-loader}/lib:${pkgs.vulkan-validation-layers}/lib";
             VULKAN_SDK = "${pkgs.vulkan-headers}";
             VK_LAYER_PATH = "${pkgs.vulkan-validation-layers}/share/vulkan/explicit_layer.d";
             JDTLS_JVM_ARGS = "-javaagent:${pkgs.lombok}/share/java/lombok.jar";
