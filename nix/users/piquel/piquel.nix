@@ -19,11 +19,12 @@
                 nil clang-tools libgcc marksman jdt-language-server
                 lombok gopls dockerfile-language-server-nodejs
                 bash-language-server autotools-language-server
+                lua-language-server
                 # Utils
                 feh zip unzip wl-clipboard stow tree yazi lazydocker
                 ffmpeg fd ripgrep imagemagick poppler fzf air
                 sqlc docker-buildx neofetch zoxide gnumake mpv
-                p7zip nix-index postgresql
+                p7zip nix-index postgresql cmake
                 # Apps
                 blender wofi kitty firefox hyprpaper gimp prismlauncher
                 discord jetbrains.rider
