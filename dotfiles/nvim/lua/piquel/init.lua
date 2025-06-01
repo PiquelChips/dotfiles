@@ -2,9 +2,7 @@ require("piquel.remap")
 require("piquel.set")
 require("piquel.lazy_init")
 
-local autocmd = vim.api.nvim_create_autocmd
-
-autocmd('LspAttach', {
+vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(e)
         local opts = { buffer = e.buf }
 
@@ -14,6 +12,5 @@ autocmd('LspAttach', {
         vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
         vim.keymap.set('n', '<leader>sw', require('telescope.builtin').lsp_workspace_symbols, {}, opts)
         vim.keymap.set('n', '<leader>sd', require('telescope.builtin').lsp_document_symbols, {}, opts)
-
     end
 })
