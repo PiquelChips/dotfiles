@@ -72,6 +72,11 @@ sessions:
         - vim .
       - commands:
         - git pull
+  steam:
+    root: "~"
+    windows:
+      - commands:
+        - steam
   dirkengine:
     root: "~/Projects/DirkEngine"
     windows:
