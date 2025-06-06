@@ -39,13 +39,7 @@
     programs.nix-ld = {
         enable = true;
         libraries = with pkgs; [
-            stdenv.cc.cc
             icu
-
-            vulkan-headers
-            vulkan-loader
-            vulkan-validation-layers
-            vulkan-tools
 
             mesa
             dbus
