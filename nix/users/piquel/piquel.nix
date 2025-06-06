@@ -24,7 +24,7 @@
                 feh zip unzip wl-clipboard stow tree yazi lazydocker
                 ffmpeg fd ripgrep imagemagick poppler fzf air
                 sqlc docker-buildx neofetch zoxide gnumake mpv
-                p7zip nix-index postgresql cmake
+                p7zip postgresql cmake pkg-config
                 # Apps
                 blender wofi kitty firefox hyprpaper gimp prismlauncher
                 discord jetbrains.rider
@@ -71,6 +71,10 @@
             localNetworkGameTransfers.openFirewall = true;
             #dedicatedServer.openFirewall = true; # Dedicated servers
             #remotePlay.openFirewall = true; # Remote play
+        };
+        nix-index = {
+            enable = true;
+            enableZshIntegration = true;
         };
     };
     services = {
