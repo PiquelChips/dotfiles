@@ -32,12 +32,14 @@
                 inputs.piquel-cli.packages.${pkgs.system}.default
 
                 # Vulkan dev
-                vulkan-headers
-                vulkan-loader
-                vulkan-validation-layers
+                wayland-scanner
+                wayland.dev
+                libffi.dev
+                libxkbcommon.dev
+
                 vulkan-tools
+                shaderc
                 spirv-tools
-                glfw glm shaderc
             ];
         };
     };
@@ -72,10 +74,7 @@
             #dedicatedServer.openFirewall = true; # Dedicated servers
             #remotePlay.openFirewall = true; # Remote play
         };
-        nix-index = {
-            enable = true;
-            enableZshIntegration = true;
-        };
+        nix-index.enableZshIntegration = true;
     };
     services = {
         hypridle.enable = true;
@@ -99,10 +98,9 @@
             LANG="en_US.UTF-8";
             EDITOR="nvim";
 
-            LIBRARY_PATH = "${pkgs.spirv-tools}/lib:${pkgs.glm}/lib:${pkgs.glfw}/lib:${pkgs.vulkan-loader}/lib:${pkgs.vulkan-validation-layers}/lib";
-            VULKAN_SDK = "${pkgs.vulkan-headers}";
-            VK_LAYER_PATH = "${pkgs.vulkan-validation-layers}/share/vulkan/explicit_layer.d";
             JDTLS_JVM_ARGS = "-javaagent:${pkgs.lombok}/share/java/lombok.jar";
+            PKG_CONFIG_PATH = "/run/current-system/sw/lib/pkgconfig:${pkgs.wayland.dev}/lib/pkgconfig:${pkgs.libffi.dev}/lib/pkgconfig:${pkgs.libxkbcommon.dev}/lib/pkgconfig:${pkgs.vulkan-loader.dev}/lib/pkgconfig";
+            DIRK_ENGINE_CMAKE_ARGS = "-DGLFW_BUILD_X11=OFF -DBUILD_WSI_XCB_SUPPORT=OFF -DBUILD_WSI_XLIB_SUPPORT=OFF";
         };
     };
 }
