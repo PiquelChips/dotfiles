@@ -64,7 +64,10 @@
     # };
 
     programs = {
-        hyprland.enable = true;
+        hyprland = {
+            enable = true;
+            xwayland.enable = true;
+        };
         hyprlock.enable = true;
         steam = {
             enable = true;
@@ -75,6 +78,7 @@
             #remotePlay.openFirewall = true; # Remote play
         };
         nix-index.enableZshIntegration = true;
+        xwayland.enable = true;
     };
     services = {
         hypridle.enable = true;
