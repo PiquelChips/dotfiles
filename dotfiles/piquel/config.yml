@@ -86,7 +86,7 @@ sessions:
         - git pull
         - make
   homework:
-    root: "~/Projects/homework"
+    root: "~/homework"
     windows:
       - commands:
         - vim .
