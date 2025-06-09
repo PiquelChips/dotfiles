@@ -19,12 +19,12 @@
                 nil clang-tools libgcc marksman jdt-language-server
                 lombok gopls dockerfile-language-server-nodejs
                 bash-language-server autotools-language-server
-                lua-language-server
+                lua-language-server tailwindcss-language-server
                 # Utils
                 feh zip unzip wl-clipboard stow tree yazi lazydocker
                 ffmpeg fd ripgrep imagemagick poppler fzf air
                 sqlc docker-buildx neofetch zoxide gnumake mpv
-                p7zip postgresql cmake pkg-config
+                p7zip postgresql cmake pkg-config tailwindcss_4
                 # Apps
                 blender wofi kitty firefox hyprpaper gimp prismlauncher
                 discord jetbrains.rider
