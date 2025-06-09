@@ -41,7 +41,6 @@
         libraries = with pkgs; [
             icu
 
-            mesa
             dbus
             pango
             cairo
@@ -55,13 +54,16 @@
     };
     
     system = {
-        stateVersion = "24.11";
+        stateVersion = "25.05";
         userActivationScripts.zshrc = "touch .zshrc";
         autoUpgrade.enable = true;
         autoUpgrade.dates = "daily";
     };
 
-    environment.systemPackages = with pkgs; [ xdg-user-dirs ];
+    environment.systemPackages = with pkgs; [
+        xdg-user-dirs
+        mesa
+    ];
 
     nix = {
         gc.automatic = true;
