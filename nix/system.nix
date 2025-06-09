@@ -41,6 +41,7 @@
         libraries = with pkgs; [
             icu
 
+            # needs cleaning
             dbus
             pango
             cairo
@@ -52,6 +53,7 @@
             libxkbcommon
             libgbm
 
+            # this too
             xorg.libX11 
             xorg.libXcomposite
             xorg.libXdamage

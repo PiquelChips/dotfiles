@@ -57,14 +57,6 @@
         "steam-run"
     ];
 
-    # hardware.sane = {
-    #     enable = true;
-    #     extraBackends = [
-    #         pkgs.sane-airscan
-    #         #pkgs.hplipWithPlugin
-    #     ];
-    # };
-
     programs = {
         hyprland = {
             enable = true;
@@ -76,8 +68,6 @@
             gamescopeSession.enable = true;
             extest.enable = true;
             localNetworkGameTransfers.openFirewall = true;
-            #dedicatedServer.openFirewall = true; # Dedicated servers
-            #remotePlay.openFirewall = true; # Remote play
         };
         xwayland.enable = true;
         nix-index = {
@@ -87,16 +77,7 @@
             enableFishIntegration = false;
         };
     };
-    services = {
-        hypridle.enable = true;
-        # printing.enable = true;
-        # avahi = {
-        #     enable = true;
-        #     nssmdns4 = true;
-        #     openFirewall = true;
-        # };
-        # udev.packages = [ pkgs.sane-airscan ];
-    };
+    services.hypridle.enable = true;
 
     fonts = {
         enableDefaultPackages = true;
