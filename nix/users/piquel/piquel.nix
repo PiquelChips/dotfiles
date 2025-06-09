@@ -77,8 +77,13 @@
             #dedicatedServer.openFirewall = true; # Dedicated servers
             #remotePlay.openFirewall = true; # Remote play
         };
-        nix-index.enableZshIntegration = true;
         xwayland.enable = true;
+        nix-index = {
+            enable = true;
+            enableZshIntegration = false;
+            enableBashIntegration = false;
+            enableFishIntegration = false;
+        };
     };
     services = {
         hypridle.enable = true;
