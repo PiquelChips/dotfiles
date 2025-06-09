@@ -36,10 +36,30 @@ return {
         local lspconfig = require('lspconfig')
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
+        local handlers = {
+            ["clangd"] = function()
+                lspconfig.clangd.setup {
+                    capabilities = capabilities,
+                    cmd = {
+                        "clangd",
+                        "--clang-tidy", -- Enable clang-tidy
+                        "--header-insertion=iwyu",
+                        "--background-index",
+                        "--compile-commands-dir=build",
+                    },
+                }
+            end,
+        }
+
+        local function default_handler(server_name)
+            lspconfig[server_name].setup({
+                capabilities = capabilities
+            })
+        end
+
         for _, lsp in ipairs(servers) do
-            lspconfig[lsp].setup {
-                capabilities = capabilities,
-            }
+            local handler = handlers[lsp] or default_handler
+            handler(lsp)
         end
 
         cmp.setup({
