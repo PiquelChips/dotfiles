@@ -50,6 +50,14 @@
             nspr
             at-spi2-core
             libxkbcommon
+            libgbm
+
+            xorg.libX11 
+            xorg.libXcomposite
+            xorg.libXdamage
+            xorg.libXext
+            xorg.libXfixes
+            xorg.libXrandr
         ];
     };
     
