@@ -10,4 +10,4 @@ My dotfiles
 
 - GOG & Epic Games
 - Microsoft 365
-- Printing & Scanning
+- Scanning
