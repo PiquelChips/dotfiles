@@ -100,6 +100,11 @@
                 ${pkgs.SDL2.dev}/lib/pkgconfig
             ";
             DIRK_ENGINE_CMAKE_ARGS = "-DGLFW_BUILD_X11=OFF -DBUILD_WSI_XCB_SUPPORT=OFF -DBUILD_WSI_XLIB_SUPPORT=OFF";
+
+            LD_LIBRARY_PATH="
+                ${pkgs.wayland}/lib:
+                ${pkgs.libxkbcommon}/lib:
+            ";
         };
     };
 }
