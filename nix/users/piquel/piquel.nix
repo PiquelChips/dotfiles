@@ -91,20 +91,10 @@
             EDITOR="nvim";
 
             JDTLS_JVM_ARGS = "-javaagent:${pkgs.lombok}/share/java/lombok.jar";
-            PKG_CONFIG_PATH = "
-                /run/current-system/sw/lib/pkgconfig:
-                ${pkgs.wayland.dev}/lib/pkgconfig:
-                ${pkgs.libffi.dev}/lib/pkgconfig:
-                ${pkgs.libxkbcommon.dev}/lib/pkgconfig:
-                ${pkgs.vulkan-loader.dev}/lib/pkgconfig:
-                ${pkgs.SDL2.dev}/lib/pkgconfig
-            ";
+            PKG_CONFIG_PATH = "/run/current-system/sw/lib/pkgconfig:${pkgs.wayland.dev}/lib/pkgconfig:${pkgs.libffi.dev}/lib/pkgconfig:${pkgs.libxkbcommon.dev}/lib/pkgconfig:${pkgs.vulkan-loader.dev}/lib/pkgconfig:${pkgs.SDL2.dev}/lib/pkgconfig";
             DIRK_ENGINE_CMAKE_ARGS = "-DGLFW_BUILD_X11=OFF -DBUILD_WSI_XCB_SUPPORT=OFF -DBUILD_WSI_XLIB_SUPPORT=OFF";
 
-            LD_LIBRARY_PATH="
-                ${pkgs.wayland}/lib:
-                ${pkgs.libxkbcommon}/lib:
-            ";
+            LD_LIBRARY_PATH="${pkgs.wayland}/lib:${pkgs.libxkbcommon}/lib";
         };
     };
 }
