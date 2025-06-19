@@ -110,3 +110,9 @@ sessions:
       - commands:
         - cd Server
         - ./start.sh
+  screenshots:
+    root: "~/Pictures/Screenshots"
+    windows:
+      - commands:
+        - git pull
+        - yazi
