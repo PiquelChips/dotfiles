@@ -16,10 +16,15 @@
                 cargo gcc go python3
                 deno nodejs jdk21
                 # Language servers
-                nil clang-tools libgcc marksman jdt-language-server
-                lombok gopls dockerfile-language-server-nodejs
-                bash-language-server autotools-language-server
-                lua-language-server tailwindcss-language-server
+                nil clang-tools libgcc marksman lombok gopls
+ 
+                jdt-language-server
+                dockerfile-language-server-nodejs
+                bash-language-server
+                autotools-language-server
+                lua-language-server
+                tailwindcss-language-server
+                svelte-language-server
                 # Utils
                 feh zip unzip wl-clipboard stow tree yazi lazydocker
                 ffmpeg fd ripgrep imagemagick poppler fzf air
