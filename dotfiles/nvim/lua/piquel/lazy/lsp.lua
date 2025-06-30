@@ -26,6 +26,7 @@ return {
             'marksman',
             'tailwindcss',
             'svelte',
+            'ts_ls',
             'denols',
             'jdtls',
             'nil_ls'
