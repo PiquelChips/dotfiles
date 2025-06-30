@@ -26,6 +26,7 @@ sessions:
         - vim .
       - commands:
         - git pull
+        - docker --context default compose up -d
       - commands:
         - ssh piquel@piquel.fr
   piquel-fr:
