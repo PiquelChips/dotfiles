@@ -29,7 +29,8 @@ return {
             'ts_ls',
             'denols',
             'jdtls',
-            'nil_ls'
+            'nil_ls',
+            'glsl_analyzer'
         }
 
         local cmp = require('cmp')

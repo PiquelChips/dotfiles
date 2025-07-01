@@ -18,6 +18,7 @@
                 # Language servers
                 nil clang-tools libgcc marksman lombok gopls
  
+                glsl_analyzer
                 jdt-language-server
                 dockerfile-language-server-nodejs
                 bash-language-server
