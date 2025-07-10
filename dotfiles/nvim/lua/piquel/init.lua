@@ -10,7 +10,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, {}, opts)
         vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, {}, opts)
         vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-        vim.keymap.set('n', '<leader>sw', require('telescope.builtin').lsp_workspace_symbols, {}, opts)
-        vim.keymap.set('n', '<leader>sd', require('telescope.builtin').lsp_document_symbols, {}, opts)
     end
 })
