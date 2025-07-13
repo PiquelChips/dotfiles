@@ -97,10 +97,12 @@
             LANG="en_US.UTF-8";
             EDITOR="nvim";
 
-            PKG_CONFIG_PATH = "/run/current-system/sw/lib/pkgconfig:${pkgs.wayland.dev}/lib/pkgconfig:${pkgs.libffi.dev}/lib/pkgconfig:${pkgs.libxkbcommon.dev}/lib/pkgconfig:${pkgs.vulkan-loader.dev}/lib/pkgconfig:${pkgs.SDL2.dev}/lib/pkgconfig";
-            DIRK_ENGINE_CMAKE_ARGS = "-DGLFW_BUILD_X11=OFF -DBUILD_WSI_XCB_SUPPORT=OFF -DBUILD_WSI_XLIB_SUPPORT=OFF";
+            # needed to build glfw
+            PKG_CONFIG_PATH = "/run/current-system/sw/lib/pkgconfig:${pkgs.wayland.dev}/lib/pkgconfig:${pkgs.libxkbcommon.dev}/lib/pkgconfig";
+            DIRK_ENGINE_CMAKE_ARGS = "-DGLFW_BUILD_X11=OFF";
+
+            # the Vulkan SDK
             LD_LIBRARY_PATH = "${pkgs.wayland}/lib:${pkgs.libxkbcommon}/lib:${vulkan_sdk}/lib";
-            
             VK_LAYER_PATH = "${vulkan_sdk}/share/vulkan/explicit_layer.d";
             VULKAN_SDK = vulkan_sdk;
 
