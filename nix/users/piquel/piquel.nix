@@ -40,11 +40,8 @@
                 inputs.piquel-cli.packages.${pkgs.system}.default
 
                 # pkg-config
-                wayland-scanner
                 wayland.dev
-                libffi.dev
                 libxkbcommon.dev
-                SDL2.dev
             ];
         };
     };
