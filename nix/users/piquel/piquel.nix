@@ -45,11 +45,6 @@
                 libffi.dev
                 libxkbcommon.dev
                 SDL2.dev
-
-                vulkan-tools
-                shaderc
-                spirv-tools
-                vulkan-validation-layers
             ];
         };
     };
@@ -94,15 +89,20 @@
 
     environment = {
         shells = with pkgs; [ zsh ];
-        variables = {
+        variables = 
+        let 
+            vulkan_sdk = "/home/piquel/Vulkan-SDK/x86_64";
+        in
+        {
             LANG="en_US.UTF-8";
             EDITOR="nvim";
 
             PKG_CONFIG_PATH = "/run/current-system/sw/lib/pkgconfig:${pkgs.wayland.dev}/lib/pkgconfig:${pkgs.libffi.dev}/lib/pkgconfig:${pkgs.libxkbcommon.dev}/lib/pkgconfig:${pkgs.vulkan-loader.dev}/lib/pkgconfig:${pkgs.SDL2.dev}/lib/pkgconfig";
             DIRK_ENGINE_CMAKE_ARGS = "-DGLFW_BUILD_X11=OFF -DBUILD_WSI_XCB_SUPPORT=OFF -DBUILD_WSI_XLIB_SUPPORT=OFF";
-            VK_LAYER_PATH = "${pkgs.vulkan-validation-layers}/share/vulkan/explicit_layer.d";
-            VK_LAYER_SETTINGS_PATH = "/home/piquel/dotfiles/config/vulkan_validation_settings.json";
-            LD_LIBRARY_PATH="${pkgs.wayland}/lib:${pkgs.libxkbcommon}/lib";
+            LD_LIBRARY_PATH = "${pkgs.wayland}/lib:${pkgs.libxkbcommon}/lib:${vulkan_sdk}/lib";
+            
+            VK_LAYER_PATH = "${vulkan_sdk}/share/vulkan/explicit_layer.d";
+            VULKAN_SDK = vulkan_sdk;
 
             JDTLS_JVM_ARGS = "-javaagent:${pkgs.lombok}/share/java/lombok.jar";
         };
