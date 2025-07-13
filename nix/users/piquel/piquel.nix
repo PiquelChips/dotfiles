@@ -35,7 +35,7 @@
                 grim swappy slurp
                 # Apps
                 blender wofi kitty firefox hyprpaper gimp prismlauncher
-                discord jetbrains.rider
+                discord jetbrains.rider thunderbird
                 # Customs
                 inputs.piquel-cli.packages.${pkgs.system}.default
 
