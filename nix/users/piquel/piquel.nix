@@ -42,6 +42,7 @@
                 # pkg-config
                 wayland.dev
                 libxkbcommon.dev
+                wayland-scanner
             ];
         };
     };
