@@ -6,6 +6,7 @@
     };
     
     networking = {
+        hostName = "nixosbtw";
         networkmanager = {
             enable = true;
             wifi.backend = "iwd";
