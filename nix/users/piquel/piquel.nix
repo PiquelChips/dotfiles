@@ -42,6 +42,7 @@
                 # pkg-config
                 wayland.dev
                 libxkbcommon.dev
+                libffi.dev
                 wayland-scanner
             ];
         };
@@ -96,7 +97,7 @@
             EDITOR="nvim";
 
             # needed to build glfw
-            PKG_CONFIG_PATH = "/run/current-system/sw/lib/pkgconfig:${pkgs.wayland.dev}/lib/pkgconfig:${pkgs.libxkbcommon.dev}/lib/pkgconfig";
+            PKG_CONFIG_PATH = "/run/current-system/sw/lib/pkgconfig:${pkgs.wayland.dev}/lib/pkgconfig:${pkgs.libxkbcommon.dev}/lib/pkgconfig:${pkgs.libffi.dev}/lib/pkgconfig";
             DIRK_ENGINE_CMAKE_ARGS = "-DGLFW_BUILD_X11=OFF";
 
             # the Vulkan SDK
