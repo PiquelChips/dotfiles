@@ -27,6 +27,7 @@
                 tailwindcss-language-server
                 svelte-language-server
                 typescript-language-server
+                vscode-langservers-extracted
                 # Utils
                 feh zip unzip wl-clipboard stow tree yazi lazydocker
                 ffmpeg fd ripgrep imagemagick poppler fzf air
