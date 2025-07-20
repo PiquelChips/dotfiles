@@ -13,6 +13,5 @@ My dotfiles
 
 ## Left on Windows
 
-- GOG & Epic Games
 - Microsoft 365
 - Printing & Scanning
