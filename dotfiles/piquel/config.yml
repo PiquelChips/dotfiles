@@ -17,16 +17,16 @@ sessions:
     root: "~/secrets"
     windows:
       - commands:
-        - git pull
         - vim .
-  deployment:
-    root: "~/Projects/Deployment"
+      - commands:
+        - git pull
+  vps-setup:
+    root: "~/Projects/vps-setup"
     windows:
       - commands:
         - vim .
       - commands:
         - git pull
-        - docker --context default compose up -d
       - commands:
         - ssh piquel@piquel.fr
   piquel-fr:
