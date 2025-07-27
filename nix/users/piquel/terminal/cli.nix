@@ -22,7 +22,6 @@
                     process = "git-lfs filter-process";
                     required = true;
                 };
-                push.autoSetupRemote = true;
             };
         };
         neovim = {
