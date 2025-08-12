@@ -35,12 +35,11 @@ return {
 
         local cmp = require('cmp')
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
-        local lspconfig = require('lspconfig')
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
         local handlers = {
-            ["clangd"] = function()
-                lspconfig.clangd.setup {
+            ["clangd"] = function(server_name)
+                vim.lsp.enable(server_name, {
                     capabilities = capabilities,
                     cmd = {
                         "clangd",
@@ -49,14 +48,12 @@ return {
                         "--background-index",
                         "--compile-commands-dir=build",
                     },
-                }
+                })
             end,
         }
 
         local function default_handler(server_name)
-            lspconfig[server_name].setup({
-                capabilities = capabilities
-            })
+            vim.lsp.enable(server_name, { capabilities = capabilities })
         end
 
         for _, lsp in ipairs(servers) do
