@@ -89,7 +89,10 @@
             EDITOR="nvim";
 
             JDTLS_JVM_ARGS = "-javaagent:${pkgs.lombok}/share/java/lombok.jar";
+
+            # DirkEngine
             GLFW="${pkgs.glfw}";
+            DIRK_ENGINE_DEV="true";
         };
     };
 }
