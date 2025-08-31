@@ -38,7 +38,8 @@
                 discord jetbrains.rider thunderbird heroic
                 # Customs
                 inputs.piquel-cli.packages.${pkgs.system}.default
-
+                # Libs
+                glfw
             ];
         };
     };
@@ -88,6 +89,7 @@
             EDITOR="nvim";
 
             JDTLS_JVM_ARGS = "-javaagent:${pkgs.lombok}/share/java/lombok.jar";
+            GLFW="${pkgs.glfw}";
         };
     };
 }
