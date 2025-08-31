@@ -39,11 +39,6 @@
                 # Customs
                 inputs.piquel-cli.packages.${pkgs.system}.default
 
-                # pkg-config
-                wayland.dev
-                libxkbcommon.dev
-                libffi.dev
-                wayland-scanner
             ];
         };
     };
@@ -88,22 +83,9 @@
 
     environment = {
         shells = with pkgs; [ zsh ];
-        variables = 
-        let 
-            vulkan_sdk = "/home/piquel/Vulkan-SDK/x86_64";
-        in
-        {
+        variables = {
             LANG="en_US.UTF-8";
             EDITOR="nvim";
-
-            # needed to build glfw
-            PKG_CONFIG_PATH = "/run/current-system/sw/lib/pkgconfig:${pkgs.wayland.dev}/lib/pkgconfig:${pkgs.libxkbcommon.dev}/lib/pkgconfig:${pkgs.libffi.dev}/lib/pkgconfig";
-            DIRK_ENGINE_CMAKE_ARGS = "-DGLFW_BUILD_X11=OFF";
-
-            # the Vulkan SDK
-            LD_LIBRARY_PATH = "${pkgs.wayland}/lib:${pkgs.libxkbcommon}/lib:${vulkan_sdk}/lib";
-            VK_LAYER_PATH = "${vulkan_sdk}/share/vulkan/explicit_layer.d";
-            VULKAN_SDK = vulkan_sdk;
 
             JDTLS_JVM_ARGS = "-javaagent:${pkgs.lombok}/share/java/lombok.jar";
         };
