@@ -6,7 +6,6 @@ let
         rev = "master";
         hash = "sha256-q26XVS/LcyZPRqDNwKKA9exgBByE0muyuNb0Bbar2lY=";
     };
-    vulkan_sdk = "/home/piquel/Vulkan-SDK";
 in
 {
     programs.zsh = {
@@ -32,7 +31,7 @@ in
             export PATH="$HOME/.cargo/bin:$PATH"
             
             source ${fzf-tab}/fzf-tab.plugin.zsh
-            source ${vulkan_sdk}/setup-env.sh
+            source $HOME/VulkanSDK/setup-env.sh
         '';
         promptInit = ''
             CASE_SENSITIVE="true"
