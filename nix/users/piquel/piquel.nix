@@ -33,6 +33,7 @@
                 sqlc docker-buildx neofetch zoxide gnumake mpv
                 p7zip postgresql cmake pkg-config tailwindcss_4
                 grim swappy slurp
+                ninja # for ladybird
                 # Apps
                 blender wofi kitty firefox hyprpaper gimp prismlauncher
                 discord jetbrains.rider thunderbird heroic
