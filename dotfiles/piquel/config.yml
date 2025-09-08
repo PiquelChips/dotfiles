@@ -86,6 +86,13 @@ sessions:
       - commands:
         - git pull
         - make
+  dirk:
+    root: "~/Projects/Dirk"
+    windows:
+      - commands:
+        - vim .
+      - commands:
+        - git pull
   homework:
     root: "~/homework"
     windows:
