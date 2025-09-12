@@ -46,7 +46,6 @@ return {
                         "--clang-tidy", -- Enable clang-tidy
                         "--header-insertion=iwyu",
                         "--background-index",
-                        "--compile-commands-dir=build",
                     },
                 })
             end,
