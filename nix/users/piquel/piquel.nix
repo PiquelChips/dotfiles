@@ -32,7 +32,7 @@
                 ffmpeg fd ripgrep imagemagick poppler fzf air
                 sqlc docker-buildx neofetch zoxide gnumake mpv
                 p7zip postgresql cmake pkg-config tailwindcss_4
-                grim swappy slurp
+                grim swappy slurp file
                 ninja # for ladybird
                 # Apps
                 blender wofi kitty firefox hyprpaper gimp prismlauncher
