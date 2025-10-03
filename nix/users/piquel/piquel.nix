@@ -39,8 +39,14 @@
                 discord jetbrains.rider thunderbird heroic
                 # Customs
                 inputs.piquel-cli.packages.${pkgs.system}.default
-                # Libs
-                glfw
+
+                # TODO: remove
+                glfw # until built from source
+                # to allow building of glfw
+                wayland.dev
+                libxkbcommon.dev
+                libffi.dev
+                wayland-scanner
             ];
         };
     };
@@ -91,9 +97,10 @@
 
             JDTLS_JVM_ARGS = "-javaagent:${pkgs.lombok}/share/java/lombok.jar";
 
-            # DirkEngine
+            # TODO: remove when build glfw from source from DirkBuildTool
             GLFW="${pkgs.glfw}";
-            DIRK_ENGINE_DEV="true";
+            PKG_CONFIG_PATH = "/run/current-system/sw/lib/pkgconfig:${pkgs.wayland.dev}/lib/pkgconfig:${pkgs.libxkbcommon.dev}/lib/pkgconfig:${pkgs.libffi.dev}/lib/pkgconfig";
+            LD_LIBRARY_PATH = "${pkgs.wayland}/lib:${pkgs.libxkbcommon}/lib";
         };
     };
 }
