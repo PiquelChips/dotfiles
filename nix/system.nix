@@ -52,8 +52,11 @@
             at-spi2-core
             libxkbcommon
             libgbm
+            libdrm
+            expat
 
             # this too
+            xorg.libxcb
             xorg.libX11 
             xorg.libXcomposite
             xorg.libXdamage
