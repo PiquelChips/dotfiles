@@ -36,7 +36,7 @@
                 ninja # for ladybird
                 # Apps
                 blender wofi kitty firefox hyprpaper gimp prismlauncher
-                discord jetbrains.rider thunderbird heroic
+                discord thunderbird heroic jetbrains-toolbox
                 # Customs
                 inputs.piquel-cli.packages.${pkgs.system}.default
 
@@ -54,7 +54,7 @@
     console.keyMap = "fr";
 
     nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-        "rider"
+        "jetbrains-toolbox"
         "discord"
         "steam"
         "steam-original"
