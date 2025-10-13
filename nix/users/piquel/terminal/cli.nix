@@ -9,7 +9,7 @@
                 core.editor = "nvim";
                 user = {
                     name = "PiquelChips";
-                    email = "63727792+PiquelChips@users.noreply.github.com";
+                    email = "piquel@piquel.fr";
                 };
                 url = {
                     "git@github.com:" = {
