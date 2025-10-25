@@ -32,19 +32,12 @@
                 ffmpeg fd ripgrep imagemagick poppler fzf air
                 sqlc docker-buildx neofetch zoxide gnumake mpv
                 p7zip postgresql cmake pkg-config tailwindcss_4
-                grim swappy slurp file
-                ninja # for ladybird
+                grim swappy slurp file wayland-scanner
                 # Apps
                 blender wofi kitty firefox hyprpaper gimp prismlauncher
                 discord thunderbird heroic jetbrains-toolbox
                 # Customs
                 inputs.piquel-cli.packages.${pkgs.system}.default
-
-                # TODO: remove. to allow building of glfw
-                wayland.dev
-                libxkbcommon.dev
-                libffi.dev
-                wayland-scanner
             ];
         };
     };
@@ -94,10 +87,6 @@
             EDITOR="nvim";
 
             JDTLS_JVM_ARGS = "-javaagent:${pkgs.lombok}/share/java/lombok.jar";
-
-            # TODO: remove when build glfw from source from DirkBuildTool
-            PKG_CONFIG_PATH = "/run/current-system/sw/lib/pkgconfig:${pkgs.wayland.dev}/lib/pkgconfig:${pkgs.libxkbcommon.dev}/lib/pkgconfig:${pkgs.libffi.dev}/lib/pkgconfig";
-            LD_LIBRARY_PATH = "${pkgs.wayland}/lib:${pkgs.libxkbcommon}/lib";
         };
     };
 }

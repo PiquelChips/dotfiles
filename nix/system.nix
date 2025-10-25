@@ -39,9 +39,8 @@
     programs.nix-ld = {
         enable = true;
         libraries = with pkgs; [
-            icu
-
             # needs cleaning
+            icu
             dbus
             pango
             cairo
@@ -54,7 +53,6 @@
             libgbm
             libdrm
             expat
-
             # this too
             xorg.libxcb
             xorg.libX11 
@@ -63,6 +61,10 @@
             xorg.libXext
             xorg.libXfixes
             xorg.libXrandr
+
+            # For DirkEngine platform
+            wayland.dev
+            libxkbcommon.dev
         ];
     };
     
