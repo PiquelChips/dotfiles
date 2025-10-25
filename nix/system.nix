@@ -49,7 +49,6 @@
             nss
             nspr
             at-spi2-core
-            libxkbcommon
             libgbm
             libdrm
             expat
@@ -63,8 +62,8 @@
             xorg.libXrandr
 
             # For DirkEngine platform
-            wayland.dev
-            libxkbcommon.dev
+            wayland
+            libxkbcommon
         ];
     };
     
