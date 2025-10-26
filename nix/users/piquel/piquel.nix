@@ -36,6 +36,8 @@
                 # Apps
                 blender wofi kitty firefox hyprpaper gimp prismlauncher
                 discord thunderbird heroic jetbrains-toolbox
+                # Libs
+                icu
                 # Customs
                 inputs.piquel-cli.packages.${pkgs.system}.default
             ];

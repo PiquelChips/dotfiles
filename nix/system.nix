@@ -39,8 +39,9 @@
     programs.nix-ld = {
         enable = true;
         libraries = with pkgs; [
+            icu # localization lib
+
             # needs cleaning
-            icu
             dbus
             pango
             cairo
