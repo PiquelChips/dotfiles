@@ -86,6 +86,13 @@ sessions:
       - commands:
         - git pull
         - make
+  catan:
+    root: "~/Projects/Catan"
+    windows:
+      - commands:
+        - vim .
+      - commands:
+        - git pull
   dirk:
     root: "~/Projects/Dirk"
     windows:
