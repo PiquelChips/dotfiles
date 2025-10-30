@@ -93,6 +93,8 @@ sessions:
         - vim .
       - commands:
         - git pull
+      - commands:
+        - ~/Projects/UnrealEngine/Engine/Binaries/Linux/UnrealEditor ~/Projects/Catan/Catan.uproject
   dirk:
     root: "~/Projects/Dirk"
     windows:
