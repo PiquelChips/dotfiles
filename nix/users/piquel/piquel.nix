@@ -40,6 +40,9 @@
                 icu
                 # Customs
                 inputs.piquel-cli.packages.${pkgs.system}.default
+
+                # Hazel
+                premake5 gtk3 zlib elfutils libunwind tbb dotnetCorePackages.dotnet_9.sdk
             ];
         };
     };

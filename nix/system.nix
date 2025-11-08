@@ -65,6 +65,9 @@
             # For DirkEngine platform
             wayland
             libxkbcommon
+
+            # Hazel
+            gtk3 zlib elfutils libunwind tbb
         ];
     };
     
