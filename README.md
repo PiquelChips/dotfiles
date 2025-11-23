@@ -9,7 +9,7 @@ My dotfiles
 ## Install Vulkan-SDK
 
 - Get the tarbal from the website
-- Extract it in `/home/piquel/Vulkan-SDK`
+- Extract it in `/home/piquel/VulkanSDK`
 
 ## Left on Windows
 
