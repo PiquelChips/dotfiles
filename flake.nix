@@ -2,7 +2,7 @@
     description = "Piquel system configuration";
     
     inputs = {
-        nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05";
+        nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
         piquel-cli = {
             url = "github:PiquelChips/piquel-cli";
             inputs.nixpkgs.follows = "nixpkgs";

@@ -72,7 +72,7 @@
     };
     
     system = {
-        stateVersion = "25.05";
+        stateVersion = "25.11";
         userActivationScripts.zshrc = "touch .zshrc";
         autoUpgrade.enable = true;
         autoUpgrade.dates = "daily";
