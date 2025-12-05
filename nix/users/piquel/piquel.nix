@@ -19,7 +19,7 @@
                 nil clang-tools libgcc marksman lombok gopls
                 glsl_analyzer
                 jdt-language-server
-                dockerfile-language-server-nodejs
+                dockerfile-language-server
                 bash-language-server
                 autotools-language-server
                 lua-language-server
