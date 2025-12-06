@@ -40,7 +40,7 @@
                 # Libs
                 icu
                 # Customs
-                inputs.piquel-cli.packages.${pkgs.system}.default
+                inputs.piquel-cli.packages.${pkgs.stdenv.hostPlatform.system}.default
 
                 # Hazel
                 premake5 gtk3 zlib elfutils libunwind tbb dotnetCorePackages.dotnet_9.sdk
