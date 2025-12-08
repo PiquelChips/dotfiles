@@ -13,10 +13,12 @@
             shell = pkgs.zsh;
             packages = with pkgs; [
                 # Programmings languages
-                cargo gcc go python3
-                deno nodejs jdk21 clang
+                cargo gcc go python3 deno
+                nodejs jdk21 clang
+                libcxx libgcc
                 # Language servers
-                nil clang-tools libgcc marksman lombok gopls
+                nil clang-tools
+                marksman lombok gopls
                 glsl_analyzer
                 jdt-language-server
                 dockerfile-language-server
@@ -32,8 +34,7 @@
                 ffmpeg fd ripgrep imagemagick poppler fzf air
                 sqlc docker-buildx neofetch zoxide gnumake mpv
                 p7zip postgresql cmake pkg-config tailwindcss_4
-                grim swappy slurp file wayland-scanner btop
-                gdb
+                grim swappy slurp file wayland-scanner btop gdb
                 # Apps
                 blender wofi kitty firefox hyprpaper gimp prismlauncher
                 discord thunderbird heroic jetbrains-toolbox
