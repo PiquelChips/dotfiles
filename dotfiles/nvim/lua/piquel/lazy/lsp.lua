@@ -39,12 +39,11 @@ return {
 
         local handlers = {
             ["clangd"] = function(server_name)
-                vim.lsp.enable(server_name, {
+                vim.lsp.config(server_name, {
                     capabilities = capabilities,
                     cmd = {
                         "clangd",
                         "--clang-tidy", -- Enable clang-tidy
-                        "--header-insertion=iwyu",
                         "--background-index",
                     },
                 })
@@ -52,12 +51,13 @@ return {
         }
 
         local function default_handler(server_name)
-            vim.lsp.enable(server_name, { capabilities = capabilities })
+            vim.lsp.config(server_name, { capabilities = capabilities })
         end
 
         for _, lsp in ipairs(servers) do
             local handler = handlers[lsp] or default_handler
             handler(lsp)
+            vim.lsp.enable(lsp)
         end
 
         cmp.setup({
