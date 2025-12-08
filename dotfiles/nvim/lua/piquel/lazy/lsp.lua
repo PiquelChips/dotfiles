@@ -45,6 +45,7 @@ return {
                         "clangd",
                         "--clang-tidy", -- Enable clang-tidy
                         "--background-index",
+                        "--query-driver=/etc/profiles/per-user/piquel/bin/g++,/etc/profiles/per-user/piquel/bin/gcc",
                     },
                 })
             end,
