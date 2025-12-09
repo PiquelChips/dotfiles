@@ -39,6 +39,7 @@
                 blender kitty firefox hyprpaper gimp prismlauncher
                 discord thunderbird heroic jetbrains-toolbox ladybird
                 hyprlauncher hyprtoolkit hyprpolkitagent hyprpwcenter
+                hyprshutdown
                 # Libs
                 icu
                 # Customs
