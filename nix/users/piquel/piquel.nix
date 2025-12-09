@@ -38,7 +38,7 @@
                 # Apps
                 blender kitty firefox hyprpaper gimp prismlauncher
                 discord thunderbird heroic jetbrains-toolbox ladybird
-                hyprlauncher
+                hyprlauncher hyprtoolkit
                 # Libs
                 icu
                 # Customs
