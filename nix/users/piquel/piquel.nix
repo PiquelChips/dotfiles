@@ -36,8 +36,9 @@
                 p7zip postgresql cmake pkg-config tailwindcss_4
                 grim swappy slurp file wayland-scanner btop gdb
                 # Apps
-                blender wofi kitty firefox hyprpaper gimp prismlauncher
+                blender kitty firefox hyprpaper gimp prismlauncher
                 discord thunderbird heroic jetbrains-toolbox ladybird
+                hyprlauncher
                 # Libs
                 icu
                 # Customs
