@@ -37,7 +37,7 @@
                 grim swappy slurp file wayland-scanner btop gdb
                 # Apps
                 blender wofi kitty firefox hyprpaper gimp prismlauncher
-                discord thunderbird heroic jetbrains-toolbox
+                discord thunderbird heroic jetbrains-toolbox ladybird
                 # Libs
                 icu
                 # Customs
