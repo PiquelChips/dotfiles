@@ -40,6 +40,7 @@
                 discord thunderbird heroic jetbrains-toolbox ladybird
                 hyprlauncher hyprtoolkit hyprpolkitagent hyprpwcenter
                 hyprshutdown
+                pwvucontrol 
                 # Libs
                 icu
                 # Customs
