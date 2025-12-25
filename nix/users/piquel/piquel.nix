@@ -40,7 +40,7 @@
                 discord thunderbird heroic jetbrains-toolbox ladybird
                 hyprlauncher hyprtoolkit hyprpolkitagent hyprpwcenter
                 hyprshutdown
-                pwvucontrol 
+                pwvucontrol spotify
                 # Libs
                 icu
                 # Customs
@@ -55,6 +55,7 @@
     console.keyMap = "fr";
 
     nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+        "spotify"
         "jetbrains-toolbox"
         "discord"
         "steam"
