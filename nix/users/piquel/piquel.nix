@@ -39,7 +39,7 @@
                 blender kitty firefox hyprpaper gimp prismlauncher
                 discord thunderbird heroic jetbrains-toolbox ladybird
                 hyprlauncher hyprtoolkit hyprpolkitagent hyprpwcenter
-                pwvucontrol spotify flatpack
+                pwvucontrol spotify flatpak
                 # Libs
                 icu
                 # Customs
