@@ -28,6 +28,7 @@ in
             fpath=(~/dotfiles/config/zsh-completions $fpath)
 
             export PATH="$HOME/go/bin:$HOME/.cargo/bin:$PATH"
+            export XDG_DATA_DIRS=$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share
             
             source ${fzf-tab}/fzf-tab.plugin.zsh
             source $HOME/VulkanSDK/setup-env.sh
