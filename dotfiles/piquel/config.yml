@@ -97,6 +97,7 @@ sessions:
         - java -jar HytaleServer.jar --assets ../Assets.zip
       - commands:
         - flatpak --user run com.hypixel.HytaleLauncher
+        - exit
   dirkengine:
     root: "~/Projects/DirkEngine"
     windows:
