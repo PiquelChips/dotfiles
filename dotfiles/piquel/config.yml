@@ -79,6 +79,24 @@ sessions:
     windows:
       - commands:
         - steam
+  hytale:
+    root: "~/Projects/Hytale"
+    windows:
+      - commands:
+        - cd HytalePlugin
+        - git pull
+        - vim .
+      - commands:
+        - cd HytalePlugin
+        - ./gradlew build
+      - commands:
+        - cd Config
+        - vim .
+      - commands:
+        - cd Server
+        - java -jar HytaleServer.jar --assets ../Assets.zip
+      - commands:
+        - flatpak --user run com.hypixel.HytaleLauncher
   dirkengine:
     root: "~/Projects/DirkEngine"
     windows:
