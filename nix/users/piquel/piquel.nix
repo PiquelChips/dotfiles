@@ -14,7 +14,7 @@
             packages = with pkgs; [
                 # Programmings languages
                 cargo gcc go python3 deno
-                nodejs jdk21 clang
+                nodejs jdk25 clang
                 libcxx libgcc
                 # Language servers
                 nil clang-tools
