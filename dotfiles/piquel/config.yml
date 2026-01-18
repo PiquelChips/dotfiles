@@ -90,14 +90,12 @@ sessions:
         - cd HytalePlugin
         - ./gradlew build
       - commands:
+        - flatpak --user run com.hypixel.HytaleLauncher
         - cd Config
         - vim .
       - commands:
         - cd Server
         - java -jar HytaleServer.jar --assets ../Assets.zip
-      - commands:
-        - flatpak --user run com.hypixel.HytaleLauncher
-        - exit
   dirkengine:
     root: "~/Projects/DirkEngine"
     windows:
