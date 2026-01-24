@@ -49,6 +49,20 @@ return {
                     },
                 })
             end,
+            ["denols"] = function(server_name)
+                vim.lsp.config(server_name, {
+                    capabilities = capabilities,
+                    root_dir = function(bufnr, on_dir)
+                        local root_markers = { 'deno.lock' }
+                        -- Give the root markers equal priority by wrapping them in a table
+                        root_markers = vim.fn.has('nvim-0.11.3') == 1 and { root_markers, { '.git' } }
+                            or vim.list_extend(root_markers, { '.git' })
+                        local project_root = vim.fs.root(bufnr, root_markers)
+                        -- We fallback to the current working directory if no project root is found
+                        on_dir(project_root or vim.fn.getcwd())
+                    end,
+                })
+            end,
         }
 
         local function default_handler(server_name)
