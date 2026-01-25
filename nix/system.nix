@@ -81,6 +81,8 @@
     environment.systemPackages = with pkgs; [
         xdg-user-dirs
         mesa
+        alsa-utils
+        alsa-scarlett-gui
     ];
 
     nix = {
