@@ -93,3 +93,6 @@ for (const client of clients) {
 
 I don't want to have to add per-call handling, it should all automatically be handled. I can't be thinking of
 needing to refresh tokens every time I call the API. It would probably be helpful use the middlewares.
+Could you rewrite this file to use the new system. The auth routes do not have an associated OpenAPI spec.
+They have to be called manually with fetch. The openapi spec if only for the actual feature endpoints
+of the API. It should hopefully not have any breaking changes for everything outside this file.
