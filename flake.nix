@@ -45,7 +45,7 @@
                 ];
             };
             pi = nixos-raspberrypi.lib.nixosSystem {
-                specialArgs = inputs;
+                specialArgs = { inherit nixos-raspberrypi; };
                 modules = [ ./nix/configs/pi ];
             };
         };
