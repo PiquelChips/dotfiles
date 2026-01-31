@@ -29,7 +29,7 @@ return {
             'ts_ls',
             'denols',
             'jdtls',
-            'nil_ls',
+            'nixd',
             'glsl_analyzer'
         }
 
@@ -63,6 +63,18 @@ return {
                     end,
                 })
             end,
+            ["nixd"] = function(server_name)
+                vim.lsp.config(server_name, {
+                    capabilities = capabilities,
+                    settings = {
+                        nixd = {
+                            formatting = {
+                                command = { "nixfmt" },
+                            },
+                        },
+                    },
+                })
+            end
         }
 
         local function default_handler(server_name)
