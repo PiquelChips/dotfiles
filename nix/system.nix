@@ -5,12 +5,15 @@
         ./hardware-configuration.nix
     ];
 
-    boot.loader = {
-        systemd-boot = {
-            enable = true;
-            configurationLimit = 20;
+    boot = {
+        binfmt.emulatedSystems = [ "aarch64-linux" ];
+        loader = {
+            systemd-boot = {
+                enable = true;
+                configurationLimit = 20;
+            };
+            efi.canTouchEfiVariables = true;
         };
-        efi.canTouchEfiVariables = true;
     };
 
     time.timeZone = "Europe/Paris";
@@ -89,7 +92,10 @@
         gc.automatic = true;
         gc.options = "--delete-older-than 10d";
         gc.dates = "weekly";
-        settings.auto-optimise-store = true;
-        settings.experimental-features = [ "nix-command" "flakes" ];
+        settings = {
+            auto-optimise-store = true;
+            experimental-features = [ "nix-command" "flakes" ];
+            trusted-users = [ "piquel" ];
+        };
     };
 }
