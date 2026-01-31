@@ -50,7 +50,7 @@ sessions:
       - commands:
         - air
   piquel-pi:
-    root: "~/Projects/RaspberryPi"
+    root: "~/Projects/piquel-pi"
     windows:
       - commands:
         - vim .
