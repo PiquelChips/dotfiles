@@ -1,7 +1,8 @@
 { pkgs, inputs, lib, ... }:
 {
     imports = [ 
-        ./terminal/default.nix
+        ./terminal
+        ./system.nix
     ];
 
     users = {

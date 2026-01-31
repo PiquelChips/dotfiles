@@ -31,7 +31,7 @@
             piquel = nixpkgs.lib.nixosSystem {
                 specialArgs = { inherit inputs; };
                 modules = [
-                    ./nix/piquel.nix
+                    ./nix/configs/piquel
                 ];
             };
         };
