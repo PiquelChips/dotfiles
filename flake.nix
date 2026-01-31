@@ -8,9 +8,19 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
         nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+        nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
+    };
+    
+    nixConfig = {
+        extra-substituters = [
+            "https://nixos-raspberrypi.cachix.org"
+        ];
+        extra-trusted-public-keys = [
+            "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI="
+        ];
     };
 
-    outputs = { nixpkgs, ... } @ inputs: 
+    outputs = { nixpkgs, nixos-raspberrypi, ... } @ inputs: 
     let
         systems = [
             "x86_64-linux"
@@ -33,6 +43,10 @@
                 modules = [
                     ./nix/configs/piquel
                 ];
+            };
+            pi = nixos-raspberrypi.lib.nixosSystem {
+                specialArgs = inputs;
+                modules = [ ./nix/configs/pi ];
             };
         };
     };
