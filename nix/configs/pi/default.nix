@@ -1,4 +1,4 @@
-{ config, nixos-raspberrypi, pkgs, ... }:
+{ config, outputs, nixos-raspberrypi, pkgs, ... }:
 {
     imports = with nixos-raspberrypi.nixosModules; [
         raspberry-pi-5.base
@@ -40,6 +40,8 @@
         autoUpgrade.enable = true;
         autoUpgrade.dates = "daily";
     };
+
+    nixpkgs.overlays = [ outputs.overlays.additions ];
 
     nix = {
         gc.automatic = true;

@@ -22,7 +22,10 @@
         ];
     };
 
-    outputs = { flake-utils, nixpkgs, nixos-raspberrypi, ... } @ inputs: {
+    outputs = { self, flake-utils, nixpkgs, nixos-raspberrypi, ... } @ inputs:
+    let 
+        inherit (self) outputs;
+    in{
         packages = flake-utils.lib.eachDefaultSystem (system: import ./nix/pkgs nixpkgs.legacyPackages.${system});
 
         formatter = flake-utils.lib.eachDefaultSystem (system: nixpkgs.legacyPackages.${system}.nixfmt);
@@ -32,13 +35,13 @@
 
         nixosConfigurations = {
             piquel = nixpkgs.lib.nixosSystem {
-                specialArgs = { inherit nixpkgs; };
+                specialArgs = { inherit inputs outputs; };
                 modules = [
                     ./nix/configs/piquel
                 ];
             };
             pi = nixos-raspberrypi.lib.nixosSystem {
-                specialArgs = { inherit nixos-raspberrypi; };
+                specialArgs = { inherit nixos-raspberrypi outputs; };
                 modules = [ ./nix/configs/pi ];
             };
         };

@@ -1,4 +1,4 @@
-{ pkgs, inputs, lib, ... }:
+{ pkgs, inputs, outputs, lib, ... }:
 {
     imports = [ 
         ./terminal
@@ -54,15 +54,18 @@
 
     console.keyMap = "fr";
 
-    nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-        "spotify"
-        "jetbrains-toolbox"
-        "discord"
-        "steam"
-        "steam-original"
-        "steam-unwrapped"
-        "steam-run"
-    ];
+    nixpkgs = {
+        overlays = [ outputs.overlays.additions ];
+        config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+            "spotify"
+            "jetbrains-toolbox"
+            "discord"
+            "steam"
+            "steam-original"
+            "steam-unwrapped"
+            "steam-run"
+        ];
+    };
 
     programs = {
         hyprland = {
