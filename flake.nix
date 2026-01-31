@@ -3,9 +3,11 @@
 
     inputs = {
         nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
+        flake-utils.url = "github:numtide/flake-utils";
         piquel-cli = {
             url = "github:PiquelChips/piquel-cli";
             inputs.nixpkgs.follows = "nixpkgs";
+            inputs.flake-utils.follows = "flake-utils";
         };
         nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
         nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
@@ -20,19 +22,10 @@
         ];
     };
 
-    outputs = { nixpkgs, nixos-raspberrypi, ... } @ inputs: 
-    let
-        systems = [
-            "x86_64-linux"
-            "aarch64-linux"
-            "aarch64-darwin"
-        ];
+    outputs = { flake-utils, nixpkgs, nixos-raspberrypi, ... } @ inputs: {
+        packages = flake-utils.lib.eachDefaultSystem (system: import ./nix/pkgs nixpkgs.legacyPackages.${system});
 
-        forAllSystems = nixpkgs.lib.genAttrs systems;
-    in {
-        packages = forAllSystems (system: import ./nix/pkgs nixpkgs.legacyPackages.${system});
-
-        formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
+        formatter = flake-utils.lib.eachDefaultSystem (system: nixpkgs.legacyPackages.${system}.nixfmt);
 
         overlays = import ./nix/overlays {inherit inputs;};
         nixosModules = import ./nix/modules;

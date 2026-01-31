@@ -147,7 +147,9 @@
     },
     "piquel-cli": {
       "inputs": {
-        "flake-utils": "flake-utils",
+        "flake-utils": [
+          "flake-utils"
+        ],
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -168,6 +170,7 @@
     },
     "root": {
       "inputs": {
+        "flake-utils": "flake-utils",
         "nixos-raspberrypi": "nixos-raspberrypi",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
