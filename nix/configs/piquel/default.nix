@@ -1,6 +1,8 @@
 { pkgs, inputs, outputs, lib, ... }:
 {
     imports = [ 
+        ../common.nix
+
         ./terminal
         ./system.nix
     ];
@@ -9,7 +11,6 @@
         defaultUserShell = pkgs.zsh;
         users.piquel = {
             isNormalUser = true;
-            description = "piquel";
             extraGroups = [ "networkmanager" "wheel" "docker" ]; # "scanner" "lp" ];
             shell = pkgs.zsh;
             packages = with pkgs; [
@@ -52,8 +53,6 @@
         };
     };
 
-    console.keyMap = "fr";
-
     nixpkgs = {
         overlays = [ outputs.overlays.additions ];
         config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
@@ -82,25 +81,52 @@
         xwayland.enable = true;
         nix-index = {
             enable = true;
-            enableZshIntegration = false;
+            enableZshIntegration = true;
             enableBashIntegration = false;
             enableFishIntegration = false;
         };
+        git = {
+            enable = true;
+            lfs.enable = true;
+            config = {
+                init.defaultBranch = "main";
+                core.editor = "nvim";
+                user = {
+                    name = "PiquelChips";
+                    email = "piquel@piquel.fr";
+                };
+                url = {
+                    "git@github.com:" = {
+                        insteadOf = [ "https://github.com/" ];
+                    };
+                };
+                filter."lfs" = {
+                    clean = "git-lfs clean -- %f";
+                    smudge = "git-lfs smudge -- %f";
+                    process = "git-lfs filter-process";
+                    required = true;
+                };
+            };
+        };
+        neovim = {
+            enable = true;
+            defaultEditor = true;
+            vimAlias = true;
+        };
     };
-    services.hypridle.enable = true;
+
+    services = {
+        hypridle.enable = true;
+        locate = {
+            enable = true;
+            interval = "weekly";
+        };
+    };
 
     fonts = {
         enableDefaultPackages = true;
         packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
     };
 
-    environment = {
-        shells = with pkgs; [ zsh ];
-        variables = {
-            LANG="en_US.UTF-8";
-            EDITOR="nvim";
-
-            JDTLS_JVM_ARGS = "-javaagent:${pkgs.lombok}/share/java/lombok.jar";
-        };
-    };
+    environment.variables.JDTLS_JVM_ARGS = "-javaagent:${pkgs.lombok}/share/java/lombok.jar";
 }

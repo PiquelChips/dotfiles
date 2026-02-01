@@ -1,6 +1,8 @@
-{ config, outputs, nixos-raspberrypi, pkgs, ... }:
+{ config, nixos-raspberrypi, pkgs, ... }:
 {
     imports = with nixos-raspberrypi.nixosModules; [
+        ../common.nix
+
         raspberry-pi-5.base
         raspberry-pi-5.page-size-16k
         raspberry-pi-5.bluetooth
@@ -8,20 +10,14 @@
     ];
 
     networking.hostName = "piquel";
+    boot.loader.raspberry-pi.bootloader = "kernel";
 
     users.users.piquel = {
         isNormalUser = true;
-        extraGroups = [
-            "wheel"
-        ];
+        extraGroups = [ "wheel" "networkmanager" "docker" ];
+        shell = pkgs.zsh;
     };
 
-    environment.systemPackages = with pkgs; [
-        neovim
-        wakeonlan
-    ];
-
-    boot.loader.raspberry-pi.bootloader = "kernel";
     services.openssh.enable = true;
 
     system.nixos.tags =
@@ -33,24 +29,4 @@
             cfg.bootloader
             config.boot.kernelPackages.kernel.version
         ];
-
-    system = {
-        stateVersion = "25.11";
-        userActivationScripts.zshrc = "touch .zshrc";
-        autoUpgrade.enable = true;
-        autoUpgrade.dates = "daily";
-    };
-
-    nixpkgs.overlays = [ outputs.overlays.additions ];
-
-    nix = {
-        gc.automatic = true;
-        gc.options = "--delete-older-than 10d";
-        gc.dates = "weekly";
-        settings = {
-            auto-optimise-store = true;
-            experimental-features = [ "nix-command" "flakes" ];
-            trusted-users = [ "root" "@wheel" ];
-        };
-    };
 }

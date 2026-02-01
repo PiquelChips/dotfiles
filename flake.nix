@@ -36,9 +36,7 @@
         nixosConfigurations = {
             piquel = nixpkgs.lib.nixosSystem {
                 specialArgs = { inherit inputs outputs; };
-                modules = [
-                    ./nix/configs/piquel
-                ];
+                modules = [ ./nix/configs/piquel ];
             };
             pi = nixos-raspberrypi.lib.nixosSystem {
                 specialArgs = { inherit nixos-raspberrypi outputs; };
