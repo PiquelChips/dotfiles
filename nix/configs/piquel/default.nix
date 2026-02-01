@@ -1,9 +1,8 @@
-{ pkgs, inputs, outputs, lib, ... }:
+{ pkgs, inputs, lib, ... }:
 {
     imports = [ 
         ../common.nix
 
-        ./terminal
         ./system.nix
     ];
 
@@ -54,7 +53,6 @@
     };
 
     nixpkgs = {
-        overlays = [ outputs.overlays.additions ];
         config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
             "spotify"
             "jetbrains-toolbox"

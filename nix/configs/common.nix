@@ -65,6 +65,11 @@
         };
     };
 
+    services.piquel = {
+        zsh.enable = true;
+        tmux.enable = true;
+    };
+
     environment = {
         shells = with pkgs; [ zsh ];
         variables = {
