@@ -69,6 +69,7 @@
         zsh.enable = true;
         tmux.enable = true;
         piquel-cli.enable = true;
+        openssh.enable = true;
     };
 
     environment = {
