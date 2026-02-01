@@ -85,34 +85,6 @@
             enableBashIntegration = false;
             enableFishIntegration = false;
         };
-        git = {
-            enable = true;
-            lfs.enable = true;
-            config = {
-                init.defaultBranch = "main";
-                core.editor = "nvim";
-                user = {
-                    name = "PiquelChips";
-                    email = "piquel@piquel.fr";
-                };
-                url = {
-                    "git@github.com:" = {
-                        insteadOf = [ "https://github.com/" ];
-                    };
-                };
-                filter."lfs" = {
-                    clean = "git-lfs clean -- %f";
-                    smudge = "git-lfs smudge -- %f";
-                    process = "git-lfs filter-process";
-                    required = true;
-                };
-            };
-        };
-        neovim = {
-            enable = true;
-            defaultEditor = true;
-            vimAlias = true;
-        };
     };
 
     services = {
