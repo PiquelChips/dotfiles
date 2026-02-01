@@ -65,9 +65,10 @@
         };
     };
 
-    services.piquel = {
+    services = {
         zsh.enable = true;
         tmux.enable = true;
+        piquel-cli.enable = true;
     };
 
     environment = {

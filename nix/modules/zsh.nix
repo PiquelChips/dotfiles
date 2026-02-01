@@ -1,6 +1,6 @@
 { pkgs, lib, config, ... }:
 let
-    cfg = config.services.piquel.zsh;
+    cfg = config.services.zsh;
 
     fzf-tab = pkgs.fetchFromGitHub {
         owner = "Aloxaf";
@@ -10,7 +10,7 @@ let
     };
 in
 {
-    options.services.piquel.zsh = {
+    options.services.zsh = {
         enable = lib.mkEnableOption "Zsh Configuration";
 
         package = lib.mkOption {

@@ -1,9 +1,9 @@
 { pkgs, config, lib, ... }:
 let
-    cfg = config.services.piquel.tmux;
+    cfg = config.services.tmux;
 in
 {
-    options.services.piquel.tmux = {
+    options.services.tmux = {
         enable = lib.mkEnableOption "Tmux Configuration";
 
         package = lib.mkOption {
