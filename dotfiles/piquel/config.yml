@@ -12,7 +12,11 @@ sessions:
         - vim .
       - commands:
         - git pull
+        - sudo nix flake update
         - sudo nixos-rebuild switch --flake .#piquel --upgrade
+        - nixos-rebuild switch --flake .#pi --target-host piquel@remote.piquel.fr --sudo --ask-sudo-password
+      - commands:
+        - ssh piquel@remote.piquel.fr
   secrets:
     root: "~/secrets"
     windows:
