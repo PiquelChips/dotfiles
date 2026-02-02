@@ -16,6 +16,9 @@
         isNormalUser = true;
         extraGroups = [ "wheel" "networkmanager" "docker" ];
         shell = pkgs.zsh;
+        packages = with pkgs; [
+            wakeonlan
+        ];
     };
 
     services.openssh.enable = true;

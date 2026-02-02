@@ -61,7 +61,6 @@
     };
 
     programs = {
-        zsh.enable = true;
         git = {
             enable = true;
             lfs.enable = true;
@@ -85,6 +84,7 @@
                 };
             };
         };
+        # TODO: nixvim
         neovim = {
             enable = true;
             defaultEditor = true;
@@ -96,7 +96,10 @@
         zsh.enable = true;
         tmux.enable = true;
         piquel-cli.enable = true;
-        openssh.enable = true;
+        # TODO: secure
+        openssh = {
+            enable = true;
+        };
     };
 
     environment = {
@@ -106,8 +109,7 @@
             EDITOR = "nvim";
         };
         systemPackages = with pkgs; [
-            neovim
-            wakeonlan
+            zsh neovim zip unzip tree fd fzf file
         ];
     };
 

@@ -31,7 +31,7 @@
                 typescript-language-server
                 vscode-langservers-extracted
                 # Utils
-                feh zip unzip wl-clipboard stow tree yazi lazydocker
+                feh wl-clipboard stow tree yazi lazydocker
                 ffmpeg fd ripgrep imagemagick poppler fzf air
                 sqlc docker-buildx neofetch zoxide gnumake mpv
                 p7zip postgresql cmake pkg-config tailwindcss_4
@@ -40,11 +40,9 @@
                 blender kitty firefox hyprpaper gimp prismlauncher
                 discord thunderbird heroic jetbrains-toolbox ladybird
                 hyprlauncher hyprtoolkit hyprpolkitagent hyprpwcenter
-                pwvucontrol spotify flatpak
+                pwvucontrol spotify
                 # Libs
                 icu
-                # Customs
-                inputs.piquel-cli.packages.${pkgs.stdenv.hostPlatform.system}.default
 
                 # Hazel
                 premake5 gtk3 zlib elfutils libunwind tbb dotnetCorePackages.dotnet_9.sdk
@@ -86,6 +84,7 @@
     };
 
     services = {
+        flatpak.enable =true;
         hypridle.enable = true;
         locate = {
             enable = true;
