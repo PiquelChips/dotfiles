@@ -5,19 +5,11 @@ in
 {
     options.services.tmux = {
         enable = lib.mkEnableOption "Tmux Configuration";
-
-        package = lib.mkOption {
-            type = lib.types.package;
-            default = pkgs.tmux;
-            defaultText = lib.literalExpression "pkgs.tmux";
-            example = lib.literalExpression "pkgs.tmux";
-        };
     };
 
     config = lib.mkIf cfg.enable {
         programs.tmux = {
             enable = true;
-            package = cfg.package;
             baseIndex = 1;
             extraConfigBeforePlugins = ''
                 # Set prefix

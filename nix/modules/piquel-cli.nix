@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ inputs, config, pkgs, lib, ... }:
 let
     cfg = config.services.piquel-cli;
 in
@@ -8,7 +8,7 @@ in
 
         package = lib.mkOption {
             type = lib.types.package;
-            default = pkgs.piquel-cli;
+            default = inputs.piquel-cli.packages.${pkgs.stdenv.hostPlatform.system}.default ;
             defaultText = lib.literalExpression "pkgs.piquel-cli";
             example = lib.literalExpression "pkgs.piquel-cli";
         };

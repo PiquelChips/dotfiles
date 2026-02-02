@@ -3,4 +3,3 @@
     tmux = import ./tmux.nix;
     piquel-cli = import ./piquel-cli.nix;
 }
-

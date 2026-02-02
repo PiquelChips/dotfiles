@@ -12,19 +12,11 @@ in
 {
     options.services.zsh = {
         enable = lib.mkEnableOption "Zsh Configuration";
-
-        package = lib.mkOption {
-            type = lib.types.package;
-            default = pkgs.zsh;
-            defaultText = lib.literalExpression "pkgs.zsh";
-            example = lib.literalExpression "pkgs.zsh";
-        };
     };
 
     config = lib.mkIf cfg.enable {
         programs.zsh = {
             enable = true;
-            package = cfg.package;
             enableCompletion = true;
             autosuggestions.enable = true;
             syntaxHighlighting.enable = true;
