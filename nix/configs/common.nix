@@ -1,5 +1,11 @@
 { outputs, pkgs, ... }:
 {
+    imports = [
+        outputs.nixosModules.piquel-cli
+        outputs.nixosModules.tmux
+        outputs.nixosModules.zsh
+    ];
+
     networking = {
         networkmanager.enable = true;
         nameservers = [
