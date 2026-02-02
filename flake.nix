@@ -33,7 +33,7 @@
 
         formatter = flake-utils.lib.eachDefaultSystem (system: nixpkgs.legacyPackages.${system}.nixfmt);
 
-        overlays = import ./nix/overlays {inherit inputs;};
+        overlays = import ./nix/overlays { inherit inputs; };
         nixosModules = import ./nix/modules;
 
         nixosConfigurations = {
@@ -42,7 +42,7 @@
                 modules = [ ./nix/configs/piquel ];
             };
             pi = nixos-raspberrypi.lib.nixosSystem {
-                specialArgs = { inherit nixos-raspberrypi outputs; };
+                specialArgs = { inherit inputs outputs nixos-raspberrypi; };
                 modules = [ ./nix/configs/pi ];
             };
         };
