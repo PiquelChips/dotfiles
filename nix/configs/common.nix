@@ -6,6 +6,27 @@
         outputs.nixosModules.zsh
     ];
 
+    nixpkgs.overlays = [ outputs.overlays.additions ];
+
+    nix = {
+        gc = {
+            automatic = true;
+            options = "--delete-older-than 10d";
+            dates = "weekly";
+        };
+        settings = {
+            auto-optimise-store = true;
+            experimental-features = [
+                "nix-command"
+                "flakes"
+            ];
+            trusted-users = [
+                "root"
+                "@wheel"
+            ];
+        };
+    };
+
     networking = {
         networkmanager.enable = true;
         nameservers = [
@@ -90,28 +111,7 @@
         ];
     };
 
-    nixpkgs.overlays = [ outputs.overlays.additions ];
-
     virtualisation.docker = {
         enable = true;
-    };
-
-    nix = {
-        gc = {
-            automatic = true;
-            options = "--delete-older-than 10d";
-            dates = "weekly";
-        };
-        settings = {
-            auto-optimise-store = true;
-            experimental-features = [
-                "nix-command"
-                "flakes"
-            ];
-            trusted-users = [
-                "root"
-                "@wheel"
-            ];
-        };
     };
 }
