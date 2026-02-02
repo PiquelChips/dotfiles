@@ -18,7 +18,7 @@
                 nodejs jdk25 clang
                 libcxx libgcc
                 # Language servers
-                nixd nixfmt clang-tools
+                nil nixfmt clang-tools
                 marksman lombok gopls
                 glsl_analyzer
                 jdt-language-server
