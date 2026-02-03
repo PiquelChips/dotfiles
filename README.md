@@ -16,6 +16,7 @@ My dotfiles
 - Microsoft 365
 - Printing & Scanning
 
-## Update RaspberryPi
+## Update
 
-`nixos-rebuild switch --flake .#pi --target-host piquel@remote.piquel.fr --sudo --ask-sudo-password`
+- Machine: `sudo nixos-rebuild switch --flake .#piquel --upgrade`
+- RaspberryPi: `nixos-rebuild switch --flake .#pi --target-host piquel@remote.piquel.fr --sudo --ask-sudo-password`
