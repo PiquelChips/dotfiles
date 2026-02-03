@@ -96,9 +96,13 @@
         zsh.enable = true;
         tmux.enable = true;
         piquel-cli.enable = true;
-        # TODO: secure
         openssh = {
             enable = true;
+            settings = {
+                UsePAM = false;
+                PasswordAuthentication = false;
+                PermitRootLogin = "no";
+            };
         };
     };
 
