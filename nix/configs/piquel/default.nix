@@ -1,8 +1,9 @@
-{ pkgs, lib, ... }:
+{ outputs, pkgs, lib, ... }:
 {
     imports = [ 
         ../common.nix
 
+        outputs.nixosModules.zsh
         ./system.nix
     ];
 
@@ -92,6 +93,11 @@
         locate = {
             enable = true;
             interval = "weekly";
+        };
+        zsh = {
+            enable = true;
+            enableVulkanConfig = true;
+            enableHomeConfig = true;
         };
     };
 

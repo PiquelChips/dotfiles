@@ -12,6 +12,8 @@ in
 {
     options.services.zsh = {
         enable = lib.mkEnableOption "Zsh Configuration";
+        enableVulkanConfig = lib.mkEnableOption "Vulkan SDK environment setup";
+        enableHomeConfig = lib.mkEnableOption "Sets up zsh for home use. Sets up XDG_DATA_DIRS and PATH";
     };
 
     config = lib.mkIf cfg.enable {
@@ -34,11 +36,15 @@ in
             shellInit = ''
                 fpath=(~/dotfiles/config/zsh-completions $fpath)
 
+                ${lib.optionalString cfg.enableHomeConfig ''
                 export PATH="$HOME/go/bin:$HOME/.cargo/bin:$PATH"
                 export XDG_DATA_DIRS=$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share
+                ''}
                 
                 source ${fzf-tab}/fzf-tab.plugin.zsh
+                ${lib.optionalString cfg.enableVulkanConfig ''
                 source $HOME/VulkanSDK/setup-env.sh
+                ''}
             '';
             promptInit = ''
                 CASE_SENSITIVE="true"
