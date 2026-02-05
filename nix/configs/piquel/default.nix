@@ -1,9 +1,8 @@
-{ outputs, pkgs, lib, ... }:
+{ pkgs, lib, ... }:
 {
     imports = [ 
         ../common.nix
 
-        outputs.nixosModules.zsh
         ./system.nix
     ];
 
