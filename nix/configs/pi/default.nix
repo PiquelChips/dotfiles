@@ -9,7 +9,7 @@
         ./hardware-configuration.nix
     ];
 
-    networking.hostName = "piquel";
+    networking.hostName = "piquel-pi";
     boot.loader.raspberry-pi.bootloader = "kernel";
 
     users.users.piquel = {
