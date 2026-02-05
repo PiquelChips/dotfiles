@@ -32,12 +32,14 @@
     };
 
     outputs = { self, flake-utils, nixpkgs, nixos-raspberrypi, ... } @ inputs:
+    flake-utils.lib.eachDefaultSystem (system:
     let 
         inherit (self) outputs;
+        pkgs = nixpkgs.legacyPackages.${system};
     in{
-        packages = flake-utils.lib.eachDefaultSystem (system: import ./nix/pkgs nixpkgs.legacyPackages.${system});
+        packages = import ./nix/pkgs { inherit inputs; } pkgs;
 
-        formatter = flake-utils.lib.eachDefaultSystem (system: nixpkgs.legacyPackages.${system}.nixfmt);
+        formatter = nixpkgs.legacyPackages.${system}.nixfmt;
 
         overlays = import ./nix/overlays { inherit inputs; };
         nixosModules = import ./nix/modules;
@@ -52,5 +54,5 @@
                 modules = [ ./nix/configs/pi ];
             };
         };
-    };
+    });
 }
