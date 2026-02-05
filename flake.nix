@@ -3,6 +3,7 @@
 
     inputs = {
         nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
+        systems.url = "github:nix-systems/default";
         flake-utils.url = "github:numtide/flake-utils";
         piquel-cli = {
             url = "github:PiquelChips/piquel-cli";
@@ -17,6 +18,8 @@
         nixvim = {
             url = "github:nix-community/nixvim/nixos-25.11";
             inputs.nixpkgs.follows = "nixpkgs";
+            inputs.flake-utils.follows = "flake-utils";
+            inputs.systems.follows = "systems";
         };
     };
     
