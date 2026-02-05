@@ -9,7 +9,7 @@
             inputs.nixpkgs.follows = "nixpkgs";
             inputs.flake-utils.follows = "flake-utils";
         };
-        nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+        #nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
         nixos-raspberrypi = {
             url = "github:nvmd/nixos-raspberrypi/main";
             #inputs.nixpkgs.follows = "nixpkgs";
