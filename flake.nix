@@ -38,6 +38,7 @@
         pkgs = nixpkgs.legacyPackages.${system};
     in{
         packages = import ./nix/pkgs { inherit inputs; } pkgs;
+        devShells = import ./nix/shells { inherit pkgs outputs; };
 
         formatter = nixpkgs.legacyPackages.${system}.nixfmt;
 
