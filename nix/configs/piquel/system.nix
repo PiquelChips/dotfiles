@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
     imports = [
-        ./networking.nix
         ./hardware-configuration.nix
     ];
 
@@ -16,27 +15,13 @@
         };
     };
 
-    time.timeZone = "Europe/Paris";
-    
-    i18n.defaultLocale = "en_US.UTF-8";
-    i18n.extraLocaleSettings = {
-        LC_ADDRESS = "fr_FR.UTF-8";
-        LC_IDENTIFICATION = "fr_FR.UTF-8";
-        LC_MEASUREMENT = "fr_FR.UTF-8";
-        LC_MONETARY = "fr_FR.UTF-8";
-        LC_NAME = "fr_FR.UTF-8";
-        LC_NUMERIC = "fr_FR.UTF-8";
-        LC_PAPER = "fr_FR.UTF-8";
-        LC_TELEPHONE = "fr_FR.UTF-8";
-        LC_TIME = "fr_FR.UTF-8";
-    };
-
     security.rtkit.enable = true;
     services.pipewire = {
         enable = true;
         alsa.enable = true;
         alsa.support32Bit = true;
         pulse.enable = true;
+        jack.enable = true;
     };
 
     programs.nix-ld = {
@@ -73,29 +58,28 @@
             gtk3 zlib elfutils libunwind tbb
         ];
     };
-    
-    system = {
-        stateVersion = "25.11";
-        userActivationScripts.zshrc = "touch .zshrc";
-        autoUpgrade.enable = true;
-        autoUpgrade.dates = "daily";
-    };
 
+    networking = {
+        hostName = "nixosbtw";
+        networkmanager = {
+            enable = true;
+            wifi.backend = "iwd";
+        };
+        interfaces."enp39s0".wakeOnLan.enable = true;
+        wireless.iwd = {
+            enable = true;
+            settings = {
+                Settings = {
+                    AutoConnect = true;
+                };
+            };
+        };
+    };
+    
     environment.systemPackages = with pkgs; [
         xdg-user-dirs
         mesa
         alsa-utils
         alsa-scarlett-gui
     ];
-
-    nix = {
-        gc.automatic = true;
-        gc.options = "--delete-older-than 10d";
-        gc.dates = "weekly";
-        settings = {
-            auto-optimise-store = true;
-            experimental-features = [ "nix-command" "flakes" ];
-            trusted-users = [ "root" "@wheel" ];
-        };
-    };
 }
