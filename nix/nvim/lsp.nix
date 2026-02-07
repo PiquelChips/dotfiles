@@ -45,6 +45,7 @@
 
         cmp = {
             enable = true;
+            autoEnableSources = true;
 
             settings = {
                 mapping = {
