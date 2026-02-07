@@ -28,11 +28,6 @@ in
                 p = "piquel load $(piquel list | fzf)";
             };
 
-            ohMyZsh = {
-                enable = true;
-                plugins = [ "git" "sudo" "docker" ];
-            };
-
             shellInit = ''
                 fpath=(~/dotfiles/config/zsh-completions $fpath)
 
