@@ -20,8 +20,12 @@ in
         programs.zsh = {
             enable = true;
             enableCompletion = true;
+            enableBashCompletion = true;
             autosuggestions.enable = true;
-            syntaxHighlighting.enable = true;
+            syntaxHighlighting = {
+                enable = true;
+                highlighters = [ "main" "root"];
+            };
 
             shellAliases = {
                 l = "ls -alF";
