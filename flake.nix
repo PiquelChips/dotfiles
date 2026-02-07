@@ -21,7 +21,7 @@
             inputs.systems.follows = "systems";
         };
     };
-    
+
     nixConfig = {
         extra-substituters = [
             "https://nixos-raspberrypi.cachix.org"
@@ -31,19 +31,13 @@
         ];
     };
 
-    outputs = { self, flake-utils, nixpkgs, nixos-raspberrypi, ... } @ inputs:
-    flake-utils.lib.eachDefaultSystem (system:
-    let 
+    outputs = { self, flake-utils, nixpkgs, nixos-raspberrypi, ... }@inputs:
+    let
         inherit (self) outputs;
-        pkgs = nixpkgs.legacyPackages.${system};
-    in{
-        packages = import ./nix/pkgs { inherit inputs; } pkgs;
-        devShells = import ./nix/shells { inherit pkgs outputs; };
-
-        formatter = nixpkgs.legacyPackages.${system}.nixfmt;
-
-        overlays = import ./nix/overlays { inherit inputs; };
+    in
+    {
         nixosModules = import ./nix/modules;
+        overlays = import ./nix/overlays { inherit inputs; };
 
         nixosConfigurations = {
             piquel = nixpkgs.lib.nixosSystem {
@@ -55,5 +49,15 @@
                 modules = [ ./nix/configs/pi ];
             };
         };
+    } //
+    flake-utils.lib.eachDefaultSystem (system:
+    let
+        inherit (self) outputs;
+        pkgs = nixpkgs.legacyPackages.${system};
+    in
+    {
+        packages = import ./nix/pkgs { inherit inputs; } pkgs;
+        devShells = import ./nix/shells { inherit pkgs outputs; };
+        formatter = nixpkgs.legacyPackages.${system}.nixfmt;
     });
 }
