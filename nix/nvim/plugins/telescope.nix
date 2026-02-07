@@ -8,6 +8,9 @@
             settings = {
                 defaults = {
                     file_ignore_patterns = [
+                        "/Thirdparty/"
+                        "Thirdparty/"
+                        "^Thirdparty/"
                         "/thirdparty/"
                         "thirdparty/"
                         "^thirdparty/"
