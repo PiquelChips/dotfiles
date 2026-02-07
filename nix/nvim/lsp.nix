@@ -20,11 +20,7 @@
 
             clangd = {
                 enable = true;
-                config = {
-                    cmd = [ "clangd" "--clang-tidy" "--background-index" ];
-                    filetypes = [ "c" "cpp" ];
-                    root_markers = [ "compile_commands.json" "compile_flags.txt" ];
-                };
+                config.cmd = [ "clangd" "--clang-tidy" "--background-index" ];
             };
 
             denols = {
@@ -66,6 +62,5 @@
                 ];
             };
         };
-
     };
 }
