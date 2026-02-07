@@ -1,8 +1,9 @@
 { lib, ... }:
 {
     lsp = {
-        inlayHints.enable = false;
+        inlayHints.enable = true;
         servers = {
+            "*".config.root_markers = [ ".git" ];
 
             gopls.enable = true;
             bashls.enable = true;
@@ -16,8 +17,22 @@
             svelte.enable = true;
             ts_ls.enable = true;
             jdtls.enable = true;
-            nil_ls.enable = true;
             glsl_analyzer.enable = true;
+
+            nixd = {
+                enable = true;
+                settings =
+                let
+                    flake = builtins.getFlake "github:PiquelChips/dotfiles";
+                in
+                {
+                    nixpkgs.expr = "import ${flake}.inputs.nixpkgs { }";
+                    options = {
+                        nixos.expr = ''${flake}.nixosConfigurations.piquel.options'';
+                        nixvim.expr = ''${flake}.packages.${pkgs.system}.nvim.options'';
+                    };
+                };
+            };
 
             clangd = {
                 enable = true;
