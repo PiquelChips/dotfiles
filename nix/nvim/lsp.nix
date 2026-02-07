@@ -35,10 +35,10 @@
                 #             };
                 #         };
                 #     };
+                    root_markers = [
+                        ".git"
+                    ];
                 };
-                root_markers = [
-                    ".git"
-                ];
             };
 
             gopls.enable = true;
@@ -58,17 +58,19 @@
 
             clangd = {
                 enable = true;
-                cmd = [
-                    "clangd"
-                    "--clang-tidy"
-                    "--background-index"
-                    "--query-driver=/etc/profiles/per-user/piquel/bin/g++,/etc/profiles/per-user/piquel/bin/gcc"
-                ];
+                config = {
+                    cmd = [
+                        "clangd"
+                            "--clang-tidy"
+                            "--background-index"
+                            "--query-driver=/etc/profiles/per-user/piquel/bin/g++,/etc/profiles/per-user/piquel/bin/gcc"
+                    ];
+                };
             };
 
             denols = {
                 enable = true;
-                root_markers = [ "deno.lock" ];
+                config.root_markers = [ "deno.lock" ];
             };
         };
 
