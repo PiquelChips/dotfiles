@@ -1,7 +1,7 @@
 { lib, ... }:
 {
     lsp = {
-        inlayHints.enable = true;
+        inlayHints.enable = false;
         servers = {
             "*" = {
                 enable = true;
