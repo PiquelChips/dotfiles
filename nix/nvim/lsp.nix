@@ -39,6 +39,7 @@
     };
 
     plugins = {
+        lspconfig.enable = true;
         fidget.enable = true;
         luasnip.enable = true;
 
