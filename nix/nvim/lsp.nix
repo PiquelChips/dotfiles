@@ -40,6 +40,36 @@
                     ".git"
                 ];
             };
+
+            gopls.enable = true;
+            bashls.enable = true;
+            cssls.enable = true;
+            dockerls.enable = true;
+            jsonls.enable = true;
+            lua_ls.enable = true;
+            autotools_ls.enable = true;
+            marksman.enable = true;
+            tailwindcss.enable = true;
+            svelte.enable = true;
+            ts_ls.enable = true;
+            jdtls.enable = true;
+            nil_ls.enable = true;
+            glsl_analyzer.enable = true;
+
+            clangd = {
+                enable = true;
+                cmd = [
+                    "clangd"
+                    "--clang-tidy"
+                    "--background-index"
+                    "--query-driver=/etc/profiles/per-user/piquel/bin/g++,/etc/profiles/per-user/piquel/bin/gcc"
+                ];
+            };
+
+            denols = {
+                enable = true;
+                root_markers = [ "deno.lock" ];
+            };
         };
 
         keymaps = [
