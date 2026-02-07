@@ -1,5 +1,8 @@
 { ... }:
 {
+    vimAlias = true;
+    enableMan = true;
+
     colorschemes.tokyonight = {
         enable = true;
         settings = {
@@ -14,7 +17,6 @@
             };
         };
     };
-    vimAlias = true;
 
     opts = {
         nu = true;
@@ -42,9 +44,9 @@
         colorcolumn = "80";
         
         mouse = "";
-
-        # TODO
-        # vim.opt.isfname:append("@-@")
-        # vim.diagnostic.config({ virtual_text = true })
     };
+
+    diagnostic.settings.virtual_text = true;
+
+    extraConfigLua = "vim.opt.isfname:append('@-@')";
 }
