@@ -80,4 +80,30 @@
             { key = "K";  mode = [ "n" ]; lspBufAction = "hover"; }
         ];
     };
+
+    plugins = {
+        fidget.enable = true;
+        luasnip.enable = true;
+
+        cmp = {
+            enable = true;
+
+            settings = {
+                mapping = {
+                    "<C-p>" = "cmp.mapping.select_prev_item()";
+                    "<C-n>" = "cmp.mapping.select_next_item()";
+                    "<C-y>" = "cmp.mapping.confirm({ select = true })";
+                    "<C-Space>" = "cmp.mapping.complete()";
+                };
+
+                sources = [
+                    { name = "nvim_lsp"; }
+                    { name = "buffer"; }
+                    { name = "path"; }
+                    { name = "luasnip"; }
+                ];
+            };
+        };
+
+    };
 }
