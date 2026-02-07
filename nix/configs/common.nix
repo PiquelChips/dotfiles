@@ -1,9 +1,10 @@
-{ outputs, pkgs, ... }:
+{ outputs, inputs, pkgs, ... }:
 {
     imports = [
         outputs.nixosModules.piquel-cli
         outputs.nixosModules.tmux
         outputs.nixosModules.zsh
+        inputs.nixvim.nixosModules.nixvim
     ];
 
     nixpkgs.overlays = [ outputs.overlays.additions ];
@@ -84,11 +85,10 @@
                 };
             };
         };
-        # TODO: nixvim
-        neovim = {
+        nixvim = {
             enable = true;
             defaultEditor = true;
-            vimAlias = true;
+            imports = [ ../nvim ];
         };
     };
 

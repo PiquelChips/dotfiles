@@ -66,6 +66,7 @@
     };
 
     programs = {
+        nixvim.imports = [ ../../nvim/lsp.nix ];
         hyprland = {
             enable = true;
             xwayland.enable = true;
