@@ -1,10 +1,10 @@
-{ outputs, inputs, pkgs, ... }:
+{ outputs, pkgs, ... }:
 {
     imports = [
         outputs.nixosModules.piquel-cli
         outputs.nixosModules.tmux
         outputs.nixosModules.zsh
-        inputs.nixvim.nixosModules.nixvim
+        outputs.nixosModules.nvim
     ];
 
     nixpkgs.overlays = [ outputs.overlays.additions ];
@@ -85,11 +85,6 @@
                 };
             };
         };
-        nixvim = {
-            enable = true;
-            defaultEditor = true;
-            imports = [ ../nvim ];
-        };
     };
 
     services = {
@@ -104,6 +99,7 @@
                 PermitRootLogin = "no";
             };
         };
+        nvim.enable = true;
     };
 
     environment = {

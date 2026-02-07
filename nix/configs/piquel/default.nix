@@ -66,7 +66,6 @@
     };
 
     programs = {
-        nixvim.imports = [ ../../nvim/lsp.nix ];
         hyprland = {
             enable = true;
             xwayland.enable = true;
@@ -88,6 +87,7 @@
     };
 
     services = {
+        nvim.lsp = true;
         flatpak.enable =true;
         hypridle.enable = true;
         locate = {
