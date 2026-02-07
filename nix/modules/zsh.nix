@@ -32,6 +32,11 @@ in
                 p = "piquel load $(piquel list | fzf)";
             };
 
+            ohMyZsh = {
+                enable = true;
+                plugins = [ "git" ];
+            };
+
             shellInit = ''
                 fpath=(~/dotfiles/config/zsh-completions $fpath)
 
