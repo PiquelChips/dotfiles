@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ pkgs, lib, ... }:
 {
     lsp = {
         inlayHints.enable = true;
@@ -16,7 +16,6 @@
             ts_ls.enable = true;
             jdtls.enable = true;
             glsl_analyzer.enable = true;
-            nil_ls.enable = true;
 
             clangd = {
                 enable = true;
@@ -26,6 +25,23 @@
             denols = {
                 enable = true;
                 config.root_markers = [ "deno.lock" ];
+            };
+
+            nixd = {
+                enable = true;
+                config =
+                let
+                    flake = ''(builtins.getFlake "github:PiquelChips/dotfiles)""'';
+                in
+                {
+                    nixpkgs = {
+                        expr = "import ${flake}.inputs.nixpkgs { }";
+                    };
+                    formatting = {
+                        command = [ "${lib.getExe pkgs.nixfmt-rfc-style}" ];
+                    };
+                    options.nixos.expr = ''${flake}.nixosConfigurations.piquel.options'';
+                };
             };
         };
 
