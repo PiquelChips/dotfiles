@@ -16,8 +16,6 @@
     };
     vimAlias = true;
 
-    globals.mapleader = " ";
-
     opts = {
         nu = true;
         relativenumber = true;
