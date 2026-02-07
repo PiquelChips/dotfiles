@@ -97,7 +97,6 @@
         zsh = {
             enable = true;
             enableVulkanConfig = true;
-            enableHomeConfig = true;
         };
     };
 
