@@ -1,59 +1,62 @@
 { ... }:
 {
-    plugins.telescope = {
-        enable = true;
+    plugins = {
+        web-devicons.enable = true;
+        telescope = {
+            enable = true;
 
-        settings = {
-            defaults = {
-                file_ignore_patterns = [
-                    "/thirdparty/"
-                    "thirdparty/"
-                    "^thirdparty/"
-                ];
+            settings = {
+                defaults = {
+                    file_ignore_patterns = [
+                        "/thirdparty/"
+                        "thirdparty/"
+                        "^thirdparty/"
+                    ];
+                };
             };
-        };
 
-        keymaps = {
-            "<leader>pf" = {
-                action = "find_files";
-                options = {
-                    desc = "Find files";
+            keymaps = {
+                "<leader>pf" = {
+                    action = "find_files";
+                    options = {
+                        desc = "Find files";
+                    };
                 };
-            };
-            "<C-p>" = {
-                action = "git_files";
-                options = {
-                    desc = "Git files";
+                "<C-p>" = {
+                    action = "git_files";
+                    options = {
+                        desc = "Git files";
+                    };
                 };
-            };
-            "<leader>?" = {
-                action = "oldfiles";
-                options = {
-                    desc = "[?] Find recently opened files";
+                "<leader>?" = {
+                    action = "oldfiles";
+                    options = {
+                        desc = "[?] Find recently opened files";
+                    };
                 };
-            };
-            "<leader><space>" = {
-                action = "buffers";
-                options = {
-                    desc = "[ ] Find existing buffers";
+                "<leader><space>" = {
+                    action = "buffers";
+                    options = {
+                        desc = "[ ] Find existing buffers";
+                    };
                 };
-            };
-            "<leader>sw" = {
-                action = "lsp_workspace_symbols";
-                options = {
-                    desc = "Workspace symbols";
+                "<leader>sw" = {
+                    action = "lsp_workspace_symbols";
+                    options = {
+                        desc = "Workspace symbols";
+                    };
                 };
-            };
-            "<leader>sd" = {
-                action = "lsp_document_symbols";
-                options = {
-                    desc = "Document symbols";
+                "<leader>sd" = {
+                    action = "lsp_document_symbols";
+                    options = {
+                        desc = "Document symbols";
+                    };
                 };
-            };
-            "<leader>ps" = {
-                action = "live_grep";
-                options = {
-                    desc = "Search by grep";
+                "<leader>ps" = {
+                    action = "live_grep";
+                    options = {
+                        desc = "Search by grep";
+                    };
                 };
             };
         };
