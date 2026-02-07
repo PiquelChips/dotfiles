@@ -34,12 +34,8 @@
                     flake = ''(builtins.getFlake "github:PiquelChips/dotfiles)""'';
                 in
                 {
-                    nixpkgs = {
-                        expr = "import ${flake}.inputs.nixpkgs { }";
-                    };
-                    formatting = {
-                        command = [ "${lib.getExe pkgs.nixfmt-rfc-style}" ];
-                    };
+                    nixpkgs.expr = "import ${flake}.inputs.nixpkgs { }";
+                    formatting.command = [ "${lib.getExe pkgs.nixfmt}" "--indent=4" ];
                     options.nixos.expr = ''${flake}.nixosConfigurations.piquel.options'';
                 };
             };
