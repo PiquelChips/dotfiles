@@ -12,24 +12,30 @@ sessions:
         - vim .
       - commands:
         - git pull
+        - sudo nix flake update
         - sudo nixos-rebuild switch --flake .#piquel --upgrade
+        - nixos-rebuild switch --flake .#pi --target-host piquel@remote.piquel.fr --sudo --ask-sudo-password --no-reexec
+      - commands:
+        - ssh piquel@remote.piquel.fr
   secrets:
     root: "~/secrets"
     windows:
       - commands:
-        - git pull
         - vim .
-  deployment:
-    root: "~/Projects/Deployment"
+      - commands:
+        - git pull
+  vps-setup:
+    root: "~/Projects/vps-setup"
     windows:
       - commands:
         - vim .
       - commands:
         - git pull
+        - docker --context default compose up -d
       - commands:
         - ssh piquel@piquel.fr
   piquel-fr:
-    root: "~/Projects/piquel.fr"
+    root: "~/Projects/piquel-fr"
     windows:
     - commands:
         - vim .
@@ -39,7 +45,7 @@ sessions:
         - deno install
         - deno task dev
   piquel-api:
-    root: "~/Projects/api.piquel.fr"
+    root: "~/Projects/piquel-api"
     windows:
       - commands:
         - vim .
@@ -47,24 +53,6 @@ sessions:
         - git pull
       - commands:
         - air
-  piquel-docs:
-    root: "~/Projects/docs.piquel.fr"
-    windows:
-      - commands:
-        - vim .
-      - commands:
-        - git pull
-      - commands:
-        - air
-  piquel-pi:
-    root: "~/Projects/RaspberryPi"
-    windows:
-      - commands:
-        - vim .
-      - commands:
-        - git pull
-      - commands:
-        - ssh piquel@remote.piquel.fr
   piquel-cli:
     root: "~/Projects/piquel-cli"
     windows:
@@ -77,6 +65,23 @@ sessions:
     windows:
       - commands:
         - steam
+  hytale:
+    root: "~/Projects/Hytale"
+    windows:
+      - commands:
+        - cd HytalePlugin
+        - git pull
+        - vim .
+      - commands:
+        - cd HytalePlugin
+        - ./gradlew build
+      - commands:
+        - flatpak --user run com.hypixel.HytaleLauncher
+        - cd Config
+        - vim .
+      - commands:
+        - cd Server
+        - java -jar HytaleServer.jar --assets ../Assets.zip
   dirkengine:
     root: "~/Projects/DirkEngine"
     windows:
@@ -85,6 +90,22 @@ sessions:
       - commands:
         - git pull
         - make
+  catan:
+    root: "~/Projects/Catan"
+    windows:
+      - commands:
+        - vim .
+      - commands:
+        - git pull
+      - commands:
+        - ~/Projects/UnrealEngine/Engine/Binaries/Linux/UnrealEditor ~/Projects/Catan/Catan.uproject
+  dirk:
+    root: "~/Projects/Dirk"
+    windows:
+      - commands:
+        - vim .
+      - commands:
+        - git pull
   homework:
     root: "~/homework"
     windows:
@@ -110,3 +131,9 @@ sessions:
       - commands:
         - cd Server
         - ./start.sh
+  screenshots:
+    root: "~/Pictures/Screenshots"
+    windows:
+      - commands:
+        - git pull
+        - yazi
