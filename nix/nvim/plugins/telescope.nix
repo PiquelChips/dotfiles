@@ -65,7 +65,6 @@
         };
     };
 
-    # For the custom current_buffer_fuzzy_find with theme
     extraConfigLua = ''
         local builtin = require('telescope.builtin')
         vim.keymap.set('n', '<leader>/', function()

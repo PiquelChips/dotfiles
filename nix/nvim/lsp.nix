@@ -42,7 +42,7 @@
         };
 
         keymaps = [
-            { key = "gd"; mode = [ "n" ]; lspBufAction = "definition"; }
+            { key = "gd"; mode = [ "n" ]; action = lib.nixvim.mkRaw "require('telescope.builtin').lsp_definitions"; }
             { key = "gr"; mode = [ "n" ]; action = lib.nixvim.mkRaw "require('telescope.builtin').lsp_references"; }
             { key = "gt"; mode = [ "n" ]; lspBufAction = "type_definition"; }
             { key = "gi"; mode = [ "n" ]; lspBufAction = "implementation"; }
