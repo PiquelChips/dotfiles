@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 {
     lsp = {
-        inlayHints.enable = true;
+        inlayHints.enable = false;
         servers = {
             gopls.enable = true;
             rust_analyzer.enable = true;
