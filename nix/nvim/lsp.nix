@@ -4,7 +4,7 @@
         inlayHints.enable = true;
         servers = {
             gopls.enable = true;
-            rls.enable = true;
+            rust_analyzer.enable = true;
             bashls.enable = true;
             cssls.enable = true;
             dockerls.enable = true;
