@@ -60,6 +60,9 @@ sessions:
         - vim .
       - commands:
         - git pull
+        - cargo run --bin piquelctl
+      - commands:
+        - cargo watch -x 'run --bin piqueld'
   piquel-cli:
     root: "~/Projects/piquel-cli"
     windows:
