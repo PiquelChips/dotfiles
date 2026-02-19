@@ -3,7 +3,6 @@
     imports = [ 
         ../common.nix
 
-        ./headscale.nix
         ./system.nix
     ];
 
