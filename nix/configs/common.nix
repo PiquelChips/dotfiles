@@ -1,7 +1,6 @@
-{ outputs, pkgs, ... }:
+{ outputs, inputs, pkgs, ... }:
 {
     imports = [
-        outputs.nixosModules.piquel-cli
         outputs.nixosModules.tmux
         outputs.nixosModules.zsh
         outputs.nixosModules.nvim
@@ -84,7 +83,6 @@
     services = {
         zsh.enable = true;
         tmux.enable = true;
-        piquel-cli.enable = true;
         openssh = {
             enable = true;
             settings = {

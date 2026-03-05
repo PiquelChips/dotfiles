@@ -4,6 +4,7 @@
         ../common.nix
 
         ./system.nix
+        ./piquel-cli.nix
     ];
 
     users = {
