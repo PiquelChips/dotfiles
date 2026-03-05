@@ -1,4 +1,4 @@
-{ outputs, inputs, pkgs, ... }:
+{ outputs, pkgs, ... }:
 {
     imports = [
         outputs.nixosModules.tmux
@@ -18,6 +18,9 @@
             auto-optimise-store = true;
             experimental-features = [ "nix-command" "flakes" ];
             trusted-users = [ "root" "@wheel" ];
+            access-tokens = [
+              "github.com=${builtins.readFile ../../secrets/github_token}"
+            ];
         };
     };
 
