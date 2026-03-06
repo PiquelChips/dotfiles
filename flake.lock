@@ -278,16 +278,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1772829474,
+        "lastModified": 1772831042,
         "narHash": "sha256-6hFbn72EAca7kxxFfqoErV+/YohxkRpT0vLHVNgSSj0=",
         "owner": "piquel-fr",
         "repo": "piqueld",
-        "rev": "62ed721a7f7c2b44e1bfc787d53b985868094eec",
+        "rev": "eeeb7553d9ba049b4b2baad9648fbc72f007ae4a",
         "type": "github"
       },
       "original": {
         "owner": "piquel-fr",
-        "ref": "nix",
         "repo": "piqueld",
         "type": "github"
       }
