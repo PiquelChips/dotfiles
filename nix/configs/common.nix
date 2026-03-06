@@ -1,9 +1,10 @@
-{ outputs, pkgs, ... }:
+{ outputs, inputs, pkgs, ... }:
 {
     imports = [
         outputs.nixosModules.tmux
         outputs.nixosModules.zsh
         outputs.nixosModules.nvim
+        inputs.piqueld.nixosModules.default
     ];
 
     nixpkgs.overlays = [ outputs.overlays.additions ];
@@ -92,6 +93,15 @@
             };
         };
         nvim.enable = true;
+        piqueld = {
+            enable = true;
+            enableDaemon = false;
+            ctlConfig = {
+                socket_path = "/run/piqueld.sock";
+                tcp_addr = "remote.piquel.fr:7854";
+                default_to_tcp = true;
+            };
+        };
     };
 
     environment = {

@@ -255,16 +255,40 @@
         ]
       },
       "locked": {
-        "lastModified": 1772750596,
-        "narHash": "sha256-tAbiE577UQqYQ72J25KAr/od3diZHo4dF0h//1k8N80=",
+        "lastModified": 1772814074,
+        "narHash": "sha256-OajzrgI+zK8gCWz+xTxxpHHj+yzZns63LBzLSCeS8I8=",
         "owner": "PiquelChips",
         "repo": "piquel-cli",
-        "rev": "d1da346dee7fcb143e88a683b663aba93b5c4e26",
+        "rev": "240d5b9c726575905a5f3f3d8383cd43ac353338",
         "type": "github"
       },
       "original": {
         "owner": "PiquelChips",
         "repo": "piquel-cli",
+        "type": "github"
+      }
+    },
+    "piqueld": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1772815946,
+        "narHash": "sha256-v/woZDHg+DDMgwRyoYkrUIZ8VMOt0oVYckDg4XoNig8=",
+        "owner": "piquel-fr",
+        "repo": "piqueld",
+        "rev": "fad5ed540ad3409386346706ef5c4913bc13a347",
+        "type": "github"
+      },
+      "original": {
+        "owner": "piquel-fr",
+        "ref": "nix",
+        "repo": "piqueld",
         "type": "github"
       }
     },
@@ -275,6 +299,7 @@
         "nixpkgs": "nixpkgs_2",
         "nixvim": "nixvim",
         "piquel-cli": "piquel-cli",
+        "piqueld": "piqueld",
         "systems": "systems_3"
       }
     },
