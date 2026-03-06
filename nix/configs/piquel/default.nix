@@ -104,6 +104,10 @@
         piqueld = {
             enable = true;
             enableDaemon = false;
+            ctlSettings = {
+                default_to_tcp = true;
+                address = "192.168.1.44";
+            };
         };
     };
 
