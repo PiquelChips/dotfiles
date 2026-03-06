@@ -1,17 +1,18 @@
-{ pkgs, lib, ... }:
+{ inputs, pkgs, lib, ... }:
 {
     imports = [ 
         ../common.nix
 
         ./system.nix
         ./piquel-cli.nix
+        inputs.piqueld.nixosModules.default
     ];
 
     users = {
         defaultUserShell = pkgs.zsh;
         users.piquel = {
             isNormalUser = true;
-            extraGroups = [ "networkmanager" "wheel" "docker" ]; # "scanner" "lp" ];
+            extraGroups = [ "networkmanager" "wheel" "docker" "piqueld" ]; # "scanner" "lp" ];
             shell = pkgs.zsh;
             packages = with pkgs; [
                 # Programmings languages
@@ -99,6 +100,15 @@
         zsh = {
             enable = true;
             enableVulkanConfig = true;
+        };
+        piqueld = {
+            enable = true;
+            enableDaemon = false;
+            ctlSettings = {
+                socket_path = "/run/piqueld/piqueld.sock";
+                tcp_addr = "remote.piquel.fr:7854";
+                default_to_tcp = true;
+            };
         };
     };
 
