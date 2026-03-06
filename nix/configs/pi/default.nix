@@ -2,6 +2,7 @@
 {
     imports = with nixos-raspberrypi.nixosModules; [
         ../common.nix
+        ./piqueld.nix
 
         raspberry-pi-5.base
         raspberry-pi-5.page-size-16k
@@ -9,12 +10,16 @@
         ./hardware-configuration.nix
     ];
 
-    networking.hostName = "piquel-pi";
+    networking = {
+        hostName = "piquel-pi";
+        firewall.allowedTCPPorts = [ 7854 ];
+    };
+
     boot.loader.raspberry-pi.bootloader = "kernel";
 
     users.users.piquel = {
         isNormalUser = true;
-        extraGroups = [ "wheel" "networkmanager" "docker" ];
+        extraGroups = [ "wheel" "networkmanager" "docker" "piqueld" ];
         shell = pkgs.zsh;
         packages = with pkgs; [
             wakeonlan
