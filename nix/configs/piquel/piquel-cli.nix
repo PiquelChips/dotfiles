@@ -85,7 +85,7 @@
                 "cargo run --bin piquelctl"
               ];
             }
-            { commands = [ "cargo watch -x 'run --bin piqueld'" ]; }
+            { commands = [ "cargo watch -x 'run --bin piqueld -- --config ./config.json'" ]; }
           ];
         };
 
