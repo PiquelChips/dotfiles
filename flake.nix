@@ -12,7 +12,7 @@
         };
         piqueld = {
             # TODO: remove ref
-            url = "github:piquel-fr/piqueld?ref=nix";
+            url = "github:piquel-fr/piqueld";
             inputs.nixpkgs.follows = "nixpkgs";
             inputs.flake-utils.follows = "flake-utils";
         };

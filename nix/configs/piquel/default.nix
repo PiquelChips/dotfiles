@@ -104,11 +104,6 @@
         piqueld = {
             enable = true;
             enableDaemon = false;
-            ctlSettings = {
-                socket_path = "/run/piqueld/piqueld.sock";
-                tcp_addr = "remote.piquel.fr:7854";
-                default_to_tcp = true;
-            };
         };
     };
 
