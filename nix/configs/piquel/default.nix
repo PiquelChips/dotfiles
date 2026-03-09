@@ -44,7 +44,7 @@
                 blender kitty firefox hyprpaper gimp prismlauncher
                 discord thunderbird heroic jetbrains-toolbox ladybird
                 hyprlauncher hyprtoolkit hyprpolkitagent hyprpwcenter
-                pwvucontrol spotify
+                pwvucontrol spotify obsidian
                 # Libs
                 icu
 
@@ -66,6 +66,7 @@
             "steam-original"
             "steam-unwrapped"
             "steam-run"
+            "obsidian"
         ];
     };
 

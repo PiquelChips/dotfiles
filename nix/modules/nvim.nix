@@ -16,7 +16,10 @@ in
         programs.nixvim = {
             enable = true;
             defaultEditor = true;
-            imports = [ ../nvim ] ++ lib.optional cfg.lsp ../nvim/lsp.nix;
+            imports = [
+                ../nvim
+                ../nvim/plugins/obsidian.nix
+            ] ++ lib.optional cfg.lsp ../nvim/lsp.nix;
         };
     };
 }
