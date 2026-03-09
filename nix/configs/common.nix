@@ -60,7 +60,7 @@
             lfs.enable = true;
             config = {
                 init.defaultBranch = "main";
-                core.editor = "nvim";
+                core.editor = "vim";
                 user = {
                     name = "PiquelChips";
                     email = "piquel@piquel.fr";
@@ -98,7 +98,7 @@
         shells = with pkgs; [ zsh ];
         variables = {
             LANG = "en_US.UTF-8";
-            EDITOR = "nvim";
+            EDITOR = "vim";
         };
         systemPackages = with pkgs; [
             zsh neovim zip unzip tree fd fzf file
