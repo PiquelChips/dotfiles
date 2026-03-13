@@ -140,6 +140,14 @@
           root = "~/Projects/DirkEngine";
           windows = [
             { commands = [ "vim ." ]; }
+            { commands = [ "git pull" ]; }
+          ];
+        };
+
+        dirkengine-cpp = {
+          root = "~/Projects/DirkEngine-cpp";
+          windows = [
+            { commands = [ "vim ." ]; }
             {
               commands = [
                 "git pull"
