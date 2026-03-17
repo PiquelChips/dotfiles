@@ -41,8 +41,8 @@
                 grim swappy slurp file wayland-scanner btop gdb
                 atlas
                 # Apps
-                blender kitty firefox hyprpaper gimp prismlauncher
-                discord thunderbird heroic jetbrains-toolbox ladybird
+                blender kitty firefox hyprpaper prismlauncher
+                discord heroic jetbrains-toolbox ladybird
                 hyprlauncher hyprtoolkit hyprpolkitagent hyprpwcenter
                 pwvucontrol spotify obsidian
                 # Libs
