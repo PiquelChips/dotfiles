@@ -50,6 +50,9 @@
 
                 # Hazel
                 premake5 gtk3 zlib elfutils libunwind tbb dotnetCorePackages.dotnet_9.sdk
+
+                # UE5
+                dotnetCorePackages.dotnet_9.sdk
             ];
             openssh.authorizedKeys.keys = [
                 "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHVqRluVYJXXoNYyFQzkZm2v2bRnAv/PNuoLRr2G2/Dv piquel@piquel.fr"
