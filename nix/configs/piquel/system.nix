@@ -81,5 +81,6 @@
         mesa
         alsa-utils
         alsa-scarlett-gui
+        rocmPackages.rocm-smi
     ];
 }
