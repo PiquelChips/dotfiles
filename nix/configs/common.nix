@@ -62,7 +62,7 @@
                 init.defaultBranch = "main";
                 core.editor = "vim";
                 user = {
-                    name = "PiquelChips";
+                    name = "Piquel";
                     email = "piquel@piquel.fr";
                 };
                 url = {
