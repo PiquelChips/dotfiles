@@ -53,6 +53,9 @@
 
                 # UE5
                 dotnetCorePackages.dotnet_9.sdk
+
+                # DirkEngine
+                wayland libxkbcommon
             ];
             openssh.authorizedKeys.keys = [
                 "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHVqRluVYJXXoNYyFQzkZm2v2bRnAv/PNuoLRr2G2/Dv piquel@piquel.fr"
@@ -120,6 +123,4 @@
         enableDefaultPackages = true;
         packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
     };
-
-    environment.variables.JDTLS_JVM_ARGS = "-javaagent:${pkgs.lombok}/share/java/lombok.jar";
 }

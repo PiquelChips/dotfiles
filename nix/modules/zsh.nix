@@ -43,7 +43,7 @@ in
                 
                 source ${fzf-tab}/fzf-tab.plugin.zsh
                 ${lib.optionalString cfg.enableVulkanConfig ''
-                source $HOME/VulkanSDK/setup-env.sh
+                export LD_LIBRARY_PATH="${pkgs.wayland}/lib:${pkgs.libxkbcommon}/lib:$LD_LIBRARY_PATH"
                 ''}
             '';
             promptInit = ''
