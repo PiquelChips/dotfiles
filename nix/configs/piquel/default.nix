@@ -1,7 +1,9 @@
-{ inputs, pkgs, lib, ... }:
+{ outputs, inputs, pkgs, lib, ... }:
 {
     imports = [ 
-        ../common.nix
+        outputs.nixosModules.tmux
+        outputs.nixosModules.zsh
+        outputs.nixosModules.nvim
 
         ./system.nix
         ./piquel-cli.nix
@@ -95,10 +97,45 @@
             enableBashIntegration = false;
             enableFishIntegration = false;
         };
+        git = {
+            enable = true;
+            lfs.enable = true;
+            config = {
+                init.defaultBranch = "main";
+                core.editor = "vim";
+                user = {
+                    name = "piquel";
+                    email = "piquel@piquel.fr";
+                };
+                url = {
+                    "git@github.com:" = {
+                        insteadOf = [ "https://github.com/" ];
+                    };
+                };
+                filter."lfs" = {
+                    clean = "git-lfs clean -- %f";
+                    smudge = "git-lfs smudge -- %f";
+                    process = "git-lfs filter-process";
+                    required = true;
+                };
+            };
+        };
     };
 
     services = {
-        nvim.lsp = true;
+        tmux.enable = true;
+        openssh = {
+            enable = true;
+            settings = {
+                UsePAM = false;
+                PasswordAuthentication = false;
+                PermitRootLogin = "no";
+            };
+        };
+        nvim = {
+            enable = true;
+            lsp = true;
+        };
         flatpak.enable =true;
         hypridle.enable = true;
         locate = {
@@ -122,5 +159,9 @@
     fonts = {
         enableDefaultPackages = true;
         packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
+    };
+
+    virtualisation.docker = {
+        enable = true;
     };
 }

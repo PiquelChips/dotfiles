@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ outputs, pkgs, ... }:
 {
     imports = [
         ./hardware-configuration.nix
@@ -74,13 +74,67 @@
                 };
             };
         };
+        nameservers = [
+            "1.1.1.1"
+            "1.0.0.1"
+        ];
     };
     
-    environment.systemPackages = with pkgs; [
-        xdg-user-dirs
-        mesa
-        alsa-utils
-        alsa-scarlett-gui
-        rocmPackages.rocm-smi
-    ];
+    environment = {
+        shells = with pkgs; [ zsh ];
+        variables = {
+            LANG = "en_US.UTF-8";
+            EDITOR = "vim";
+        };
+        systemPackages = with pkgs; [
+            zsh neovim zip unzip tree fd fzf file
+            xdg-user-dirs
+            mesa
+            alsa-utils
+            alsa-scarlett-gui
+            rocmPackages.rocm-smi
+        ];
+    };
+
+    # NIX CONFIGURATION
+
+    nixpkgs.overlays = [ outputs.overlays.additions ];
+
+    nix = {
+        gc = {
+            automatic = true;
+            options = "--delete-older-than 10d";
+            dates = "weekly";
+        };
+        settings = {
+            auto-optimise-store = true;
+            experimental-features = [ "nix-command" "flakes" ];
+            trusted-users = [ "root" "@wheel" "piquel" ];
+        };
+    };
+
+    system = {
+        stateVersion = "25.11";
+        userActivationScripts.zshrc = "touch .zshrc";
+        autoUpgrade.enable = true;
+        autoUpgrade.dates = "daily";
+    };
+
+    # LANGUAGE & i18n SETTINGS
+
+    time.timeZone = "Europe/Paris";
+
+    console.keyMap = "fr";
+    i18n.defaultLocale = "en_US.UTF-8";
+    i18n.extraLocaleSettings = {
+        LC_ADDRESS = "fr_FR.UTF-8";
+        LC_IDENTIFICATION = "fr_FR.UTF-8";
+        LC_MEASUREMENT = "fr_FR.UTF-8";
+        LC_MONETARY = "fr_FR.UTF-8";
+        LC_NAME = "fr_FR.UTF-8";
+        LC_NUMERIC = "fr_FR.UTF-8";
+        LC_PAPER = "fr_FR.UTF-8";
+        LC_TELEPHONE = "fr_FR.UTF-8";
+        LC_TIME = "fr_FR.UTF-8";
+    };
 }
