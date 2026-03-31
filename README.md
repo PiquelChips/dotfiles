@@ -19,4 +19,3 @@ My dotfiles
 ## Update
 
 - Machine: `sudo nixos-rebuild switch --flake .#piquel --upgrade`
-- RaspberryPi: `nixos-rebuild switch --flake .#pi --target-host piquel@remote.piquel.fr --sudo --ask-sudo-password`
