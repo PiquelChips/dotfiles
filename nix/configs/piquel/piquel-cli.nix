@@ -38,6 +38,14 @@
           ];
         };
 
+        infra = {
+          root = "~/Projects/infra";
+          windows = [
+            { commands = [ "vim ." ]; }
+            { commands = [ "git pull" ]; }
+          ];
+        };
+
         vps-setup = {
           root = "~/Projects/vps-setup";
           windows = [
