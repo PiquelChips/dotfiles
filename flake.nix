@@ -17,10 +17,6 @@
             inputs.flake-utils.follows = "flake-utils";
         };
         #nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-        nixos-raspberrypi = {
-            url = "github:nvmd/nixos-raspberrypi/main";
-            #inputs.nixpkgs.follows = "nixpkgs";
-        };
         nixvim = {
             url = "github:nix-community/nixvim/nixos-25.11";
             inputs.nixpkgs.follows = "nixpkgs";
@@ -28,16 +24,7 @@
         };
     };
 
-    nixConfig = {
-        extra-substituters = [
-            "https://nixos-raspberrypi.cachix.org"
-        ];
-        extra-trusted-public-keys = [
-            "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI="
-        ];
-    };
-
-    outputs = { self, flake-utils, nixpkgs, nixos-raspberrypi, ... }@inputs:
+    outputs = { self, flake-utils, nixpkgs, ... }@inputs:
     let
         inherit (self) outputs;
     in
@@ -49,10 +36,6 @@
             piquel = nixpkgs.lib.nixosSystem {
                 specialArgs = { inherit inputs outputs; };
                 modules = [ ./nix/configs/piquel ];
-            };
-            pi = nixos-raspberrypi.lib.nixosSystem {
-                specialArgs = { inherit inputs outputs nixos-raspberrypi; };
-                modules = [ ./nix/configs/pi ];
             };
         };
     } //
