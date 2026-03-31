@@ -43,6 +43,7 @@
           windows = [
             { commands = [ "vim ." ]; }
             { commands = [ "git pull" ]; }
+            { commands = [ "ssh piquel@remote.piquel.fr" ]; }
           ];
         };
 
