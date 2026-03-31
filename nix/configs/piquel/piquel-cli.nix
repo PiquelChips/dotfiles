@@ -24,15 +24,6 @@
                 "git pull"
                 "sudo nix flake update"
                 "sudo nixos-rebuild switch --flake .#piquel --upgrade"
-                "nixos-rebuild switch --flake .#pi --target-host piquel@remote.piquel.fr --sudo --ask-sudo-password --no-reexec"
-              ];
-            }
-            { commands = [ "ssh piquel@remote.piquel.fr" ]; }
-            {
-              commands = [
-                "cd secrets"
-                "git pull"
-                "vim ."
               ];
             }
           ];
@@ -42,7 +33,12 @@
           root = "~/Projects/infra";
           windows = [
             { commands = [ "vim ." ]; }
-            { commands = [ "git pull" ]; }
+            {
+              commands = [
+                "git pull"
+                "sudo nix flake update"
+              ];
+            }
             { commands = [ "ssh piquel@remote.piquel.fr" ]; }
           ];
         };
