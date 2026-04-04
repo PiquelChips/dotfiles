@@ -107,11 +107,6 @@
                     name = "piquel";
                     email = "piquel@piquel.fr";
                 };
-                url = {
-                    "git@github.com:" = {
-                        insteadOf = [ "https://github.com/" ];
-                    };
-                };
                 filter."lfs" = {
                     clean = "git-lfs clean -- %f";
                     smudge = "git-lfs smudge -- %f";
