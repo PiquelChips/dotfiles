@@ -22,7 +22,7 @@
             {
               commands = [
                 "git pull"
-                "sudo nix flake update"
+                "nix flake update"
                 "sudo nixos-rebuild switch --flake .#piquel --upgrade"
               ];
             }
@@ -36,7 +36,7 @@
             {
               commands = [
                 "git pull"
-                "sudo nix flake update"
+                "nix flake update"
               ];
             }
             { commands = [ "ssh piquel@remote.piquel.fr" ]; }
@@ -145,7 +145,12 @@
           root = "~/Projects/DirkEngine";
           windows = [
             { commands = [ "vim ." ]; }
-            { commands = [ "git pull" ]; }
+            {
+              commands = [
+                "git pull"
+                "cargo clippy"
+              ];
+            }
           ];
         };
 
