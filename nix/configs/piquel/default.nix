@@ -57,7 +57,7 @@
                 dotnetCorePackages.dotnet_9.sdk
 
                 # DirkEngine
-                wayland libxkbcommon
+                wayland libxkbcommon vulkan-loader vulkan-validation-layers
             ];
             openssh.authorizedKeys.keys = [
                 "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHVqRluVYJXXoNYyFQzkZm2v2bRnAv/PNuoLRr2G2/Dv piquel@piquel.fr"

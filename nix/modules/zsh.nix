@@ -43,7 +43,8 @@ in
                 
                 source ${fzf-tab}/fzf-tab.plugin.zsh
                 ${lib.optionalString cfg.enableVulkanConfig ''
-                export LD_LIBRARY_PATH="${pkgs.wayland}/lib:${pkgs.libxkbcommon}/lib:$LD_LIBRARY_PATH"
+                export LD_LIBRARY_PATH="${pkgs.vulkan-loader}/lib:${pkgs.wayland}/lib:${pkgs.libxkbcommon}/lib:$LD_LIBRARY_PATH"
+                export VK_ADD_LAYER_PATH="${pkgs.vulkan-validation-layers}/share/vulkan/explicit_layer.d"
                 ''}
             '';
             promptInit = ''
