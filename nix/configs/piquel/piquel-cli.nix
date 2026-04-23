@@ -62,6 +62,15 @@
           windows = [
             { commands = [ "vim ." ]; }
             { commands = [ "git pull" ]; }
+            { commands = [ "cargo clippy" ]; }
+          ];
+        };
+
+        piquel-web = {
+          root = "~/Projects/piquel-web";
+          windows = [
+            { commands = [ "vim ." ]; }
+            { commands = [ "git pull" ]; }
             {
               commands = [
                 "deno install"
