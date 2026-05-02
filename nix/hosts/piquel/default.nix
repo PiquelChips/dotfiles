@@ -61,7 +61,7 @@
               blender kitty firefox hyprpaper prismlauncher
               discord heroic jetbrains-toolbox ladybird
               hyprlauncher hyprtoolkit hyprpolkitagent hyprpwcenter
-              pwvucontrol spotify obsidian tailscale
+              pwvucontrol spotify obsidian
               # Libs
               icu
       
@@ -157,6 +157,7 @@
               address = "192.168.1.44";
             };
           };
+          tailscale.enable = true;
         };
 
         fonts = {
