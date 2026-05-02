@@ -61,7 +61,7 @@
               blender kitty firefox hyprpaper prismlauncher
               discord heroic jetbrains-toolbox ladybird
               hyprlauncher hyprtoolkit hyprpolkitagent hyprpwcenter
-              pwvucontrol spotify obsidian
+              pwvucontrol spotify obsidian tailscale
               # Libs
               icu
       
