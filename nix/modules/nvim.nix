@@ -1,7 +1,7 @@
-{ ... }:
+{ inputs, ... }:
 {
   flake.nixosModules.nvim =
-    { inputs, ... }:
+    { ... }:
     {
       imports = [
         inputs.nixvim.nixosModules.nixvim

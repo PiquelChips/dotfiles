@@ -1,7 +1,7 @@
-{ ... }:
+{ inputs, ... }:
 {
   flake.nixosModules.piquel-cli =
-    { inputs, ... }:
+    { ... }:
     {
       imports = [
         inputs.piquel-cli.nixosModules.default
