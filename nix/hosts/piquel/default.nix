@@ -7,6 +7,7 @@
         self.nixosModules.zsh
         self.nixosModules.tmux
         self.nixosModules.piquel-cli
+        self.nixosModules.secrets
 
         self.nixosModules.piquel
       ];
