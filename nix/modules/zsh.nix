@@ -40,10 +40,6 @@
           export PATH="$HOME/go/bin:$HOME/.cargo/bin:$PATH"
 
           source ${fzf-tab}/fzf-tab.plugin.zsh
-
-          # Vulkan Configuration
-          export LD_LIBRARY_PATH="${pkgs.vulkan-loader}/lib:${pkgs.wayland}/lib:${pkgs.libxkbcommon}/lib:$LD_LIBRARY_PATH"
-          export VK_ADD_LAYER_PATH="${pkgs.vulkan-validation-layers}/share/vulkan/explicit_layer.d"
         '';
         promptInit = ''
           CASE_SENSITIVE="true"
