@@ -18,6 +18,7 @@
     piqueld = {
       url = "github:piquel-fr/piqueld";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
     };
   };
 
@@ -26,13 +27,21 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
         "x86_64-linux"
+        "aarch64-linux"
+        "aarch64-darwin"
       ];
+      # TODO: fixup imports (use import-tree)
+      # TODO: readd formatter
       imports = [
-        ./nix/hosts
+        ./nix/modules/zsh.nix
+        ./nix/modules/nvim.nix
+        ./nix/modules/tmux.nix
+        ./nix/modules/piquel-cli.nix
+
+        ./nix/shells/default.nix
+        ./nix/hosts/piquel
         ./nix/overlays
-        ./nix/pkgs
-        ./nix/shells
-        ./nix/modules
+        ./nix/pkgs/piquel-vim.nix
       ];
     };
 }
