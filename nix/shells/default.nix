@@ -1,9 +1,9 @@
 { self, ... }:
 {
-  flake.devShells =
+  perSystem =
     { pkgs, ... }:
     {
-      default = pkgs.mkShell {
+      devShells.default = pkgs.mkShell {
         buildInputs = [
           pkgs.zsh
           self.packages.${pkgs.system}.piquel-vim
