@@ -1,4 +1,4 @@
-{ outputs, pkgs, ... }:
+{ pkgs, ... }:
 {
     imports = [
         ./hardware-configuration.nix
@@ -97,8 +97,6 @@
     };
 
     # NIX CONFIGURATION
-
-    nixpkgs.overlays = [ outputs.overlays.additions ];
 
     nix = {
         gc = {
