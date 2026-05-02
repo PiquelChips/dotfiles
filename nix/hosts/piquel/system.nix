@@ -50,9 +50,11 @@
       xorg.libXfixes
       xorg.libXrandr
 
-      # For DirkEngine platform
+      # DirkEngine
       wayland
       libxkbcommon
+      vulkan-loader
+      vulkan-validation-layers
 
       # Hazel
       gtk3
@@ -91,7 +93,6 @@
       EDITOR = "vim";
 
       # Vulkan Configuration
-      LD_LIBRARY_PATH = "${pkgs.vulkan-loader}/lib:${pkgs.wayland}/lib:${pkgs.libxkbcommon}/lib";
       VK_ADD_LAYER_PATH = "${pkgs.vulkan-validation-layers}/share/vulkan/explicit_layer.d";
     };
     systemPackages = with pkgs; [
