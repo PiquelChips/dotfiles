@@ -1,0 +1,259 @@
+{ ... }:
+{
+  flake.nixosModules.piquel-cli =
+    { inputs, ... }:
+    {
+      imports = [
+        inputs.piquel-cli.nixosModules.default
+      ];
+
+      programs.piquelcli = {
+        enable = true;
+        settings = {
+          validate_session_root = false;
+
+          default_session = [
+            { commands = [ "vim ." ]; }
+            { commands = [ "git pull" ]; }
+          ];
+
+          sessions = {
+            dotfiles = {
+              root = "~/dotfiles";
+              windows = [
+                { commands = [ "vim ." ]; }
+                {
+                  commands = [
+                    "git pull"
+                    "nix flake update"
+                    "sudo nixos-rebuild switch --flake .#piquel --upgrade"
+                  ];
+                }
+              ];
+            };
+
+            infra = {
+              root = "~/Projects/infra";
+              windows = [
+                { commands = [ "vim ." ]; }
+                {
+                  commands = [
+                    "git pull"
+                    "nix flake update"
+                  ];
+                }
+                { commands = [ "ssh piquel@remote.piquel.fr" ]; }
+              ];
+            };
+
+            vps-setup = {
+              root = "~/Projects/vps-setup";
+              windows = [
+                { commands = [ "vim ." ]; }
+                {
+                  commands = [
+                    "git pull"
+                    "docker --context default compose up -d"
+                  ];
+                }
+                { commands = [ "ssh piquel@piquel.fr" ]; }
+              ];
+            };
+
+            piquel-fr = {
+              root = "~/Projects/piquel-fr";
+              windows = [
+                { commands = [ "vim ." ]; }
+                { commands = [ "git pull" ]; }
+                { commands = [ "cargo clippy" ]; }
+              ];
+            };
+
+            piquel-web = {
+              root = "~/Projects/piquel-web";
+              windows = [
+                { commands = [ "vim ." ]; }
+                { commands = [ "git pull" ]; }
+                {
+                  commands = [
+                    "deno install"
+                    "deno task dev"
+                  ];
+                }
+              ];
+            };
+
+            piquel-api = {
+              root = "~/Projects/piquel-api";
+              windows = [
+                { commands = [ "vim ." ]; }
+                { commands = [ "git pull" ]; }
+                { commands = [ "air" ]; }
+              ];
+            };
+
+            piqueld = {
+              root = "~/Projects/piqueld";
+              windows = [
+                { commands = [ "vim ." ]; }
+                {
+                  commands = [
+                    "git pull"
+                    "cargo run --bin piquelctl"
+                  ];
+                }
+                { commands = [ "cargo watch -x 'run --bin piqueld -- -v --config ./config.json'" ]; }
+              ];
+            };
+
+            piquel-cli = {
+              root = "~/Projects/piquel-cli";
+              windows = [
+                { commands = [ "vim ." ]; }
+                { commands = [ "git pull" ]; }
+              ];
+            };
+
+            steam = {
+              root = "~";
+              windows = [
+                { commands = [ "steam" ]; }
+              ];
+            };
+
+            hytale = {
+              root = "~/Projects/Hytale";
+              windows = [
+                {
+                  commands = [
+                    "cd HytalePlugin"
+                    "git pull"
+                    "vim ."
+                  ];
+                }
+                {
+                  commands = [
+                    "cd HytalePlugin"
+                    "./gradlew build"
+                  ];
+                }
+                {
+                  commands = [
+                    "flatpak --user run com.hypixel.HytaleLauncher"
+                    "cd Config"
+                    "vim ."
+                  ];
+                }
+                {
+                  commands = [
+                    "cd Server"
+                    "java -jar HytaleServer.jar --assets ../Assets.zip"
+                  ];
+                }
+              ];
+            };
+
+            dirkengine = {
+              root = "~/Projects/DirkEngine";
+              windows = [
+                { commands = [ "vim ." ]; }
+                {
+                  commands = [
+                    "git pull"
+                    "cargo clippy"
+                  ];
+                }
+              ];
+            };
+
+            dirkengine-cpp = {
+              root = "~/Projects/DirkEngine-cpp";
+              windows = [
+                { commands = [ "vim ." ]; }
+                {
+                  commands = [
+                    "git pull"
+                    "make"
+                  ];
+                }
+              ];
+            };
+
+            catan = {
+              root = "~/Projects/Catan";
+              windows = [
+                { commands = [ "vim ." ]; }
+                { commands = [ "git pull" ]; }
+                {
+                  commands = [
+                    "~/Projects/UnrealEngine/Engine/Binaries/Linux/UnrealEditor ~/Projects/Catan/Catan.uproject"
+                  ];
+                }
+              ];
+            };
+
+            dirk = {
+              root = "~/Projects/Dirk";
+              windows = [
+                { commands = [ "vim ." ]; }
+                { commands = [ "git pull" ]; }
+              ];
+            };
+
+            homework = {
+              root = "~/homework";
+              windows = [
+                { commands = [ "vim ." ]; }
+                { commands = [ "git pull" ]; }
+              ];
+            };
+
+            openmc = {
+              root = "~/Projects/OpenMC";
+              windows = [
+                {
+                  commands = [
+                    "cd PluginV2"
+                    "vim ."
+                  ];
+                }
+                {
+                  commands = [
+                    "cd PluginV2"
+                    "git pull"
+                    "./gradlew shadowJar"
+                  ];
+                }
+                {
+                  commands = [
+                    "cd ItemsAdder"
+                    "git pull"
+                    "cd ../Server"
+                    "vim ."
+                  ];
+                }
+                {
+                  commands = [
+                    "cd Server"
+                    "./start.sh"
+                  ];
+                }
+              ];
+            };
+
+            screenshots = {
+              root = "~/Pictures/Screenshots";
+              windows = [
+                {
+                  commands = [
+                    "git pull"
+                    "yazi"
+                  ];
+                }
+              ];
+            };
+          };
+        };
+      };
+    };
+}
