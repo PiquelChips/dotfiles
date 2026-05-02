@@ -6,7 +6,7 @@
       devShells.default = pkgs.mkShell {
         buildInputs = [
           pkgs.zsh
-          self.packages.${pkgs.system}.piquel-vim
+          self.packages.${pkgs.stdenv.hostPlatform.system}.piquel-vim
         ];
         shellHook = "exec zsh";
       };
