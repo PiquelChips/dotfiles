@@ -31,10 +31,14 @@
         "aarch64-linux"
         "aarch64-darwin"
       ];
-      # TODO: readd formatter
       imports = [
         ./nix
         ./nix/hosts
       ];
+      perSystem =
+        { pkgs, ... }:
+        {
+          formatter = pkgs.nixfmt;
+        };
     };
 }
