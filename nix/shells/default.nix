@@ -1,10 +1,14 @@
-{ outputs, pkgs, ... }:
+{ self, ... }:
 {
-    default = pkgs.mkShell {
+  flake.devShells =
+    { pkgs, ... }:
+    {
+      default = pkgs.mkShell {
         buildInputs = [
-            pkgs.zsh
-            outputs.packages.${pkgs.stdenv.hostPlatform.system}.piquel-vim
+          pkgs.zsh
+          self.packages.${pkgs.system}.piquel-vim
         ];
         shellHook = "exec zsh";
+      };
     };
 }
