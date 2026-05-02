@@ -11,4 +11,8 @@ let
   ];
 in
 {
+  "psswd.age".publicKeys = [
+    piquel
+    nixosbtw
+  ];
 }

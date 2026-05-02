@@ -13,7 +13,7 @@
       ];
     };
     nixosModules.piquel =
-      { pkgs, lib, ... }:
+      { pkgs, config, lib, ... }:
       {
         imports = [
           ./system.nix
@@ -75,6 +75,7 @@
               # DirkEngine
               wayland libxkbcommon vulkan-loader vulkan-validation-layers
             ];
+            hashedPasswordFile = config.age.secrets.psswd.path;
             openssh.authorizedKeys.keys = [
               "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHVqRluVYJXXoNYyFQzkZm2v2bRnAv/PNuoLRr2G2/Dv piquel@piquel.fr"
             ];
