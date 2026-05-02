@@ -1,51 +1,38 @@
 {
-    description = "Piquel system configuration";
+  description = "Piquel system configuration";
 
-    inputs = {
-        nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
-        systems.url = "github:nix-systems/default";
-        flake-utils.url = "github:numtide/flake-utils";
-        piquel-cli = {
-            url = "github:PiquelChips/piquel-cli";
-            inputs.nixpkgs.follows = "nixpkgs";
-            inputs.flake-utils.follows = "flake-utils";
-        };
-        piqueld = {
-            url = "github:piquel-fr/piqueld";
-            inputs.nixpkgs.follows = "nixpkgs";
-            inputs.flake-utils.follows = "flake-utils";
-        };
-        #nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-        nixvim = {
-            url = "github:nix-community/nixvim/nixos-25.11";
-            inputs.nixpkgs.follows = "nixpkgs";
-            inputs.systems.follows = "systems";
-        };
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
     };
 
-    outputs = { self, flake-utils, nixpkgs, ... }@inputs:
-    let
-        inherit (self) outputs;
-    in
-    {
-        nixosModules = import ./nix/modules;
-        overlays = import ./nix/overlays { inherit inputs; };
+    piquel-cli = {
+      url = "github:PiquelChips/piquel-cli";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    piqueld = {
+      url = "github:piquel-fr/piqueld";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
 
-        nixosConfigurations = {
-            piquel = nixpkgs.lib.nixosSystem {
-                specialArgs = { inherit inputs outputs; };
-                modules = [ ./nix/configs/piquel ];
-            };
-        };
-    } //
-    flake-utils.lib.eachDefaultSystem (system:
-    let
-        inherit (self) outputs;
-        pkgs = nixpkgs.legacyPackages.${system};
-    in
-    {
-        packages = import ./nix/pkgs { inherit inputs; } pkgs;
-        devShells = import ./nix/shells { inherit pkgs outputs; };
-        formatter = nixpkgs.legacyPackages.${system}.nixfmt;
-    });
+  outputs =
+    inputs@{ flake-parts, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [
+        "x86_64-linux"
+      ];
+      imports = [
+        ./nix/hosts
+        ./nix/overlays
+        ./nix/pkgs
+        ./nix/shells
+        ./nix/modules
+      ];
+    };
 }
