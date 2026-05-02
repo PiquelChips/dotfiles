@@ -31,18 +31,10 @@
         "aarch64-linux"
         "aarch64-darwin"
       ];
-      # TODO: fixup imports (use import-tree)
       # TODO: readd formatter
       imports = [
-        ./nix/modules/zsh.nix
-        ./nix/modules/nvim.nix
-        ./nix/modules/tmux.nix
-        ./nix/modules/piquel-cli.nix
-
-        ./nix/shells/default.nix
-        ./nix/hosts/piquel
-        ./nix/overlays
-        ./nix/pkgs/piquel-vim.nix
+        ./nix
+        ./nix/hosts
       ];
     };
 }
