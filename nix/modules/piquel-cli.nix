@@ -110,7 +110,25 @@
               root = "~/Projects/piquel-cli";
               windows = [
                 { commands = [ "vim ." ]; }
-                { commands = [ "git pull" ]; }
+                {
+                  commands = [
+                    "git pull"
+                    "cargo clippy"
+                  ];
+                }
+              ];
+            };
+
+            event-dispatcher = {
+              root = "~/Projects/event-dispatcher";
+              windows = [
+                { commands = [ "vim ." ]; }
+                {
+                  commands = [
+                    "git pull"
+                    "cargo clippy"
+                  ];
+                }
               ];
             };
 
