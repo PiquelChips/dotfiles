@@ -56,7 +56,7 @@
               sqlc docker-buildx neofetch zoxide gnumake mpv
               p7zip postgresql cmake pkg-config tailwindcss_4
               grim swappy slurp file wayland-scanner btop gdb
-              atlas
+              atlas cloc
               cargo-watch
               # Apps
               blender kitty firefox hyprpaper prismlauncher
