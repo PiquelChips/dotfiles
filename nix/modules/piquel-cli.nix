@@ -132,13 +132,6 @@
               ];
             };
 
-            steam = {
-              root = "~";
-              windows = [
-                { commands = [ "steam" ]; }
-              ];
-            };
-
             hytale = {
               root = "~/Projects/Hytale";
               windows = [
