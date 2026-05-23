@@ -102,7 +102,7 @@
                     "cargo run --bin piquelctl"
                   ];
                 }
-                { commands = [ "cargo watch -x 'run --bin piqueld -- -v --config ./config.json'" ]; }
+                { commands = [ "cargo watch -x 'run --bin piqueld -- -v --config ./test/config.toml'" ]; }
               ];
             };
 
@@ -119,8 +119,8 @@
               ];
             };
 
-            event-dispatcher = {
-              root = "~/Projects/event-dispatcher";
+            piquel-log = {
+              root = "~/Projects/piquel-log";
               windows = [
                 { commands = [ "vim ." ]; }
                 {
