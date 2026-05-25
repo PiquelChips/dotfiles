@@ -37,7 +37,7 @@
         shellInit = ''
           fpath=(~/dotfiles/config/zsh-completions $fpath)
 
-          export PATH="$HOME/go/bin:$HOME/.cargo/bin:$PATH"
+          export PATH="$HOME/go/bin:$HOME/.cargo/bin:$HOME/.npm-global/bin:$PATH"
           export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$NIX_LD_LIBRARY_PATH"
 
           source ${fzf-tab}/fzf-tab.plugin.zsh
