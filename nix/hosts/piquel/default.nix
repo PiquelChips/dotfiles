@@ -134,6 +134,10 @@
               };
             };
           };
+          appimage = {
+            enable = true;
+            binfmt = true;
+          };
         };
 
         services = {
@@ -160,10 +164,6 @@
             };
           };
           tailscale.enable = true;
-          appimage = {
-            enable = true;
-            binfmt = true;
-          };
         };
 
         fonts = {
