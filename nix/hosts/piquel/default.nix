@@ -7,12 +7,13 @@
         self.nixosModules.zsh
         self.nixosModules.tmux
         self.nixosModules.piquel-cli
+        self.nixosModules.secrets
 
         self.nixosModules.piquel
       ];
     };
     nixosModules.piquel =
-      { pkgs, lib, ... }:
+      { pkgs, config, lib, ... }:
       {
         imports = [
           ./system.nix
@@ -50,12 +51,12 @@
               typescript-language-server
               vscode-langservers-extracted
               # Utils
-              feh wl-clipboard stow tree yazi lazydocker
+              gh feh wl-clipboard stow tree yazi lazydocker
               ffmpeg fd ripgrep imagemagick poppler fzf air
               sqlc docker-buildx neofetch zoxide gnumake mpv
               p7zip postgresql cmake pkg-config tailwindcss_4
               grim swappy slurp file wayland-scanner btop gdb
-              atlas
+              atlas cloc
               cargo-watch
               # Apps
               blender kitty firefox hyprpaper prismlauncher
@@ -74,6 +75,7 @@
               # DirkEngine
               wayland libxkbcommon vulkan-loader vulkan-validation-layers
             ];
+            hashedPasswordFile = config.age.secrets.psswd.path;
             openssh.authorizedKeys.keys = [
               "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHVqRluVYJXXoNYyFQzkZm2v2bRnAv/PNuoLRr2G2/Dv piquel@piquel.fr"
             ];
@@ -131,6 +133,10 @@
                 required = true;
               };
             };
+          };
+          appimage = {
+            enable = true;
+            binfmt = true;
           };
         };
 

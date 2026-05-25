@@ -102,7 +102,7 @@
                     "cargo run --bin piquelctl"
                   ];
                 }
-                { commands = [ "cargo watch -x 'run --bin piqueld -- -v --config ./config.json'" ]; }
+                { commands = [ "cargo watch -x 'run --bin piqueld -- -v --config ./test/config.toml'" ]; }
               ];
             };
 
@@ -110,14 +110,25 @@
               root = "~/Projects/piquel-cli";
               windows = [
                 { commands = [ "vim ." ]; }
-                { commands = [ "git pull" ]; }
+                {
+                  commands = [
+                    "git pull"
+                    "cargo clippy"
+                  ];
+                }
               ];
             };
 
-            steam = {
-              root = "~";
+            piquel-log = {
+              root = "~/Projects/piquel-log";
               windows = [
-                { commands = [ "steam" ]; }
+                { commands = [ "vim ." ]; }
+                {
+                  commands = [
+                    "git pull"
+                    "cargo clippy"
+                  ];
+                }
               ];
             };
 
