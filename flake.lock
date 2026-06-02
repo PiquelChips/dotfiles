@@ -251,11 +251,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1780169622,
-        "narHash": "sha256-3ubSBvzeB3paV+0ls6UCk7J8AtnWKQmGnbMdObML500=",
+        "lastModified": 1780389947,
+        "narHash": "sha256-+srCgBtgMY8+XUq3zl9XLoI9JsMs5NJcrFPsKmnWPH8=",
         "owner": "PiquelChips",
         "repo": "piquel-cli",
-        "rev": "1ba54e8f2cba0c4b9ac88a14668e278d7aecdaba",
+        "rev": "9dfaec046af0fafcefc5b0dcfdf1c3251fdd1c21",
         "type": "github"
       },
       "original": {
