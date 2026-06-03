@@ -26,7 +26,7 @@
 
         shellAliases = {
           l = "ls -alF";
-          p = "piquel load $(piquel list | fzf)";
+          p = "piquel pick";
         };
 
         ohMyZsh = {
