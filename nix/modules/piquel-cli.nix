@@ -219,6 +219,21 @@
                 ];
               };
             }
+            {
+              repository = "git@github.com:pingdotgg/t3code";
+              default_session = {
+                windows = [
+                  { commands = [ "vim ." ]; }
+                  { commands = [
+                      "git pull"
+                      "nix shell nixpkgs#bun"
+                      "bun run dist:desktop:linux"
+                      "appimage-run ./release/T3-Code-0.0.24-x86_64.AppImage"
+                    ];
+                  }
+                ];
+              };
+            }
           ];
         };
       };
