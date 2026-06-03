@@ -97,7 +97,6 @@
     };
     systemPackages = with pkgs; [
       zsh
-      neovim
       zip
       unzip
       tree
