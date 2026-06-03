@@ -42,13 +42,13 @@
       libdrm
       expat
       # this too
-      xorg.libxcb
-      xorg.libX11
-      xorg.libXcomposite
-      xorg.libXdamage
-      xorg.libXext
-      xorg.libXfixes
-      xorg.libXrandr
+      libxcb
+      libX11
+      libXcomposite
+      libXdamage
+      libXext
+      libXfixes
+      libXrandr
 
       # DirkEngine
       wayland
