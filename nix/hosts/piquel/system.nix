@@ -41,6 +41,7 @@
       libgbm
       libdrm
       expat
+      cups
       # this too
       libxcb
       libX11

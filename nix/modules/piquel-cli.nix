@@ -224,11 +224,11 @@
               default_session = {
                 windows = [
                   { commands = [ "vim ." ]; }
-                  { commands = [
+                  {
+                    commands = [
                       "git pull"
-                      "nix shell nixpkgs#bun"
-                      "bun run dist:desktop:linux"
-                      "appimage-run ./release/T3-Code-0.0.24-x86_64.AppImage"
+                      "pnpm run dist:desktop:linux"
+                      "pnpm run start:desktop"
                     ];
                   }
                 ];
