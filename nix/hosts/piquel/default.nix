@@ -57,7 +57,9 @@
               p7zip postgresql cmake pkg-config tailwindcss_4
               grim swappy slurp file wayland-scanner btop gdb
               atlas cloc pnpm
-              cargo-watch
+              # Cargo extensions
+              cargo-watch cargo-nextest cargo-deny
+              cargo-workspaces cargo-expand
               # Apps
               blender kitty firefox hyprpaper prismlauncher
               discord heroic jetbrains-toolbox ladybird
