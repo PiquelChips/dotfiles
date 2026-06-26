@@ -37,6 +37,7 @@
             in
             [
               # Programmings languages
+              rustup
               fenix.stable.toolchain
 
               gcc go python3 deno
