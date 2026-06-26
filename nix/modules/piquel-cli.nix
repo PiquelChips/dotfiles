@@ -172,6 +172,10 @@
               };
             }
             {
+              repository = "git@github.com:bevyengine/bevy.git";
+              default_session = "rust";
+            }
+            {
               repository = "git@github.com:DirkEngine/DirkEngine.git";
               name = "dirkengine";
               path = "~/Projects/DirkEngine";
