@@ -140,6 +140,10 @@
               };
             };
           };
+          appimage = {
+            enable = true;
+            binfmt = true;
+          };
         };
 
         services = {
