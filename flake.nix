@@ -16,6 +16,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     piquel-cli = {
       url = "github:PiquelChips/piquel-cli";
       inputs.nixpkgs.follows = "nixpkgs";

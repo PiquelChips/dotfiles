@@ -31,9 +31,17 @@
               "piqueld"
             ]; # "scanner" "lp" ];
             shell = pkgs.zsh;
-            packages = with pkgs; [
+            packages = with pkgs; 
+            let
+              fenix = inputs.fenix.packages.${pkgs.stdenv.hostPlatform.system};
+              
+              rust-1-94 = (fenix.fromToolchainName { name = "1.94.0"; sha256 = "sha256-qqF33vNuAdU5vua96VKVIwuc43j4EFeEXbjQ6+l4mO4="; });
+            in
+            [
               # Programmings languages
-              rustup
+              fenix.stable.toolchain
+              rust-1-94.toolchain
+
               gcc go python3 deno
               nodejs jdk25 clang
               libcxx libgcc
