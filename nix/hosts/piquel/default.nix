@@ -30,9 +30,15 @@
               "piqueld"
             ]; # "scanner" "lp" ];
             shell = pkgs.zsh;
-            packages = with pkgs; [
+            packages = with pkgs; 
+            let
+              fenix = inputs.fenix.packages.${pkgs.stdenv.hostPlatform.system};
+            in
+            [
               # Programmings languages
               rustup
+              fenix.stable
+
               gcc go python3 deno
               nodejs jdk25 clang
               libcxx libgcc
