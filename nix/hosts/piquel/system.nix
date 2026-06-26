@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -68,23 +68,42 @@
 
   networking = {
     hostName = "nixosbtw";
+
     networkmanager = {
       enable = true;
-      wifi.backend = "iwd";
-    };
-    interfaces."enp39s0".wakeOnLan.enable = true;
-    wireless.iwd = {
-      enable = true;
-      settings = {
-        Settings = {
-          AutoConnect = true;
+
+      insertNameservers = [
+        "1.1.1.1"
+        "1.0.0.1"
+      ];
+
+      ensureProfiles = {
+        environmentFiles = [ config.age.secrets.wifi-env.path ];
+
+        profiles."primary-wifi" = {
+          connection = {
+            id = "primary-wifi";
+            type = "wifi";
+            autoconnect = true;
+          };
+
+          wifi = {
+            mode = "infrastructure";
+            ssid = "$SSID";
+          };
+
+          wifi-security = {
+            key-mgmt = "wpa-psk";
+            psk = "$PSK";
+          };
+
+          ipv4.method = "auto";
+          ipv6.method = "auto";
         };
       };
     };
-    nameservers = [
-      "1.1.1.1"
-      "1.0.0.1"
-    ];
+
+    interfaces."enp39s0".wakeOnLan.enable = true;
   };
 
   environment = {
