@@ -16,6 +16,10 @@
 
       age.secrets = {
         psswd.file = dir + /psswd.age;
+        wifi-env = {
+          file = dir + /wifi-env.age;
+          mode = "0400";
+        };
       };
     };
 }

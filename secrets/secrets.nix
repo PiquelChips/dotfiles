@@ -15,4 +15,9 @@ in
     piquel
     nixosbtw
   ];
+
+  "wifi-env.age".publicKeys = [
+    piquel
+    nixosbtw
+  ];
 }
