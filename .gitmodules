@@ -1,3 +1,0 @@
-[submodule "secrets"]
-	path = secrets-old
-	url = git@github.com:PiquelChips/secrets.git
