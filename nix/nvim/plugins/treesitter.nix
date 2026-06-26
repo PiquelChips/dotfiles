@@ -4,11 +4,13 @@
         enable = true;
         nixGrammars = true;
         grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
-            bash json make regex xml yaml
+            bash json make regex xml yaml toml
             nix c cpp lua vim vimdoc
-            query go sql css
-            java javascript
-            markdown svelte
+            query go sql css html
+            java javascript typescript tsx
+            markdown markdown_inline svelte
+            diff d desktop dockerfile
+            gitcommit gitignore glsl hyprlang ini rust
         ];
         nixvimInjections = true;
 
