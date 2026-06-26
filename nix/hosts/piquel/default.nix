@@ -56,12 +56,12 @@
               typescript-language-server
               vscode-langservers-extracted
               # Utils
-              feh wl-clipboard stow tree yazi lazydocker
+              gh feh wl-clipboard stow tree yazi lazydocker
               ffmpeg fd ripgrep imagemagick poppler fzf air
-              sqlc docker-buildx neofetch zoxide gnumake mpv
+              sqlc docker-buildx zoxide gnumake mpv
               p7zip postgresql cmake pkg-config tailwindcss_4
               grim swappy slurp file wayland-scanner btop gdb
-              atlas
+              atlas cloc pnpm
               # Cargo extensions
               cargo-watch cargo-nextest cargo-deny
               cargo-workspaces cargo-expand
