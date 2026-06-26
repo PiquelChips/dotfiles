@@ -4,7 +4,16 @@
         inlayHints.enable = false;
         servers = {
             gopls.enable = true;
-            rust_analyzer.enable = true;
+            rust_analyzer = {
+                enable = true;
+                config = {
+                    settings = {
+                        "rust-analyzer" = {
+                            cargo.allFeatures = true;
+                        };
+                    };
+                };
+            };
             bashls.enable = true;
             cssls.enable = true;
             dockerls.enable = true;
