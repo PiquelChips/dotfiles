@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./mac
     ./piquel
   ];
 }
