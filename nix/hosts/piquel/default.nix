@@ -13,7 +13,12 @@
       ];
     };
     nixosModules.piquel =
-      { pkgs, config, lib, ... }:
+      {
+        pkgs,
+        config,
+        lib,
+        ...
+      }:
       {
         imports = [
           ./system.nix
@@ -31,58 +36,7 @@
               "piqueld"
             ]; # "scanner" "lp" ];
             shell = pkgs.zsh;
-            packages = with pkgs; 
-            let
-              fenix = inputs.fenix.packages.${pkgs.stdenv.hostPlatform.system};
-            in
-            [
-              # Programmings languages
-              rustup
-              fenix.stable.toolchain
-
-              gcc go python3 deno
-              nodejs jdk25 clang
-              libcxx libgcc
-              # Language servers
-              nil nixfmt clang-tools
-              marksman lombok gopls
-              glsl_analyzer
-              jdt-language-server
-              dockerfile-language-server
-              bash-language-server
-              autotools-language-server
-              lua-language-server
-              tailwindcss-language-server
-              svelte-language-server
-              typescript-language-server
-              vscode-langservers-extracted
-              # Utils
-              gh feh wl-clipboard stow tree yazi lazydocker
-              ffmpeg fd ripgrep imagemagick poppler fzf air
-              sqlc docker-buildx zoxide gnumake mpv
-              p7zip postgresql cmake pkg-config tailwindcss_4
-              grim swappy slurp file wayland-scanner btop gdb
-              atlas cloc pnpm
-              # Cargo extensions
-              cargo-watch cargo-nextest cargo-deny
-              cargo-workspaces cargo-expand
-              # Apps
-              blender kitty firefox hyprpaper prismlauncher
-              discord heroic jetbrains-toolbox ladybird
-              hyprlauncher hyprtoolkit hyprpolkitagent hyprpwcenter
-              pwvucontrol spotify obsidian
-              # Libs
-              icu
-      
-              # Hazel
-              premake5 gtk3 zlib elfutils libunwind tbb dotnetCorePackages.dotnet_9.sdk
-      
-              # UE5
-              dotnetCorePackages.dotnet_9.sdk
-      
-              # DirkEngine
-              wayland libxkbcommon vulkan-loader vulkan-validation-layers
-            ];
+            packages = self.lib.dotfiles.commonPackages { inherit pkgs; };
             hashedPasswordFile = config.age.secrets.psswd.path;
             openssh.authorizedKeys.keys = [
               "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHVqRluVYJXXoNYyFQzkZm2v2bRnAv/PNuoLRr2G2/Dv piquel@piquel.fr"
@@ -127,20 +81,7 @@
           git = {
             enable = true;
             lfs.enable = true;
-            config = {
-              init.defaultBranch = "main";
-              core.editor = "vim";
-              user = {
-                name = "piquel";
-                email = "piquel@piquel.fr";
-              };
-              filter."lfs" = {
-                clean = "git-lfs clean -- %f";
-                smudge = "git-lfs smudge -- %f";
-                process = "git-lfs filter-process";
-                required = true;
-              };
-            };
+            config = self.lib.dotfiles.gitConfig;
           };
           appimage = {
             enable = true;
