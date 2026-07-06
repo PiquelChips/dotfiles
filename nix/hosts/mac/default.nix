@@ -105,6 +105,7 @@ let
         onActivation.cleanup = "zap";
         casks = [
           "discord"
+          "blender"
           "firefox"
           "ghostty"
           "spotify"
