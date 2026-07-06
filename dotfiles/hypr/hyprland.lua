@@ -27,7 +27,7 @@ hl.config({
 ---- MY PROGRAMS ----
 ---------------------
 
-local terminal = "kitty"
+local terminal = "ghostty"
 local menu     = "hyprlauncher"
 
 -------------------
