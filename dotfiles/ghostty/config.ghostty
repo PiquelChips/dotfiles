@@ -2,3 +2,4 @@
 font-size = 10
 confirm-close-surface = false
 background-opacity = 0.8
+macos-option-as-alt = true
