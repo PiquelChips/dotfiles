@@ -12,7 +12,22 @@
         defaultEditor = true;
         imports = [
           ../nvim
-          ../nvim/plugins/obsidian.nix
+          ../nvim/lsp.nix
+        ];
+      };
+    };
+
+  flake.darwinModules.nvim =
+    { ... }:
+    {
+      imports = [
+        inputs.nixvim.nixDarwinModules.nixvim
+      ];
+
+      programs.nixvim = {
+        enable = true;
+        imports = [
+          ../nvim
           ../nvim/lsp.nix
         ];
       };
