@@ -1,5 +1,5 @@
 # Terminal settings.
 font-size = 10
 confirm-close-surface = false
-background-opacity = 0.8
+background-opacity = 0.9
 macos-option-as-alt = true
