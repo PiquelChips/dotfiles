@@ -1,5 +1,11 @@
 # Terminal settings.
-font-size = 10
 confirm-close-surface = false
-background-opacity = 0.9
 macos-option-as-alt = true
+
+background-opacity = 0.95
+font-size = 10
+theme = TokyoNight Storm
+background-blur = true
+unfocused-split-opacity = 1
+bold-color = bright
+faint-opacity = 0.85
