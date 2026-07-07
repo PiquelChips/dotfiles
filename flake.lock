@@ -147,11 +147,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1781761792,
-        "narHash": "sha256-rCPytmKNjctLloB6UgK5CRrHSwV4b0ygxtJLPPp8R14=",
+        "lastModified": 1783395956,
+        "narHash": "sha256-AAbexQvDoK+6GFJdhY6kqjA+6ECKRkidgWxkn4gMwAA=",
         "owner": "nix-darwin",
         "repo": "nix-darwin",
-        "rev": "a1fa429e945becaf60468600daf649be4ba0350c",
+        "rev": "d5bd9cd77aea4c0a8f49e7fd85545671a208ed15",
         "type": "github"
       },
       "original": {
@@ -226,11 +226,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1782071787,
-        "narHash": "sha256-2DSHPV3GCdYzQ2VgaWk15hecrp5zEip2ZX/K2HawxPk=",
+        "lastModified": 1783460950,
+        "narHash": "sha256-MbCdICGFphHcsLaFzXpXSAsa8BkFnZj1K5hstYN5oys=",
         "owner": "PiquelChips",
         "repo": "piquel-cli",
-        "rev": "f2ec107013658fffbe08d3a40f8e235a7086ca4f",
+        "rev": "596fded83d1d5fbdc4db6c5a6fdf524b5427d6cc",
         "type": "github"
       },
       "original": {
