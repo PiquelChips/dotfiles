@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, pkgs, ... }:
 {
     globals.mapleader = " ";
 
@@ -26,5 +26,7 @@
         { mode = "n"; key = "<C-j>"; action = "<cmd>wincmd j<CR>"; options.desc = "Move to window below"; }
         { mode = "n"; key = "<C-h>"; action = "<cmd>wincmd h<CR>"; options.desc = "Move to window left"; }
         { mode = "n"; key = "<C-l>"; action = "<cmd>wincmd l<CR>"; options.desc = "Move to window right"; }
+    ] ++ lib.optionals pkgs.stdenv.isDarwin [
+        { mode = [ "n" "v" "o" "i" "c" ]; key = "!"; action = "_"; options.desc = "Remap ! to _ on macOS"; }
     ];
 }
