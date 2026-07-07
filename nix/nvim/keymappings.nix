@@ -28,5 +28,6 @@
         { mode = "n"; key = "<C-l>"; action = "<cmd>wincmd l<CR>"; options.desc = "Move to window right"; }
     ] ++ lib.optionals pkgs.stdenv.isDarwin [
         { mode = "n"; key = "!"; action = "_"; options.desc = "Go to beginning of line"; }
+        { mode = "n"; key = "§"; action = "-"; options.desc = "Go back in netrw"; }
     ];
 }
