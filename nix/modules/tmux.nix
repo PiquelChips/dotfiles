@@ -31,6 +31,8 @@ let
     set-option -g renumber-windows on
 
     set -g detach-on-destroy off
+    # Send clipboard over SSH
+    set -s set-clipboard on
   '';
 
   tmuxExtraConfig = ''
