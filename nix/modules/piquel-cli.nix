@@ -4,6 +4,24 @@ let
     projects_dir = "~/Projects";
     default_session = "default";
 
+    machines = [
+      {
+        name = "nixosbtw";
+        address = "nixosbtw";
+        username = "piquel";
+      }
+      {
+        name = "pi";
+        address = "piquel-pi";
+        username = "piquel";
+      }
+      {
+        name = "vps";
+        address = "piquel.fr";
+        username = "piquel";
+      }
+    ];
+
     sessions = {
       default = {
         windows = [
