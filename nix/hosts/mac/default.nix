@@ -112,7 +112,7 @@ let
           "steam"
           "raycast"
           "codex"
-          "t3-code"
+          "t3-code@nightly"
           "nikitabobko/tap/aerospace"
         ];
       };
