@@ -14,7 +14,7 @@ accordion-padding = 30
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 automatically-unhide-macos-hidden-apps = true
 
-focus-follows-mouse.enabled = true
+focus-follows-mouse.enabled = false
 key-mapping.preset = 'qwerty'
 
 gaps.inner.horizontal = 1
