@@ -104,16 +104,23 @@ let
         enable = true;
         onActivation.cleanup = "zap";
         casks = [
-          "discord"
-          "blender"
+          # Env
           "firefox"
-          "ghostty"
-          "spotify"
-          "steam"
           "raycast"
+          "nikitabobko/tap/aerospace"
+
+          # Dev
+          "blender"
+          "ghostty"
           "codex"
           "t3-code@nightly"
-          "nikitabobko/tap/aerospace"
+
+          # Games
+          "steam"
+          "heroic"
+
+          "discord"
+          "spotify"
         ];
       };
 
