@@ -33,6 +33,7 @@
           sqlc
           postgresql
           mpv
+          just
 
           rustup
           fenix.stable.toolchain
