@@ -91,7 +91,18 @@ let
       }
       {
         repository = "git@github.com:piquel-fr/piquel-fr";
-        default_session = "rust";
+        default_session = {
+          windows = [
+            { commands = [ "vim ." ]; }
+            {
+              commands = [
+                "git pull"
+                "just lint"
+              ];
+            }
+          ];
+        };
+
       }
       {
         repository = "git@github.com:piquel-fr/website.git";
@@ -130,6 +141,7 @@ let
             {
               commands = [
                 "git pull"
+                "cargo clippy"
                 "cargo run --bin piquelctl"
               ];
             }
