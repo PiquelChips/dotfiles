@@ -1,7 +1,6 @@
 { ... }:
 {
     vimAlias = true;
-    enableMan = true;
 
     colorschemes.tokyonight = {
         enable = true;
