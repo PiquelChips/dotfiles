@@ -141,7 +141,7 @@ let
             {
               commands = [
                 "git pull"
-                "cargo clippy"
+                "just"
                 "cargo run --bin piquelctl"
               ];
             }
