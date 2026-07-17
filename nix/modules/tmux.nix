@@ -52,6 +52,7 @@ in
       programs.tmux = {
         enable = true;
         baseIndex = 1;
+        secureSocket = false;
         extraConfigBeforePlugins = tmuxConfigBeforePlugins;
         plugins = with pkgs.tmuxPlugins; [
           sensible
