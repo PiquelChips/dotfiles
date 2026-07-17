@@ -118,6 +118,7 @@ let
           # Games
           "steam"
           "heroic"
+          "hytale"
 
           "discord"
           "spotify"
