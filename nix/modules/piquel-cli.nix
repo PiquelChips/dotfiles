@@ -158,35 +158,15 @@ let
         default_session = "rust";
       }
       {
-        repository = "file:///home/piquel/Projects/Hytale";
+        repository = "git@github.com:HypixelStudios/hytale-shared-source.git";
         name = "hytale";
         path = "~/Projects/Hytale";
         default_session = {
           windows = [
+            { commands = [ "vim ." ]; }
             {
               commands = [
-                "cd HytalePlugin"
                 "git pull"
-                "vim ."
-              ];
-            }
-            {
-              commands = [
-                "cd HytalePlugin"
-                "./gradlew build"
-              ];
-            }
-            {
-              commands = [
-                "flatpak --user run com.hypixel.HytaleLauncher"
-                "cd Config"
-                "vim ."
-              ];
-            }
-            {
-              commands = [
-                "cd Server"
-                "java -jar HytaleServer.jar --assets ../Assets.zip"
               ];
             }
           ];
