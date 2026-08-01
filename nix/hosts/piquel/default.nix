@@ -3,6 +3,7 @@
   flake = {
     nixosConfigurations.piquel = inputs.nixpkgs.lib.nixosSystem {
       modules = [
+        self.nixosModules.agent-tools
         self.nixosModules.nvim
         self.nixosModules.zsh
         self.nixosModules.tmux

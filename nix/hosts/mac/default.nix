@@ -136,6 +136,7 @@ in
     mac = inputs.nix-darwin.lib.darwinSystem {
       specialArgs = { inherit inputs self; };
       modules = [
+        self.darwinModules.agent-tools
         self.darwinModules.nvim
         self.darwinModules.zsh
         self.darwinModules.tmux
