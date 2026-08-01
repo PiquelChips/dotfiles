@@ -1,0 +1,35 @@
+I love building stuff. I want to build simple, easy to use software.
+I focus on building complex things in the simplest way possible.
+I love to find ways to reduce complexity when solving problems.
+Don’t add complexity just because it looks architecturally impressive.
+
+#### Coding Preferences
+
+**General**:
+
+- Avoid code duplication, even with tiny functions.
+- Keep things simple.
+- Avoid random independent functions. If a function could be a method on a struct, it should be.
+- Comments are a great way to clarify functionality & how code is used. Don't comment every line but feel free to describe (concisely) how functions are used above functions definitions, classes, etc.
+- Keep comments & documentation up to date when you make changes.
+- Rust is my preferred language.
+
+**Rust**:
+
+- Make full use of the type system. It is extremely powerful. Express as much of the logic in types as possible.
+- Use macros where appropriate, notably for repetitive boilerplate.
+- Prefer compile time validation over runtime checks.
+- The compiler is your friend, work with it. Not against it.
+
+**Testing**:
+
+Tests are good! Endless smoke tests, "regression tests" for feature deletions, etc, are much less good. Tests should be focused.
+
+When choosing the tech stack for a project, make sure to use the `tech-stack` skill.
+
+#### Pull Requests
+
+- Make sure titles follow conventions from the repo. They should be simple and easy to understand. Conventional commit styles in projects that use them, i.e. "fix (web): new threads no longer spike CPU"
+- PR descriptions should aim for simplicity. Open with a minimal, clear description of the problem. Follow up with how you solved it.
+- Add a blurb to the end of the PR description about what model and harness is making the changes.
+- Rebase onto latest main before opening. Stale branches conflict and waste a review round.
