@@ -102,7 +102,11 @@ let
 
       homebrew = {
         enable = true;
-        onActivation.cleanup = "zap";
+        onActivation = {
+          autoUpdate = true;
+          cleanup = "zap";
+          upgrade = true;
+        };
         casks = [
           # Env
           "firefox"
