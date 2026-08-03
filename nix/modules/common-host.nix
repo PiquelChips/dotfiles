@@ -124,7 +124,6 @@
           moltenvk
 
           inputs.nix-darwin.packages.${pkgs.stdenv.hostPlatform.system}.darwin-rebuild
-          obsidian
         ]
       );
 

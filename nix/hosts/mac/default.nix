@@ -140,6 +140,7 @@ let
 
           "discord"
           "spotify"
+          "obsidian"
         ];
       };
 
