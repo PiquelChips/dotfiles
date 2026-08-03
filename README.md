@@ -23,11 +23,6 @@ After the first switch, update with:
 sudo darwin-rebuild switch --flake .#mac
 ```
 
-## Install Vulkan-SDK
-
-- Get the tarbal from the website
-- Extract it in `/home/piquel/VulkanSDK`
-
 ## Left on Windows
 
 - Microsoft 365

@@ -54,6 +54,20 @@ let
           LANG = "en_US.UTF-8";
           EDITOR = "vim";
           GIT_CONFIG_SYSTEM = "/etc/gitconfig";
+
+          # Rust's Darwin standard library expects Apple's SDK libraries. Use
+          # the system Clang instead of the Nix GCC wrapper, whose SDK is
+          # missing the libiconv stub used by the Rust linker.
+          CARGO_TARGET_AARCH64_APPLE_DARWIN_LINKER = "/usr/bin/clang";
+
+          # Keep the Vulkan packages in the Nix store while making the loader
+          # and the MoltenVK ICD discoverable to applications.
+          DYLD_LIBRARY_PATH = lib.makeLibraryPath [
+            pkgs.vulkan-loader
+            pkgs.moltenvk
+          ];
+          VK_DRIVER_FILES = "${pkgs.moltenvk}/share/vulkan/icd.d/MoltenVK_icd.json";
+          VK_ADD_LAYER_PATH = "${pkgs.vulkan-validation-layers}/share/vulkan/explicit_layer.d";
         };
         systemPackages = self.lib.dotfiles.commonPackages { inherit pkgs; };
       };
