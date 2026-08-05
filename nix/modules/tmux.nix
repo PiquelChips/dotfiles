@@ -1,6 +1,10 @@
 { ... }:
 let
   tmuxConfigBeforePlugins = ''
+    # macOS strips DYLD_* variables when tmux starts a child process. Clear
+    # nix-darwin's completion marker so each pane reloads the shell environment.
+    set-environment -gu __NIX_DARWIN_SET_ENVIRONMENT_DONE
+
     # Set prefix
     unbind C-b
     set -g prefix C-s
