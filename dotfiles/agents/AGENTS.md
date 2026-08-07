@@ -20,6 +20,7 @@ Don’t add complexity just because it looks architecturally impressive.
 - Use macros where appropriate, notably for repetitive boilerplate.
 - Prefer compile time validation over runtime checks.
 - The compiler is your friend, work with it. Not against it.
+- Only use `#[allow(...)]` syntax if absolutely necessary. Make sure to document why.
 
 **Testing**:
 
