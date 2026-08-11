@@ -76,11 +76,11 @@
           zlib
           tbb
           dotnetCorePackages.dotnet_9.sdk
-
-          vulkan-loader
-          vulkan-validation-layers
         ]
         ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
+          vulkan-loader
+          vulkan-validation-layers
+
           feh
           wl-clipboard
           air
@@ -120,8 +120,6 @@
           zsh
           zip
           unzip
-
-          moltenvk
 
           inputs.nix-darwin.packages.${pkgs.stdenv.hostPlatform.system}.darwin-rebuild
         ]
