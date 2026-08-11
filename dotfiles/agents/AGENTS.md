@@ -21,6 +21,8 @@ Don’t add complexity just because it looks architecturally impressive.
 - Prefer compile time validation over runtime checks.
 - The compiler is your friend, work with it. Not against it.
 - Only use `#[allow(...)]` syntax if absolutely necessary. Make sure to document why.
+- Errors should be propagated as appropriate. Do not discard error detail. Having context & detail for
+  every error makes debugging & testing a lot easier. Use thiserror & anyhow to their full potential.
 
 **Testing**:
 
