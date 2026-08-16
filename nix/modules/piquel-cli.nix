@@ -105,29 +105,17 @@ let
 
       }
       {
-        repository = "git@github.com:piquel-fr/website.git";
-        name = "piquel-web";
+        repository = "git@github.com:PiquelChips/bartenheim.git";
         default_session = {
           windows = [
             { commands = [ "vim ." ]; }
             { commands = [ "git pull" ]; }
             {
               commands = [
-                "deno install"
-                "deno task dev"
+                "pnpm install"
+                "pnpm run dev"
               ];
             }
-          ];
-        };
-      }
-      {
-        repository = "git@github.com:piquel-fr/api.git";
-        name = "piquel-api";
-        default_session = {
-          windows = [
-            { commands = [ "vim ." ]; }
-            { commands = [ "git pull" ]; }
-            { commands = [ "air" ]; }
           ];
         };
       }
@@ -187,42 +175,6 @@ let
         name = "homework";
         path = "~/homework";
         default_session = "default";
-      }
-      {
-        repository = "file:///home/piquel/Projects/OpenMC";
-        name = "openmc";
-        path = "~/Projects/OpenMC";
-        default_session = {
-          windows = [
-            {
-              commands = [
-                "cd PluginV2"
-                "vim ."
-              ];
-            }
-            {
-              commands = [
-                "cd PluginV2"
-                "git pull"
-                "./gradlew shadowJar"
-              ];
-            }
-            {
-              commands = [
-                "cd ItemsAdder"
-                "git pull"
-                "cd ../Server"
-                "vim ."
-              ];
-            }
-            {
-              commands = [
-                "cd Server"
-                "./start.sh"
-              ];
-            }
-          ];
-        };
       }
       {
         repository = "git@github.com:pingdotgg/t3code";
