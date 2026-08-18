@@ -10,6 +10,7 @@
       programs.nixvim = {
         enable = true;
         defaultEditor = true;
+        nixpkgs.source = inputs.nixpkgs;
         imports = [
           ../nvim
           ../nvim/lsp.nix
@@ -26,6 +27,7 @@
 
       programs.nixvim = {
         enable = true;
+        nixpkgs.source = inputs.nixpkgs;
         imports = [
           ../nvim
           ../nvim/lsp.nix
