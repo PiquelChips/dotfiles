@@ -55,6 +55,7 @@
               "spotify"
               "jetbrains-toolbox"
               "discord"
+              "discord-unwrapped"
               "steam"
               "steam-original"
               "steam-unwrapped"
