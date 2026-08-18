@@ -10,10 +10,10 @@ let
     ''
       fpath=(${completionPaths} $fpath)
 
-      ${lib.optionalString pkgs.stdenv.isLinux ''
+      ${lib.optionalString pkgs.stdenv.hostPlatform.isLinux ''
         export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$NIX_LD_LIBRARY_PATH"
       ''}
-      ${lib.optionalString pkgs.stdenv.isDarwin ''
+      ${lib.optionalString pkgs.stdenv.hostPlatform.isDarwin ''
         path=(/run/current-system/sw/bin /opt/homebrew/bin /opt/homebrew/sbin /usr/local/bin /usr/local/sbin $path)
       ''}
       path=("$HOME/.cargo/bin" "$HOME/.local/share/pnpm/bin" $path)

@@ -13,7 +13,7 @@
     }
   ];
 
-  extraConfigLua = lib.optionalString pkgs.stdenv.isDarwin ''
+  extraConfigLua = lib.optionalString pkgs.stdenv.hostPlatform.isDarwin ''
     vim.api.nvim_create_autocmd("FileType", {
         pattern = "fugitive",
         callback = function(event)

@@ -77,7 +77,7 @@
           tbb
           dotnetCorePackages.dotnet_9.sdk
         ]
-        ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
+        ++ pkgs.lib.optionals pkgs.stdenv.hostPlatform.isLinux [
           vulkan-loader
           vulkan-validation-layers
 
@@ -116,7 +116,7 @@
           wayland
           libxkbcommon
         ]
-        ++ pkgs.lib.optionals pkgs.stdenv.isDarwin [
+        ++ pkgs.lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
           zsh
           zip
           unzip
