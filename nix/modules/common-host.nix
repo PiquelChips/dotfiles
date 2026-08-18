@@ -101,7 +101,6 @@
           discord
           heroic
           jetbrains-toolbox
-          ladybird
           hyprlauncher
           hyprtoolkit
           hyprpolkitagent
