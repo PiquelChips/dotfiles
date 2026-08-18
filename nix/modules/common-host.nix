@@ -37,6 +37,10 @@
 
           rustup
           fenix.stable.toolchain
+          (fenix.fromToolchainName {
+            name = "1.96";
+            sha256 = "sha256-h+t2xTBz5yt2YIO+1VMIIGlCU7gyp2LYOFvaV1nwOXU=";
+          }).toolchain
           gcc
           go
           python3
