@@ -34,5 +34,9 @@ When choosing the tech stack for a project, make sure to use the `tech-stack` sk
 
 - Make sure titles follow conventions from the repo. They should be simple and easy to understand. Conventional commit styles in projects that use them, i.e. "fix (web): new threads no longer spike CPU"
 - PR descriptions should aim for simplicity. Open with a minimal, clear description of the problem. Follow up with how you solved it.
-- Add a blurb to the end of the PR description about what model and harness is making the changes.
 - Rebase onto latest main before opening. Stale branches conflict and waste a review round.
+- Add a blurb to the end of the PR description/comments about what model and harness is writing/making the changes.
+
+- Review bots are helpful, even if they are not always right.
+- Verify every bot finding against the source before changing code.
+- If a review bot leaves feedback you believe is not worth addressing, reply and resolve the comment.
