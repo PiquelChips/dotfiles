@@ -3,6 +3,10 @@ I focus on building complex things in the simplest way possible.
 I love to find ways to reduce complexity when solving problems.
 Don’t add complexity just because it looks architecturally impressive.
 
+Also, when I ask you to build something, make sure it works. If you are
+unable to confirm that it works please tell me. Don't tell me "it's all good"
+just for me to test in & get a 500 or something.
+
 #### Coding Preferences
 
 **General**:
