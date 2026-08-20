@@ -74,6 +74,7 @@
           cargo-deny
           cargo-workspaces
           cargo-expand
+          trunk
 
           icu
           premake5
