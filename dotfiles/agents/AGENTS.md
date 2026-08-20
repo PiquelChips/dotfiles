@@ -30,6 +30,9 @@ Tests are good! Endless smoke tests, "regression tests" for feature deletions, e
 
 When choosing the tech stack for a project, make sure to use the `tech-stack` skill.
 
+Also, don't just run tests every time you make a change, it's a waste of time.
+Only run code that you have changed.
+
 #### Pull Requests
 
 - Make sure titles follow conventions from the repo. They should be simple and easy to understand. Conventional commit styles in projects that use them, i.e. "fix (web): new threads no longer spike CPU"
