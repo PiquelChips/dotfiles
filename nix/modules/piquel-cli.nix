@@ -130,10 +130,9 @@ let
               commands = [
                 "git pull"
                 "just"
-                "cargo run --bin piquelctl"
               ];
             }
-            { commands = [ "cargo watch -x 'run --bin piqueld -- -v --config ./test/config.toml'" ]; }
+            { commands = [ "just dev'" ]; }
           ];
         };
       }
