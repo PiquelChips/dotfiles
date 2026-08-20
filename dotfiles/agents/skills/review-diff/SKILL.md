@@ -1,7 +1,10 @@
 ---
 name: review-diff
 description: >
-    Help the user review a bunch of uncommitted changes.
+  Review, organize, stage, validate, fix, and commit uncommitted repository
+  changes one logical category at a time. Use when the user asks to review a
+  diff, inspect staged work, move through review categories, implement review
+  findings, or commit reviewed changes.
 ---
 
 # Review Diff
