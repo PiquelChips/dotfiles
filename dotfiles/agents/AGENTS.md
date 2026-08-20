@@ -1,6 +1,5 @@
-I love building stuff. I want to build simple, easy to use software.
-I focus on building complex things in the simplest way possible.
-I love to find ways to reduce complexity when solving problems.
+The most important thing you should remember when architecting software
+and writing code is simplicity. Keep everything as simple as possible.
 Don’t add complexity just because it looks architecturally impressive.
 
 Also, when I ask you to build something, make sure it works. If you are
