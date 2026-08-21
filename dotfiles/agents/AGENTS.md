@@ -13,6 +13,7 @@ just for me to test in & get a 500 or something.
 - Avoid code duplication, even with tiny functions.
 - Keep things simple.
 - Avoid random independent functions. If a function could be a method on a struct, it should be.
+- Writing too much code makes code unclear & hard to maintain. For example, if every endpoint needs the same check, have the check run before the endpoint (like in middleware).
 - Comments are a great way to clarify functionality & how code is used. Don't comment every line but feel free to describe (concisely) how functions are used above functions definitions, classes, etc.
 - Keep comments & documentation up to date when you make changes.
 - Rust is my preferred language.
