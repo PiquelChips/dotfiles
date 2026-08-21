@@ -132,7 +132,7 @@ let
                 "just"
               ];
             }
-            { commands = [ "just dev'" ]; }
+            { commands = [ "just dev" ]; }
           ];
         };
       }
