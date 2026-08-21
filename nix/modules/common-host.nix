@@ -34,6 +34,7 @@
           postgresql
           mpv
           just
+          opencode
 
           rustup
           fenix.stable.toolchain
