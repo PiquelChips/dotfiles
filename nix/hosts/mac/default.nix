@@ -121,7 +121,6 @@ let
           # Dev
           "blender"
           "ghostty"
-          "codex"
           "t3-code@nightly"
 
           # Games

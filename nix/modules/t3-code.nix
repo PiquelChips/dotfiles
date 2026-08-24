@@ -36,6 +36,7 @@
         path = [
           t3Code
           pkgs.codex
+          pkgs.opencode
           pkgs.git
           pkgs.gh
           pkgs.openssh

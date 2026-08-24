@@ -34,6 +34,8 @@
           postgresql
           mpv
           just
+
+          codex
           opencode
 
           rustup
