@@ -9,7 +9,7 @@ description: >
 
 1. Inspect changes, group them into behavioral categories, and announce the order.
 2. Stage only the current category.
-3. Give detailed report on the changes, review the changes, report your findings, and return control.
+3. GIVE A DETAILED EXPLANATION OF THE CHANGES, review the changes, report your findings, and return control.
 4. Wait for the user's verdict:
    - If fixes are requested, make only those fixes, validate, restage, re-review, and pause again.
    - If accepted, get explicit commit approval, verify only that category is staged, commit it, and report the hash.
