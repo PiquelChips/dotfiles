@@ -138,7 +138,7 @@ hl.config({
         kb_layout     = "fr",
         kb_variant    = "",
         kb_model      = "",
-        kb_options    = "ctrl:nocaps",
+        kb_options    = "ctrl:nocaps,altwin:swap_alt_win",
         kb_rules      = "",
 
         follow_mouse  = 1,
