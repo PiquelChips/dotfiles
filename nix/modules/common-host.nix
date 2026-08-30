@@ -54,6 +54,7 @@
           libcxx
           libgcc
           pnpm
+          tailwindcss_4
 
           nil
           nixfmt
