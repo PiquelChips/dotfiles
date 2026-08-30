@@ -131,6 +131,7 @@ let
           "discord"
           "spotify"
           "obsidian"
+          "iina"
         ];
       };
 

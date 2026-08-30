@@ -37,6 +37,7 @@
 
           codex
           opencode
+          ani-cli
 
           rustup
           fenix.stable.toolchain
