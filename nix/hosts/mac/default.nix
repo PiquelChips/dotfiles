@@ -88,13 +88,7 @@ let
         stateVersion = 6;
         keyboard = {
           enableKeyMapping = true;
-          # Caps Lock (0x39) -> left Command (0xE3).
-          userKeyMapping = [
-            {
-              HIDKeyboardModifierMappingSrc = 30064771129;
-              HIDKeyboardModifierMappingDst = 30064771299;
-            }
-          ];
+          remapCapsLockToControl = true;
         };
         defaults = {
           dock.autohide = true;
