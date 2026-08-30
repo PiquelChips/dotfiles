@@ -29,6 +29,14 @@
           inputs.piqueld.nixosModules.default
         ];
 
+        environment.etc."dotfiles-ghostty/config.ghostty".source = ../../../dotfiles/ghostty/config.ghostty;
+
+        system.activationScripts.ghostty = lib.stringAfter [ "users" ] ''
+          install -d -o piquel -g users /home/piquel/.config/ghostty
+          ln -sfn /etc/dotfiles-ghostty/config.ghostty /home/piquel/.config/ghostty/config.ghostty
+          chown -h piquel:users /home/piquel/.config/ghostty/config.ghostty
+        '';
+
         users = {
           defaultUserShell = pkgs.zsh;
           users.piquel = {
