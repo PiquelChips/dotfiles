@@ -59,6 +59,8 @@ let
           # the system Clang instead of the Nix GCC wrapper, whose SDK is
           # missing the libiconv stub used by the Rust linker.
           CARGO_TARGET_AARCH64_APPLE_DARWIN_LINKER = "/usr/bin/clang";
+
+          ANI_CLI_DOWNLOAD_DIR = "$HOME/Movies/Anime";
         };
         systemPackages = self.lib.dotfiles.commonPackages { inherit pkgs; };
       };
