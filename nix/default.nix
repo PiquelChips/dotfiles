@@ -1,7 +1,11 @@
 { inputs, ... }:
-(inputs.import-tree [
-  ./modules
-  ./shells
-  ./pkgs
-  ./overlays
-])
+{
+  imports = [
+    (inputs.import-tree [
+      ./modules
+      ./shells
+      ./pkgs
+      ./overlays
+    ])
+  ];
+}
