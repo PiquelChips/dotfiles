@@ -116,7 +116,7 @@ let
         };
         casks = [
           # Env
-          "firefox"
+          "zen"
           "raycast"
           "nikitabobko/tap/aerospace"
 
