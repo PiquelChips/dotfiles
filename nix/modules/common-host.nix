@@ -44,6 +44,7 @@
           ani-cli
 
           rustToolchain
+          rustup
           gcc
           go
           python3
