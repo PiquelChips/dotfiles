@@ -41,21 +41,20 @@ persistent-workspaces = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
 [mode.main.binding]
 cmd-space = 'exec-and-forget open -a Raycast'
 cmd-enter = 'exec-and-forget open -na Ghostty'
-alt-c = 'close'
-alt-v = 'layout floating tiling'
-alt-f = 'fullscreen --no-outer-gaps'
+ctrl-cmd-v = 'layout floating tiling'
+ctrl-cmd-f = 'fullscreen --no-outer-gaps'
 
-alt-slash = 'layout tiles horizontal vertical'
-alt-comma = 'layout accordion horizontal vertical'
-cmd-shift-j = 'layout horizontal vertical'
+ctrl-cmd-slash = 'layout tiles horizontal vertical'
+ctrl-cmd-comma = 'layout accordion horizontal vertical'
+ctrl-cmd-j = 'layout horizontal vertical'
 
 cmd-h = 'focus left'
 cmd-j = 'focus down'
 cmd-k = 'focus up'
 cmd-l = 'focus right'
 
-alt-minus = 'resize smart -50'
-alt-equal = 'resize smart +50'
+ctrl-cmd-minus = 'resize smart -50'
+ctrl-cmd-equal = 'resize smart +50'
 
 cmd-1 = 'workspace 1'
 cmd-2 = 'workspace 2'
@@ -88,7 +87,7 @@ f = ['layout floating tiling', 'mode main']
 b = ['balance-sizes', 'mode main']
 backspace = ['close-all-windows-but-current', 'mode main']
 
-alt-shift-h = ['join-with left', 'mode main']
-alt-shift-j = ['join-with down', 'mode main']
-alt-shift-k = ['join-with up', 'mode main']
-alt-shift-l = ['join-with right', 'mode main']
+h = ['join-with left', 'mode main']
+j = ['join-with down', 'mode main']
+k = ['join-with up', 'mode main']
+l = ['join-with right', 'mode main']
