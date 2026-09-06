@@ -38,11 +38,11 @@
           opencode
           ani-cli
 
-          fenix.stable.toolchain
-          (fenix.fromToolchainName {
-            name = "1.96";
-            sha256 = "sha256-h+t2xTBz5yt2YIO+1VMIIGlCU7gyp2LYOFvaV1nwOXU=";
-          }).toolchain
+          fenix.combine
+          [
+            fenix.stable.toolchain
+            fenix.targets.wasm32-unknown-unknown.stable.rust-std
+          ]
           gcc
           go
           python3
