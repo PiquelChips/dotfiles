@@ -53,7 +53,7 @@ let
               commands = [
                 "git pull"
                 "nix flake update"
-                "sudo nixos-rebuild switch --flake .#piquel --upgrade"
+                "sudo nixos-rebuild switch --flake .#piquel"
               ];
             }
           ];
