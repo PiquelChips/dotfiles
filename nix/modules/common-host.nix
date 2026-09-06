@@ -35,7 +35,6 @@
           mpv
           just
 
-          codex
           opencode
           ani-cli
 
@@ -103,6 +102,7 @@
           gdb
           atlas
 
+          codex
           blender
           ghostty
           firefox
