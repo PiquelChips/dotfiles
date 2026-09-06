@@ -5,6 +5,11 @@
       { pkgs }:
       let
         fenix = inputs.fenix.packages.${pkgs.stdenv.hostPlatform.system};
+
+        rustToolchain = fenix.combine [
+          fenix.stable.toolchain
+          fenix.targets.wasm32-unknown-unknown.stable.rust-std
+        ];
       in
       builtins.filter (pkg: pkg != null) (
         with pkgs;
@@ -38,11 +43,7 @@
           opencode
           ani-cli
 
-          fenix.combine
-          [
-            fenix.stable.toolchain
-            fenix.targets.wasm32-unknown-unknown.stable.rust-std
-          ]
+          rustToolchain
           gcc
           go
           python3
