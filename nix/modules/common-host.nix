@@ -38,7 +38,6 @@
           opencode
           ani-cli
 
-          rustup
           fenix.stable.toolchain
           (fenix.fromToolchainName {
             name = "1.96";
