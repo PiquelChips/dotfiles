@@ -1,6 +1,6 @@
 # Terminal settings.
 confirm-close-surface = false
-macos-option-as-alt = true
+macos-option-as-alt = left
 
 background-opacity = 0.95
 font-size = 10
