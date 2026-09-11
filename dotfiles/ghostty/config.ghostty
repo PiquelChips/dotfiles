@@ -9,3 +9,6 @@ background-blur = true
 unfocused-split-opacity = 1
 bold-color = bright
 faint-opacity = 0.85
+
+# Fix xerm-ghostty unknown terminal definition
+shell-integration-features = ssh-env,ssh-terminfo
