@@ -26,7 +26,6 @@
       {
         imports = [
           ./system.nix
-          inputs.piqueld.nixosModules.default
         ];
 
         environment.etc."dotfiles-ghostty/config.ghostty".source = ../../../dotfiles/ghostty/config.ghostty;
@@ -45,7 +44,6 @@
               "networkmanager"
               "wheel"
               "docker"
-              "piqueld"
             ]; # "scanner" "lp" ];
             shell = pkgs.zsh;
             packages = self.lib.dotfiles.commonPackages { inherit pkgs; };
@@ -116,14 +114,6 @@
           locate = {
             enable = true;
             interval = "weekly";
-          };
-          piqueld = {
-            enable = true;
-            enableDaemon = false;
-            ctlSettings = {
-              default_to_tcp = true;
-              address = "192.168.1.44";
-            };
           };
           tailscale.enable = true;
         };
