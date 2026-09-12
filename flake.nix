@@ -32,7 +32,6 @@
     piqueld = {
       url = "github:piquel-fr/piqueld";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "flake-parts";
     };
   };
 
