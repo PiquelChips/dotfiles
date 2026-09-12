@@ -128,6 +128,7 @@ let
 
           # Games
           "steam"
+          "epic-games"
           "heroic"
           "hytale"
 
