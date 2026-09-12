@@ -220,25 +220,21 @@
     },
     "piqueld": {
       "inputs": {
-        "flake-parts": [
-          "flake-parts"
-        ],
         "nixpkgs": [
           "nixpkgs"
-        ],
-        "rust-overlay": "rust-overlay"
+        ]
       },
       "locked": {
-        "lastModified": 1777726940,
-        "narHash": "sha256-Zv29t9Cddb0eAnlsprHVpU/WdwcuwIgwYYP1R+7pDr8=",
+        "lastModified": 1789229426,
+        "narHash": "sha256-Wd+0HR9wSgYHguBc1srqL+DKVYNhyv0vj37pHYoOfiU=",
         "owner": "piquel-fr",
-        "repo": "piqueld-old",
-        "rev": "72ce54fd8b8fd2bfdcf30c752128c3cc63dbd9e6",
+        "repo": "piqueld",
+        "rev": "455cab13e0f35a0d6fa39e9de5126af8a23ba1d3",
         "type": "github"
       },
       "original": {
         "owner": "piquel-fr",
-        "repo": "piqueld-old",
+        "repo": "piqueld",
         "type": "github"
       }
     },
@@ -253,27 +249,6 @@
         "piquel-cli": "piquel-cli",
         "piqueld": "piqueld",
         "systems": "systems_2"
-      }
-    },
-    "rust-overlay": {
-      "inputs": {
-        "nixpkgs": [
-          "piqueld",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1777691680,
-        "narHash": "sha256-sdCAzrPAaKu+yo7L2pWddy5PN6U9bO++WEWc1zcr7aQ=",
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "rev": "4757db4358c77c1cbe878fa5990e6ea88d82f6b5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "type": "github"
       }
     },
     "systems": {
