@@ -42,7 +42,7 @@ Only run code that you have changed.
 - Make sure titles follow conventions from the repo. They should be simple and easy to understand. Conventional commit styles in projects that use them, i.e. "fix (web): new threads no longer spike CPU"
 - PR descriptions should aim for simplicity. Open with a minimal, clear description of the problem. Follow up with how you solved it.
 - Rebase onto latest main before opening. Stale branches conflict and waste a review round.
-- Add a blurb to the end of the PR description/comments about what model and harness is writing/making the changes.
+- Add a note at the end of the PR description/comments saying what model and harness is writing/making the changes.
 
 - Review bots are helpful, even if they are not always right.
 - Verify every bot finding against the source before changing code.
