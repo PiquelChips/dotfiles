@@ -25,6 +25,21 @@
         "type": "github"
       }
     },
+    "crane": {
+      "locked": {
+        "lastModified": 1788465171,
+        "narHash": "sha256-Y1/TTVXjYXGF068IThQH9fPSZ0SIE74PABlUxnWTUH0=",
+        "owner": "ipetkov",
+        "repo": "crane",
+        "rev": "eb35abda9f232cc6610b1d1e3200d15c49b7ac54",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ipetkov",
+        "repo": "crane",
+        "type": "github"
+      }
+    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -220,16 +235,17 @@
     },
     "piqueld": {
       "inputs": {
+        "crane": "crane",
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1789332596,
-        "narHash": "sha256-2bofeLZaB39zAY7FOYb79WleYhWca3T7Oxf/R6PVyAE=",
+        "lastModified": 1789405056,
+        "narHash": "sha256-egEtzbtoQMDcsHlwqZGJ8BYr5kISwHeIMXZ7VZW7Amw=",
         "owner": "piquel-fr",
         "repo": "piqueld",
-        "rev": "35f5a3cd2aeb88561bc01b60fe4a67d4db5a7053",
+        "rev": "8948c43a0ff2ac8a730c9329b262f4cd4438f878",
         "type": "github"
       },
       "original": {
