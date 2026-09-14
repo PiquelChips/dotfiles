@@ -125,6 +125,7 @@ let
           "ghostty"
           "t3-code@nightly"
           "codex" # gets updates more frequently than nixpkgs
+          "shottr"
 
           # Games
           "steam"
