@@ -8,6 +8,7 @@
         self.nixosModules.zsh
         self.nixosModules.tmux
         self.nixosModules.piquel-cli
+        self.nixosModules.piqueld
         self.nixosModules.secrets
         # Do not add for now, wait for easy access to nightly
         # Before activating, make sure to move the state directory to the configured location
