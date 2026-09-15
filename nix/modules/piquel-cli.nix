@@ -129,7 +129,6 @@ let
             {
               commands = [
                 "git pull"
-                "tailscale serve --bg http://127.0.0.1:7845"
                 "just"
               ];
             }
