@@ -25,26 +25,16 @@ sudo darwin-rebuild switch --flake .#mac
 
 ## piqueld
 
-This integration targets the upstream changes in
-[piqueld#86](https://github.com/piquel-fr/piqueld/issues/86),
-[#87](https://github.com/piquel-fr/piqueld/issues/87), and
-[#88](https://github.com/piquel-fr/piqueld/issues/88). The current pin does not
-implement that interface: Darwin evaluation requires the new CLI module export,
-and Linux needs the group-accessible runtime socket and native profile discovery.
-Update the piqueld input after those changes land before deploying this configuration.
-
-### Intended configuration
-
-NixOS runs one `piqueld` service with upstream defaults and HTTP on
-`127.0.0.1:7846`. The upstream module owns socket permissions and runtime/state
+NixOS runs one `piqueld` service with HTTP in `localhost` listen mode on port
+7846. The upstream module owns socket permissions and runtime/state
 directories; the `piquel` user receives API access through the `piqueld` group.
-Development keeps `127.0.0.1:7845` and `/tmp/piqueld-dev/piqueld.sock`
+Development keeps port 7845 and `/tmp/piqueld-dev-run/piqueld.sock`
 (`just dev` in `~/Projects/piqueld`). macOS installs only the CLI.
 
 | Profile | NixOS socket | macOS URL |
 | --- | --- | --- |
 | `prod` | `/run/piqueld/piqueld.sock` | `https://nixosbtw.tailfcb6ab.ts.net:8443` |
-| `dev` | `/tmp/piqueld-dev/piqueld.sock` | `https://nixosbtw.tailfcb6ab.ts.net` |
+| `dev` | `/tmp/piqueld-dev-run/piqueld.sock` | `https://nixosbtw.tailfcb6ab.ts.net` |
 
 Upstream installs profiles in `/etc/piqueld/profiles.toml`. Both packaged and
 development CLIs discover them natively, with user overrides in
@@ -58,23 +48,22 @@ piquelctl --profile dev status
 cargo run -p piquelctl -- --profile dev status
 ```
 
-### Validation with an upstream checkout
+### Validation
 
-Evaluate and build against your implementation without changing the lock file:
+Evaluate and build the pinned integration:
 
 ```sh
 # On NixOS:
-nixos-rebuild build --flake .#piquel --override-input piqueld path:/home/piquel/Projects/piqueld
-# On macOS (adjust the checkout path if needed):
-darwin-rebuild build --flake .#mac --override-input piqueld path:/Users/ronan/Projects/piqueld
+nixos-rebuild build --flake .#piquel
+# On macOS:
+darwin-rebuild build --flake .#mac
 ```
 
 After building and applying on each machine, verify the profile commands above
 with both installed and development CLIs. Log out and back in on NixOS for the
 new group membership. Confirm that only `piqueld.service` is needed, production
 access works without sudo, and development and production use separate sockets
-and HTTP ports. Remove any old `PIQUELD_PROFILES_FILE` override when validating
-native profile discovery.
+and HTTP ports.
 
 ### Manual Tailscale setup
 
