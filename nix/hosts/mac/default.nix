@@ -156,6 +156,7 @@ in
         self.darwinModules.zsh
         self.darwinModules.tmux
         self.darwinModules.piquel-cli
+        self.darwinModules.piqueld
         macModule
       ];
     };
