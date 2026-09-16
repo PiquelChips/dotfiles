@@ -6,10 +6,15 @@
     services.piqueld = {
       enable = true;
       settings.server = {
-        listen_mode = "localhost";
+        listen_mode = "both";
         port = 7846;
       };
     };
+
+    networking.firewall.interfaces.tailscale0.allowedTCPPorts = [
+      7845
+      7846
+    ];
 
     users.users.piquel.extraGroups = [ "piqueld" ];
 
@@ -25,8 +30,8 @@
     programs.piquelctl = {
       enable = true;
       settings.profiles = {
-        prod.url = "https://nixosbtw.tailfcb6ab.ts.net:8443";
-        dev.url = "https://nixosbtw.tailfcb6ab.ts.net";
+        prod.url = "http://nixosbtw.tailfcb6ab.ts.net:7846";
+        dev.url = "http://nixosbtw.tailfcb6ab.ts.net:7845";
       };
     };
   };

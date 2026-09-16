@@ -25,16 +25,17 @@ sudo darwin-rebuild switch --flake .#mac
 
 ## piqueld
 
-NixOS runs one `piqueld` service with HTTP in `localhost` listen mode on port
-7846. The upstream module owns socket permissions and runtime/state
-directories; the `piquel` user receives API access through the `piqueld` group.
-Development keeps port 7845 and `/tmp/piqueld-dev-run/piqueld.sock`
-(`just dev` in `~/Projects/piqueld`). macOS installs only the CLI.
+NixOS runs one `piqueld` service on localhost and Tailscale port 7846. The
+upstream module owns socket permissions and runtime/state directories; the
+`piquel` user receives API access through the `piqueld` group. Development uses
+port 7845 and `/tmp/piqueld-dev-run/piqueld.sock` (`just dev` in
+`~/Projects/piqueld`). The firewall exposes both TCP ports only on `tailscale0`.
+macOS installs only the CLI and connects directly over the tailnet.
 
 | Profile | NixOS socket | macOS URL |
 | --- | --- | --- |
-| `prod` | `/run/piqueld/piqueld.sock` | `https://nixosbtw.tailfcb6ab.ts.net:8443` |
-| `dev` | `/tmp/piqueld-dev-run/piqueld.sock` | `https://nixosbtw.tailfcb6ab.ts.net` |
+| `prod` | `/run/piqueld/piqueld.sock` | `http://nixosbtw.tailfcb6ab.ts.net:7846` |
+| `dev` | `/tmp/piqueld-dev-run/piqueld.sock` | `http://nixosbtw.tailfcb6ab.ts.net:7845` |
 
 Upstream installs profiles in `/etc/piqueld/profiles.toml`. Both packaged and
 development CLIs discover them natively, with user overrides in
@@ -65,20 +66,9 @@ new group membership. Confirm that only `piqueld.service` is needed, production
 access works without sudo, and development and production use separate sockets
 and HTTP ports.
 
-### Manual Tailscale setup
-
-On `nixosbtw`, configure the persistent mappings yourself:
-
-```sh
-sudo tailscale serve --bg --https=8443 http://127.0.0.1:7846
-sudo tailscale serve --bg --https=443 http://127.0.0.1:7845
-tailscale serve status
-```
-
 macOS must be connected to the tailnet, and tailnet access rules should limit
-these endpoints to the intended operators. Tailscale Serve handles HTTPS;
-piqueld retains its loopback HTTP listener. No additional systemd service or
-project-session command manages Serve.
+these endpoints to the intended operators. Traffic is HTTP at the application
+layer and encrypted by Tailscale; no `tailscale serve` configuration is needed.
 
 ## Left on Windows
 
