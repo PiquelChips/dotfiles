@@ -7,6 +7,21 @@
             rust_analyzer = {
                 enable = true;
                 config = {
+                    # Rust analyzer uses one target per Cargo workspace. Index the
+                    # dashboard's workspace as WASM so cfg-gated UI modules are active.
+                    before_init = lib.nixvim.mkRaw ''
+                        function(params, config)
+                            local settings = config.settings["rust-analyzer"]
+                            local root = config.root_dir
+                            if root and vim.fn.filereadable(root .. "/apps/piqueld-ui/Cargo.toml") == 1 then
+                                settings.cargo.target = "wasm32-unknown-unknown"
+                                settings.check = { workspace = false }
+                            end
+                            -- Keep nvim-lspconfig's initialization and command handler.
+                            local defaults = dofile(vim.api.nvim_get_runtime_file("lsp/rust_analyzer.lua", false)[1])
+                            defaults.before_init(params, config)
+                        end
+                    '';
                     settings = {
                         "rust-analyzer" = {
                             cargo.allFeatures = true;
