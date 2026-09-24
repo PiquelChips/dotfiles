@@ -137,6 +137,7 @@ let
           "spotify"
           "obsidian"
           "iina"
+          "wealthfolio"
         ];
       };
 
