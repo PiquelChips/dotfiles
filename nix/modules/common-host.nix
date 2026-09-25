@@ -38,7 +38,7 @@
           rustup
           gcc
           go
-          python3
+          (python3.withPackages (ps: [ ps.tkinter ]))
           deno
           nodejs
           jdk25
