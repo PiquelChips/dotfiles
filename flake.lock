@@ -193,11 +193,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790180127,
-        "narHash": "sha256-GfXrw8svUibikcMslq0cXKiwweTm4UPjilRLiHXtUDo=",
+        "lastModified": 1790704705,
+        "narHash": "sha256-InA/pgYeTFhPbGU/zSCKZ3tEXQ4DYB4LLTeIlvgti08=",
         "owner": "piquel-fr",
         "repo": "piqueld",
-        "rev": "32e6beb44886220f385985e22f85983d529b9ae6",
+        "rev": "08a89b7eb373010007f9ed53a975710c942e8042",
         "type": "github"
       },
       "original": {
