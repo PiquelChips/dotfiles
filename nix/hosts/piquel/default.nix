@@ -59,6 +59,7 @@
           config.allowUnfreePredicate =
             pkg:
             builtins.elem (lib.getName pkg) [
+              "claude-code"
               "spotify"
               "jetbrains-toolbox"
               "discord"
