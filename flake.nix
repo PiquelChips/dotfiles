@@ -28,10 +28,9 @@
       url = "github:PiquelChips/piquel-cli";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    piqueld = {
-      url = "github:piquel-fr/piqueld";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # Uses its own nixpkgs: trunk (dashboard build) fails with GCC 16 in current
+    # nixos-unstable. Restore `inputs.nixpkgs.follows` once that is fixed.
+    piqueld.url = "github:piquel-fr/piqueld";
   };
 
   outputs =
