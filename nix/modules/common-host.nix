@@ -72,13 +72,13 @@
           cargo-deny
           cargo-workspaces
           cargo-expand
-          trunk
 
           icu
           premake5
           zlib
           tbb
           dotnetCorePackages.dotnet_9.sdk
+          openssl # for piqueld
         ]
         ++ pkgs.lib.optionals pkgs.stdenv.hostPlatform.isLinux [
           vulkan-loader
