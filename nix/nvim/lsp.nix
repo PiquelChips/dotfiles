@@ -41,6 +41,7 @@
             ts_ls.enable = true;
             jdtls.enable = true;
             glsl_analyzer.enable = true;
+            pythonls.enable = true;
 
             clangd = {
                 enable = true;
