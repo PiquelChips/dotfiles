@@ -5,7 +5,9 @@
     "allow": [
       "Bash(git push:*)",
       "Bash(gh pr edit:*)",
-      "Bash(gh pr close:*)"
+      "Bash(gh pr close:*)",
+      "Bash(gh pr ready:*)",
+      "Bash(grep *)"
     ]
   }
 }
