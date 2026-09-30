@@ -18,6 +18,7 @@ Be ambitious.
   Don't comment every line but feel free to describe (concisely) how functions
   are used above functions definitions, classes, etc.
 - Keep comments & documentation up to date when you make changes.
+- Keep code style & conventions consistent with already existing code.
 - Rust is my preferred language.
 
 **Rust**:
