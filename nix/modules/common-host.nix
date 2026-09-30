@@ -95,7 +95,6 @@
           gdb
           atlas
 
-          codex
           blender
           ghostty
           firefox
