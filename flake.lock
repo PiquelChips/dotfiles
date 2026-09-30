@@ -207,11 +207,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1790776250,
-        "narHash": "sha256-1rA78F8aowrn5jFCy6Zp18vu01wpDeIuZFuaOq/GgN0=",
+        "lastModified": 1790792516,
+        "narHash": "sha256-0I/E+y7Q/lFv86zpjRfGRnAd0dDjwunw+5Z3N5HulSA=",
         "owner": "piquel-fr",
         "repo": "piqueld",
-        "rev": "16fea84d8bb8309f487fb79fed04b8da5e899db9",
+        "rev": "45bc0dcedc578ee96881f3091e8ea3d4416ed2cc",
         "type": "github"
       },
       "original": {
