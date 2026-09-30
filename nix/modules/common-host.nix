@@ -32,6 +32,7 @@
           mpv
           just
 
+          codex
           claude-code
           opencode
           ani-cli
