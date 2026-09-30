@@ -1,0 +1,11 @@
+{
+  "theme": "dark",
+  "autoMemoryEnabled": false,
+  "permissions": {
+    "allow": [
+      "Bash(git push:*)",
+      "Bash(gh pr edit:*)",
+      "Bash(gh pr close:*)"
+    ]
+  }
+}
