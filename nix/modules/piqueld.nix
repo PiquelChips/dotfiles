@@ -1,8 +1,8 @@
 { inputs, ... }:
 let
-  # Tailscale Serve terminates HTTPS on the tailnet and proxies to localhost.
+  # piqueld joins the tailnet as its own node and serves HTTPS on it.
   # Passkeys are bound to this origin: changing it invalidates every passkey.
-  publicUrl = "https://nixosbtw.tailfcb6ab.ts.net";
+  publicUrl = "https://piqueld.tailfcb6ab.ts.net";
 in
 {
   flake.nixosModules.piqueld = {
@@ -16,6 +16,10 @@ in
           port = 7846;
         };
         auth.public_url = publicUrl;
+        tailscale = {
+          enabled = true;
+          hostname = "piqueld";
+        };
       };
     };
 
