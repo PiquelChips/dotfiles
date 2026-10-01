@@ -57,6 +57,9 @@
       vulkan-loader
       vulkan-validation-layers
 
+      # piqueld
+      openssl
+
       # Hazel
       gtk3
       zlib
