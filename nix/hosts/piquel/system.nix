@@ -57,9 +57,6 @@
       vulkan-loader
       vulkan-validation-layers
 
-      # piqueld
-      openssl
-
       # Hazel
       gtk3
       zlib
@@ -115,10 +112,14 @@
       LANG = "en_US.UTF-8";
       EDITOR = "vim";
 
+      # Native builds (including piqueld) need OpenSSL headers and linker metadata.
+      PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
+
       # Vulkan Configuration
       VK_ADD_LAYER_PATH = "${pkgs.vulkan-validation-layers}/share/vulkan/explicit_layer.d";
     };
     systemPackages = with pkgs; [
+      openssl
       zsh
       zip
       unzip

@@ -78,7 +78,6 @@
           zlib
           tbb
           dotnetCorePackages.dotnet_9.sdk
-          openssl # for piqueld
         ]
         ++ pkgs.lib.optionals pkgs.stdenv.hostPlatform.isLinux [
           vulkan-loader
