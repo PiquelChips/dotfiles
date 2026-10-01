@@ -94,6 +94,7 @@
           wayland-scanner
           gdb
           atlas
+          trunk
 
           blender
           ghostty
