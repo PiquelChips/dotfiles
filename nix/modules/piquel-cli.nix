@@ -56,6 +56,7 @@ let
                 "sudo nixos-rebuild switch --flake .#piquel"
               ];
             }
+            { commands = [ "btop" ]; }
           ];
         };
       }
