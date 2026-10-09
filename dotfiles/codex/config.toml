@@ -1,0 +1,6 @@
+# System-wide Codex config, installed to /etc/codex/config.toml.
+# ~/.codex/config.toml stays writable for Codex's own state (trust, TUI).
+
+# Keep all prompt history. Leaving `max_bytes` unset means it's never truncated.
+[history]
+persistence = "save-all"

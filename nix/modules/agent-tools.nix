@@ -3,12 +3,15 @@ let
   agentsFile = ../../dotfiles/agents/AGENTS.md;
   skillsDirectory = ../../dotfiles/agents/skills;
   claudeSettings = ../../dotfiles/claude/settings.json;
+  codexConfig = ../../dotfiles/codex/config.toml;
   etcRoot = "/etc/dotfiles-agent-tools";
 
   etcFiles = {
     "dotfiles-agent-tools/AGENTS.md".source = agentsFile;
     "dotfiles-agent-tools/skills".source = skillsDirectory;
     "dotfiles-agent-tools/claude-settings.json".source = claudeSettings;
+    # Codex reads this as its system config layer, below ~/.codex/config.toml.
+    "codex/config.toml".source = codexConfig;
   };
 
   # Links the shared AGENTS.md, skills & Claude settings into a user's home.
