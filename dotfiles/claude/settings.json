@@ -1,6 +1,7 @@
 {
   "theme": "dark",
   "autoMemoryEnabled": false,
+  "cleanupPeriodDays": 36500,
   "permissions": {
     "allow": [
       "Bash(git push:*)",
