@@ -80,6 +80,8 @@
           dotnetCorePackages.dotnet_9.sdk
         ]
         ++ pkgs.lib.optionals pkgs.stdenv.hostPlatform.isLinux [
+          cloudflared
+
           vulkan-loader
           vulkan-validation-layers
 
