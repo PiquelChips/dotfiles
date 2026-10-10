@@ -52,9 +52,26 @@ Only run code that you have changed.
 - Rebase onto latest main before opening. Stale branches conflict and waste
   a review round.
 - Add a note at the end of the PR description/comments saying what model and
-  harness is writing/making the changes.
+  harness is writing/making the change:
+> [!NOTE]
+> <action> by <model> in <harness> (via T3 Code)
+example: written by Claude Opus 5.5 in Claude Code and reviewed by GPT 6 Astra (via T3 Code)
 
 - Review bots are helpful, even if they are not always right.
 - Verify every bot finding against the source before changing code.
 - If a review bot leaves feedback you believe is not worth addressing, reply
   and resolve the comment.
+
+#### Subagents
+
+These rules are not fixed, only general guidelines. They can be overriden if it
+is appropriate.
+
+**Claude 5.5**: main agent, use for implementation, writing.
+It's the main agent I will actually interact with it. It is an orchestrator.
+Opus should also be the only one to write user-facing text (documentation, ...)
+and make UIs.
+
+**GPT 6.1 Sol**: Sometimes will be replaced by GPT 6 Astra if budget permits it. 
+Sol should be the main review agent. Use it for deep analysis, research & code
+review. Also prefer for iOS development.
