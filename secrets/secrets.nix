@@ -20,4 +20,22 @@ in
     piquel
     nixosbtw
   ];
+
+  # piqueld: `cloudflared tunnel create piqueld` credentials JSON.
+  "piqueld-cloudflared-tunnel.age".publicKeys = [
+    piquel
+    nixosbtw
+  ];
+
+  # piqueld: Cloudflare API token with Zone:Read and DNS:Edit.
+  "piqueld-cloudflare-dns-token.age".publicKeys = [
+    piquel
+    nixosbtw
+  ];
+
+  # piqueld: Discord channel webhook URL.
+  "piqueld-discord-webhook.age".publicKeys = [
+    piquel
+    nixosbtw
+  ];
 }

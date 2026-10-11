@@ -5,44 +5,71 @@ let
   publicUrl = "https://piqueld.tailfcb6ab.ts.net";
 in
 {
-  flake.nixosModules.piqueld = {
-    imports = [ inputs.piqueld.nixosModules.default ];
+  flake.nixosModules.piqueld =
+    { config, ... }:
+    let
+      secrets = config.age.secrets;
+    in
+    {
+      imports = [ inputs.piqueld.nixosModules.default ];
 
-    services.piqueld = {
-      enable = true;
-      settings = {
-        server = {
-          listen_mode = "localhost";
-          port = 7846;
-        };
-        auth.public_url = publicUrl;
-        tailscale = {
-          enabled = true;
-          hostname = "piqueld";
+      services.piqueld = {
+        enable = true;
+        settings = {
+          auth = {
+            public_url = publicUrl;
+            max_token_days = 365;
+          };
+          tailscale = {
+            enabled = true;
+            hostname = "piqueld";
+          };
+          # Public routes arrive through a Cloudflare Tunnel (no open ports),
+          # private routes through the piqueld-apps tailnet node, which logs
+          # its login URL on first start.
+          ingress = {
+            enabled = true;
+            acme.email = "admin@piquel.fr";
+            private.enabled = true;
+            tunnel = {
+              enabled = true;
+              credentials_file = secrets.piqueld-cloudflared-tunnel.path;
+            };
+            webhook_hostname = "hooks.piqueld.dev";
+          };
+          # Issues private routes' DNS-01 certificates and manages every
+          # route's records in the Cloudflare zones.
+          dns.providers = [
+            {
+              kind = "cloudflare";
+              api_token_file = secrets.piqueld-cloudflare-dns-token.path;
+              manage_records = true;
+            }
+          ];
+          notifications = {
+            enabled = true;
+            destinations = [
+              {
+                name = "discord";
+                kind = "discord";
+                url_file = secrets.piqueld-discord-webhook.path;
+              }
+            ];
+          };
         };
       };
+
+      users.users.piquel.extraGroups = [ "piqueld" ];
+
+      programs.piquelctl.settings.profiles.prod.socket = "/run/piqueld/piqueld.sock";
     };
-
-    # Development daemon (`just dev`) listens on Tailscale directly.
-    networking.firewall.interfaces.tailscale0.allowedTCPPorts = [ 7845 ];
-
-    users.users.piquel.extraGroups = [ "piqueld" ];
-
-    programs.piquelctl.settings.profiles = {
-      prod.socket = "/run/piqueld/piqueld.sock";
-      dev.socket = "/tmp/piqueld-dev-run/piqueld.sock";
-    };
-  };
 
   flake.darwinModules.piqueld = {
     imports = [ inputs.piqueld.darwinModules.piquelctl ];
 
     programs.piquelctl = {
       enable = true;
-      settings.profiles = {
-        prod.url = publicUrl;
-        dev.url = "http://nixosbtw.tailfcb6ab.ts.net:7845";
-      };
+      settings.profiles.prod.url = publicUrl;
     };
   };
 }

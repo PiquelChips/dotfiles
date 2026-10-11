@@ -25,51 +25,56 @@ sudo darwin-rebuild switch --flake .#mac
 
 ## piqueld
 
-NixOS runs one `piqueld` service on localhost port 7846. Tailscale Serve
-terminates HTTPS at `https://nixosbtw.tailfcb6ab.ts.net` (the passkey origin,
-`auth.public_url`) and proxies to it, so the dashboard and CLI work from any
-tailnet device. The upstream module owns socket permissions and runtime/state
-directories; the `piquel` user can reach the socket through the `piqueld` group.
-Development uses port 7845 and `/tmp/piqueld-dev-run/piqueld.sock` (`just dev`
-in `~/Projects/piqueld`); the firewall exposes 7845 only on `tailscale0`.
-macOS installs only the CLI.
+NixOS runs one `piqueld` service. It joins the tailnet as its own node and
+serves the dashboard and API over HTTPS at `https://piqueld.tailfcb6ab.ts.net`
+(the passkey origin, `auth.public_url`). The upstream module owns socket
+permissions and runtime/state directories; the `piquel` user can reach the
+socket through the `piqueld` group. macOS installs only the CLI.
 
 | Profile | NixOS socket | macOS URL |
 | --- | --- | --- |
-| `prod` | `/run/piqueld/piqueld.sock` | `https://nixosbtw.tailfcb6ab.ts.net` |
-| `dev` | `/tmp/piqueld-dev-run/piqueld.sock` | `http://nixosbtw.tailfcb6ab.ts.net:7845` |
+| `prod` | `/run/piqueld/piqueld.sock` | `https://piqueld.tailfcb6ab.ts.net` |
 
 Upstream installs profiles in `/etc/piqueld/profiles.toml`. Both packaged and
 development CLIs discover them natively, with user overrides in
 `$XDG_CONFIG_HOME/piqueld/profiles.toml` (otherwise `~/.config/piqueld/profiles.toml`).
 Every API call needs an account, including over the socket. Log in once per
-profile and machine (select a profile explicitly or set `PIQUELD_PROFILE`):
+machine:
 
 ```sh
 piquelctl --profile prod login
 piquelctl --profile prod status
-piquelctl --profile dev login
-# From the piqueld checkout:
-cargo run -p piquelctl -- --profile dev status
 ```
 
-The dev daemon's passkey origin is `http://localhost:7845`, so approve its
-logins in a browser on NixOS. From macOS, the dev profile is plain HTTP and
-needs `--allow-insecure-http` on every command.
+Development instances (`just dev` in `~/Projects/piqueld`) serve on the shared
+`piqueld-dev` tailnet node; use `just ctl` in the worktree to reach them.
 
 Automation uses tokens from the dashboard's Accounts page via `PIQUELD_TOKEN`;
-never put them in Nix. Managed ingress stays disabled: it needs public ports
-80/443, which this machine does not have.
+never put them in Nix. New tokens expire within 365 days.
+
+### Ingress, DNS and notifications
+
+Managed ingress runs without open ports:
+
+- Public routes go through a locally managed Cloudflare Tunnel.
+- Private routes go through a second tailnet node, `piqueld-apps`.
+- A Cloudflare DNS provider issues private routes' certificates (DNS-01) and
+  manages every route's records, including `hooks.piqueld.dev` for GitHub push
+  webhooks.
+- Notifications go to a Discord webhook.
+
+The credentials are agenix secrets, read by systemd and handed to piqueld:
+
+| Secret | Contents |
+| --- | --- |
+| `piqueld-cloudflared-tunnel.age` | The JSON from `cloudflared tunnel create piqueld` |
+| `piqueld-cloudflare-dns-token.age` | Cloudflare API token, Zone:Read and DNS:Edit on the piqueld zones |
+| `piqueld-discord-webhook.age` | Discord channel webhook URL |
+
+Edit one with `agenix -e <name>` from `secrets/`. Restart piqueld after
+changing a secret.
 
 ### First deployment
-
-Tailscale Serve config persists in tailscaled state. Set it up once on
-`nixosbtw` (this replaces the old mapping to the dev port):
-
-```sh
-sudo tailscale serve --bg --https=443 http://127.0.0.1:7846
-tailscale serve status
-```
 
 Upgrading an existing daemon migrates its database irreversibly. Back up
 `/var/lib/piqueld` first (`sudo systemctl stop piqueld`, then copy the whole
@@ -77,9 +82,12 @@ directory). After switching, open the link in `/var/lib/piqueld/setup-link`
 (root-readable) and register the first account's passkey. Log out and back in on
 NixOS to pick up the group membership.
 
-Back up `/var/lib/piqueld` as a unit: it holds `piqueld.db` and `secrets.key`,
-the master key for application secrets. Without the key, secret values cannot
-be recovered.
+On the first start with private ingress, approve the `piqueld-apps` node with
+the login URL from `journalctl -u piqueld`.
+
+Back up `/var/lib/piqueld` as a unit: it holds `piqueld.db`, `secrets.key`
+(the master key for application secrets, which cannot be recovered without
+it), both tailnet nodes' identities and the ingress certificates.
 
 ### Validation
 
