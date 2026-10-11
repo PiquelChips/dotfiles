@@ -2,7 +2,7 @@
 let
   # piqueld joins the tailnet as its own node and serves HTTPS on it.
   # Passkeys are bound to this origin: changing it invalidates every passkey.
-  publicUrl = "https://piqueld.tailfcb6ab.ts.net";
+  publicUrl = "https://dash.piqueld.dev";
 in
 {
   flake.nixosModules.piqueld =
@@ -17,7 +17,6 @@ in
         enable = true;
         settings = {
           auth = {
-            public_url = publicUrl;
             max_token_days = 365;
           };
           tailscale = {
@@ -30,7 +29,10 @@ in
           ingress = {
             enabled = true;
             acme.email = "admin@piquel.fr";
-            private.enabled = true;
+            private = {
+              enabled = true;
+              dashboard_hostname = "dash.piqueld.dev";
+            };
             tunnel = {
               enabled = true;
               credentials_file = secrets.piqueld-cloudflared-tunnel.path;
