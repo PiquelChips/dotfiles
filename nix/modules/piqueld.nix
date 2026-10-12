@@ -23,6 +23,7 @@ in
             enabled = true;
             hostname = "piqueld";
           };
+          reconciliation.prepare_timeout_seconds = 1200;
           # Public routes arrive through a Cloudflare Tunnel (no open ports),
           # private routes through the piqueld-apps tailnet node, which logs
           # its login URL on first start.
