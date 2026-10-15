@@ -133,7 +133,20 @@ let
                 "just"
               ];
             }
-            { commands = [ "just dev" ]; }
+          ];
+        };
+      }
+      {
+        repository = "git@github.com:piquel-fr/origin.git";
+        default_session = {
+          windows = [
+            { commands = [ "vim ." ]; }
+            {
+              commands = [
+                "git pull"
+                "just"
+              ];
+            }
           ];
         };
       }
