@@ -158,6 +158,7 @@ in
         self.darwinModules.tmux
         self.darwinModules.piquel-cli
         self.darwinModules.piqueld
+        self.darwinModules.sccache
         macModule
       ];
     };

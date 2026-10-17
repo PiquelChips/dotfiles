@@ -10,6 +10,7 @@
         self.nixosModules.piquel-cli
         self.nixosModules.piqueld
         self.nixosModules.secrets
+        self.nixosModules.sccache
         # Do not add for now, wait for easy access to nightly
         # Before activating, make sure to move the state directory to the configured location
         #self.nixosModules.t3-code
