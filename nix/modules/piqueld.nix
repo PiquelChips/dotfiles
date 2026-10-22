@@ -49,16 +49,6 @@ in
               manage_records = true;
             }
           ];
-          notifications = {
-            enabled = true;
-            destinations = [
-              {
-                name = "discord";
-                kind = "discord";
-                url_file = secrets.piqueld-discord-webhook.path;
-              }
-            ];
-          };
         };
       };
 
