@@ -5,13 +5,15 @@ description: File a concise pull request. Use when the user asks to file, open, 
 
 # File PR
 
-Before filing, check whether a PR for this branch already exists. Review the
-diff locally against the base branch (usually `origin/main`) to make sure its
-contents match the goal.
+Before filing, check whether a PR for this branch already exists. Rebase onto
+the latest base branch (usually `origin/main`): stale branches conflict and
+waste a review round. Review the diff locally against the base branch to make
+sure its contents match the goal.
 
 PR titles usually become commit messages, so follow the repository's title
-conventions. Look at recently merged PRs and Git history for examples. Prefer a
-concise, human-readable title that explains why the change matters:
+conventions. Look at recently merged PRs and Git history for examples. Use
+conventional commit style in projects that use it, for example
+`fix(web): new threads no longer spike CPU`. Prefer a concise, human-readable title that explains why the change matters:
 
 BAD
 
@@ -33,10 +35,18 @@ GOOD
 
 > ✅ My "new worktree" default was ignored when starting new threads on existing worktrees. Super unintuitive. Now your preferences always apply.
 
-End the description with the public model name and harness that made the
-changes, for example `Created with <model> in <harness>.` Include subagent
-models that wrote part of the change. Use the model name the harness reports.
-If model identity is unavailable, name the harness without guessing a model.
+End the description with a note naming the public model and harness that made
+the changes:
+
+```md
+> [!NOTE]
+> <action> by <model> in <harness> (via T3 Code)
+```
+
+For example: `written by Claude Opus 5.5 in Claude Code and reviewed by GPT 6
+Astra (via T3 Code)`. Include subagent models that wrote or reviewed part of
+the change. Use the model name the harness reports. If model identity is
+unavailable, name the harness without guessing a model.
 
 Before submission, check the title, description, quotes, and attachments for
 secrets and private details.
