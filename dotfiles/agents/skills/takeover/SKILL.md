@@ -9,9 +9,9 @@ Take responsibility for finishing the original goal while preserving the
 original contributors' credit. Do not defend an implementation just because
 another agent already built it.
 
-Read the source PR, branch, or thread, including review findings and the user's
-later corrections. Resolve the handoff to the actual code and current head,
-and account for uncommitted work. Treat the handoff as context, not proof.
+Read the source PR, branch, or thread (`t3_thread_read` for an agent thread),
+including review findings and the user's later corrections. Resolve the
+handoff to the actual code and current head, and account for uncommitted work. Treat the handoff as context, not proof.
 
 For a replacement PR, import the original commits onto a new branch and add
 your fixes separately. Honor an explicitly requested in-place or stacked

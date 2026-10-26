@@ -46,7 +46,7 @@ one appears.
    smallest change that works. Fix the case that happened, not every case
    that could. If you are on the default branch, create a branch first.
 2. **Prove it.** Get proof for every change you made. See "Proof".
-3. **Get feedback.** Use the `sol-loop` skill to verify changes.
+3. **Get feedback.** Use the `review-loop` skill to verify changes.
 4. **File the PR** with the `file-pr` skill. Rebase onto the latest default
    branch first. Add one short line to the description that says how you proved
    the change.
@@ -57,10 +57,9 @@ one appears.
    and each decision you made for the user.
 
 Stay active from step 1 to step 7. If you end your turn while checks or bots are
-pending, the work stops, because nobody will prompt you again. Wait with the
-watcher from `babysit-pr`, so something wakes you when the PR changes. In T3
-Code that is `watch_pull_request`. If you stop before the merge, call
-`unwatch_pull_request` first.
+pending, the work stops, because nobody will prompt you again. Wait with
+`watch_pull_request`, as in `babysit-pr`, so something wakes you when the PR
+changes. If you stop before the merge, call `unwatch_pull_request` first.
 
 ## Proof
 
@@ -69,7 +68,8 @@ reproduction, a screenshot. Use the most direct proof the change allows:
 
 - Reproduce the original failure, apply the fix, then watch the same
   reproduction pass.
-- Run the checks that the repo's CI runs (typecheck, lint, tests).
+- Run the repo's CI checks that cover the code you touched (typecheck, lint,
+  tests).
 - Add one focused test that fails without the fix, when the behavior has none
   and the repo has a test setup.
 - For UI and runtime behavior, run the app and look at the change. Green mocked
@@ -100,10 +100,9 @@ review" if you have high confidence in your changes.
 ## Asking the user
 
 A question in a normal message goes unseen, and the thread looks done. To ask
-the user something, use the harness's question tool so the thread shows that
-it is waiting: `AskUserQuestion` in Claude Code, `request_user_input` in Codex,
-or the question tool your harness has. Put all the context in the question:
-the PR link, what blocks you, and the options with your recommendation first.
+the user something, use `AskUserQuestion` so the thread shows that it is
+waiting. Put all the context in the question: the PR link, what blocks you,
+and the options with your recommendation first.
 
 Ask only when you cannot continue alone:
 
@@ -118,6 +117,6 @@ Ask only when you cannot continue alone:
 Decide everything else yourself with sensible defaults, and list those decisions
 in the report.
 
-If no question tool is available, or the tool returns no answer, take the safe
+If `AskUserQuestion` is unavailable or returns no answer, take the safe
 path: leave the PR open and unmerged, and start your final message with the
 question.
