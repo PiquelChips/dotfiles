@@ -22,7 +22,7 @@ of scope creep and don't be scared to push back.
   the user asks.
 - Stop early if a round returns only nits. Declined nits and comment,
   doc, or format-only fixes need no new round.
-- Four reviewers per round: three Sol, one Opus. Reviewers must not start
+- Three reviewers per round: two Sol, one Opus. Reviewers must not start
   subagents or reviewers.
 - Keep a ledger: id, reviewers, severity, outcome, usage if returned. Never
   guess it.
