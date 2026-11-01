@@ -6,8 +6,8 @@ description: Use when the user says "review loop".
 # review-loop
 
 This is a workflow for making your code changes more correct before (or
-sometimes after) filing a pull request. tl;dr - have three GPT Sol reviewers
-and one Claude Opus reviewer review your code in parallel, in a loop. Several
+sometimes after) filing a pull request. tl;dr - have two GPT Sol reviewers
+and one Claude Opus reviewer review your code in parallel, in a loop. Two
 Sols catch more than one. The Opus reviewer adds a read from the other provider.
 
 Make the most minimal possible changes to appease the reviewers. Be careful
@@ -50,7 +50,7 @@ missing or pre-failing checks in the brief.
 
 Call `orchestrator_capabilities`. Pick the latest Sol and the latest Opus
 unless the user named other models. Do not hardcode an ID. Record provider,
-model, and effort only if exposed. Every round, start all four reviewers in
+model, and effort only if exposed. Every round, start all three reviewers in
 parallel with `delegate_task` (`role: "review"`, `mode: "async"`) and the same
 brief. Save each `taskId`. New `clientRequestId` per task. `childThreadId` is
 storage, not the next target. Do not use `t3_thread_send`, `create_threads`,
@@ -58,7 +58,7 @@ or `t3_thread_launch` for review.
 
 If a model is unavailable, report the blocker. Do not substitute a model.
 
-Do not edit scoped files while review runs. Wait for all four notices. Do not
+Do not edit scoped files while review runs. Wait for all three notices. Do not
 poll or start extra reviewers. Timeout, error, or no reply is not approval. On
 failure, cancel that reviewer, verify stop, restart it with the ledger.
 
@@ -80,7 +80,7 @@ VERDICT: APPROVE or CHANGES
 
 ## 3. Answer findings
 
-Merge the four replies first: one ledger entry per distinct claim, with a
+Merge the three replies first: one ledger entry per distinct claim, with a
 stable id (F1, F2, …) and the reviewers that raised it. Several reviewers
 raising the same claim is a signal, not proof.
 
@@ -99,7 +99,7 @@ review grew the diff, cut first. Do not agree just to end the loop.
 ## 4. Next round
 
 Start one only if budget remains and a blocker or should is open, behavior code
-changed, or approval does not cover the current behavior diff. Start four fresh
+changed, or approval does not cover the current behavior diff. Start three fresh
 `delegate_task`s. Send each the round 1 brief, the ledger (`fixed:` /
 `disagree:` / `declined:` + evidence), the same base diff, and the change since
 last round. Tell reviewers: open ids and changed code only. Mark each old id
@@ -107,7 +107,7 @@ last round. Tell reviewers: open ids and changed code only. Mark each old id
 
 ## 5. Stop and ship
 
-Agreed: all four APPROVE on the current behavior diff, no blocker or should
+Agreed: all three APPROVE on the current behavior diff, no blocker or should
 open, no concern of your own. Stuck: an item stays disputed after two replies,
 or budget ends. Show both sides in 2-3 lines each. The user decides.
 Budget end is not approval.
@@ -116,7 +116,7 @@ Do not push during the loop. Push after agreement only if the user asked
 to push, ship, or update the PR. If you push to a PR, add above the
 attribution note:
 
-`Reviewed with review-loop: <N> rounds with 3× <Sol model> and <Opus model>. Verdict: approved`.
+`Reviewed with review-loop: <N> rounds with 2× <Sol model> and <Opus model>. Verdict: approved`.
 
 Add `on <effort>` only if verified.
 
