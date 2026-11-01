@@ -13,7 +13,7 @@ let
       ${lib.optionalString pkgs.stdenv.hostPlatform.isDarwin ''
         path=(/run/current-system/sw/bin /opt/homebrew/bin /opt/homebrew/sbin /usr/local/bin /usr/local/sbin $path)
       ''}
-      path=("$HOME/.cargo/bin" "$HOME/.local/share/pnpm/bin" $path)
+      path=("$HOME/.cargo/bin" "$HOME/.local/share/pnpm/bin" "$HOME/.local/bin" $path)
       typeset -U path
 
       source ${
