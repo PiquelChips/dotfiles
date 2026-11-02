@@ -56,6 +56,5 @@ It's the main agent I will actually interact with it. It is an orchestrator.
 Opus should also be the only one to write user-facing text (documentation, ...)
 and make UIs.
 
-**GPT 6.1 Sol**: Sometimes will be replaced by GPT 6 Astra if budget permits it. 
-Sol should be the main review agent. Use it for deep analysis, research & code
-review. Also prefer for iOS development.
+**GPT 6.1 Sol**: Sol should be the main review agent. Use it for deep analysis,
+research & code review. Also prefer for iOS development.
