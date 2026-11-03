@@ -29,8 +29,8 @@ NixOS runs one `piqueld` service. It joins the tailnet as its own node and
 serves the dashboard and API over HTTPS at `https://piqueld.tailfcb6ab.ts.net`
 (the passkey origin, `auth.public_url`). The upstream module owns socket
 permissions and runtime/state directories; the `piquel` user can reach the
-socket through the `piqueld` group. macOS installs only the CLI and selects
-`prod` by default through `PIQUELD_PROFILE`.
+socket through the `piqueld` group. macOS installs only the CLI and makes
+`prod` its default profile.
 
 | Profile | NixOS socket | macOS URL |
 | --- | --- | --- |

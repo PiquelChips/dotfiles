@@ -62,11 +62,12 @@ in
 
     programs.piquelctl = {
       enable = true;
-      settings.profiles.prod.url = publicUrl;
+      settings = {
+        # Without a default, piquelctl falls back to the local socket, which
+        # only exists on the daemon host.
+        default = "prod";
+        profiles.prod.url = publicUrl;
+      };
     };
-
-    # Without a profile, piquelctl falls back to the local socket, which
-    # only exists on the daemon host.
-    environment.variables.PIQUELD_PROFILE = "prod";
   };
 }
