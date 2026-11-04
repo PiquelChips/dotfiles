@@ -20,6 +20,7 @@ Be ambitious.
 - Keep comments & documentation up to date when you make changes.
 - Keep code style & conventions consistent with already existing code.
 - Rust is my preferred language.
+- Do not leave "Co-authored by" notes in PR and commit descriptions.
 
 **Rust**:
 
