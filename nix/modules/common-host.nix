@@ -34,7 +34,6 @@
 
           codex
           claude-code
-          opencode
           ani-cli
 
           rustup
