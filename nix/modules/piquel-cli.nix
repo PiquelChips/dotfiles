@@ -61,7 +61,7 @@ let
         };
       }
       {
-        repository = "git@github.com:piquel-fr/infra";
+        repository = "git@github.com:sourceorigin-dev/infra";
         default_session = {
           windows = [
             { commands = [ "vim ." ]; }
@@ -76,7 +76,7 @@ let
         };
       }
       {
-        repository = "git@github.com:piquel-fr/vps-setup";
+        repository = "git@github.com:sourceorigin-dev/vps-setup";
         default_session = {
           windows = [
             { commands = [ "vim ." ]; }
@@ -91,7 +91,7 @@ let
         };
       }
       {
-        repository = "git@github.com:piquel-fr/piquel-fr";
+        repository = "git@github.com:sourceorigin-dev/sourceorigin";
         default_session = {
           windows = [
             { commands = [ "vim ." ]; }
@@ -121,7 +121,7 @@ let
         };
       }
       {
-        repository = "git@github.com:piquel-fr/piqueld.git";
+        repository = "git@github.com:sourceorigin-dev/piqueld.git";
         name = "piqueld";
         path = "~/Projects/piqueld";
         default_session = {
@@ -137,7 +137,7 @@ let
         };
       }
       {
-        repository = "git@github.com:piquel-fr/origin.git";
+        repository = "git@github.com:sourceorigin-dev/origin.git";
         default_session = {
           windows = [
             { commands = [ "vim ." ]; }
@@ -155,7 +155,7 @@ let
         default_session = "rust";
       }
       {
-        repository = "git@github.com:piquel-fr/piquel-log.git";
+        repository = "git@github.com:sourceorigin-dev/piquel-log.git";
         default_session = "rust";
       }
       {
