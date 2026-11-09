@@ -24,7 +24,7 @@ in
             hostname = "piqueld";
           };
           reconciliation.prepare_timeout_seconds = 1200;
-          # piquel-fr's agents run many previews at once. The limit applies to
+          # sourceorigin's agents run many previews at once. The limit applies to
           # every application; max_total (30 by default) still caps them all.
           previews.max_per_application = 20;
           # Public routes arrive through a Cloudflare Tunnel (no open ports),

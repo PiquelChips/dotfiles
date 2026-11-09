@@ -210,13 +210,13 @@
       "locked": {
         "lastModified": 1794071780,
         "narHash": "sha256-hqSMTYfmb6C4snTxYa7HQjV/7LZ6XDWTHvtPWRQOz4s=",
-        "owner": "piquel-fr",
+        "owner": "sourceorigin-dev",
         "repo": "piqueld",
         "rev": "9f0642040a0f3168f0046b27f1e4021b0eed5f2f",
         "type": "github"
       },
       "original": {
-        "owner": "piquel-fr",
+        "owner": "sourceorigin-dev",
         "repo": "piqueld",
         "type": "github"
       }
