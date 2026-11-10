@@ -15,10 +15,11 @@
       services.dockerRegistry = {
         enable = true;
         inherit port;
-        # piqueld will delete the images no deployment uses any more; the
-        # weekly garbage collection then frees their layers.
+        # piqueld will delete the images no deployment uses any more
+        # (sourceorigin-dev/piqueld#409). Garbage collection, which frees
+        # their layers, stays off until then: it restarts the registry, which
+        # would fail a push in progress.
         enableDelete = true;
-        enableGarbageCollect = true;
       };
 
       # Serves the registry at https://<this machine's tailnet name>:5000,
