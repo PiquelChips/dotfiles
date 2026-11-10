@@ -21,6 +21,8 @@ Be ambitious.
 - Keep code style & conventions consistent with already existing code.
 - Rust is my preferred language.
 - Do not leave "Co-authored by" notes in PR and commit descriptions.
+- Make sure to use the `frontend-design` skill whenever touching anything to
+  do with UI.
 
 **Rust**:
 
