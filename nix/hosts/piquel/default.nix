@@ -9,6 +9,7 @@
         self.nixosModules.tmux
         self.nixosModules.piquel-cli
         self.nixosModules.piqueld
+        self.nixosModules.build-machine
         self.nixosModules.secrets
         self.nixosModules.sccache
         self.nixosModules.rustup
