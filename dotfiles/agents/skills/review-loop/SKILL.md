@@ -6,9 +6,9 @@ description: Use when the user says "review loop".
 # review-loop
 
 This is a workflow for making your code changes more correct before (or
-sometimes after) filing a pull request. tl;dr - have two GPT Sol reviewers
-and one Claude Opus reviewer review your code in parallel, in a loop. Two
-Sols catch more than one. The Opus reviewer adds a read from the other provider.
+sometimes after) filing a pull request. tl;dr - have GPT 6.1 Sol, Claude Opus
+5.5, and Claude Fable 5.2 review your code in parallel, in a loop. Different
+models catch different bugs.
 
 Make the most minimal possible changes to appease the reviewers. Be careful
 of scope creep and don't be scared to push back.
@@ -22,7 +22,7 @@ of scope creep and don't be scared to push back.
   the user asks.
 - Stop early if a round returns only nits. Declined nits and comment,
   doc, or format-only fixes need no new round.
-- Three reviewers per round: two Sol, one Opus. Reviewers must not start
+- Three reviewers per round: Sol, Opus, Fable. Reviewers must not start
   subagents or reviewers.
 - Keep a ledger: id, reviewers, severity, outcome, usage if returned. Never
   guess it.
@@ -48,8 +48,9 @@ missing or pre-failing checks in the brief.
 
 ## 2. Start the reviewers
 
-Call `orchestrator_capabilities`. Pick the latest Sol and the latest Opus
-unless the user named other models. Do not hardcode an ID. Record provider,
+Call `orchestrator_capabilities`. Use GPT 6.1 Sol, Claude Opus 5.5, and
+Claude Fable 5.2 unless the user named other models. Resolve their IDs from
+the capabilities; do not hardcode them. Record provider,
 model, and effort only if exposed. Every round, start all three reviewers in
 parallel with `delegate_task` (`role: "review"`, `mode: "async"`) and the same
 brief. Save each `taskId`. New `clientRequestId` per task. `childThreadId` is
@@ -116,7 +117,7 @@ Do not push during the loop. Push after agreement only if the user asked
 to push, ship, or update the PR. If you push to a PR, add above the
 attribution note:
 
-`Reviewed with review-loop: <N> rounds with 2× <Sol model> and <Opus model>. Verdict: approved`.
+`Reviewed with review-loop: <N> rounds with <Sol model>, <Opus model>, and <Fable model>. Verdict: approved`.
 
 Add `on <effort>` only if verified.
 

@@ -43,10 +43,10 @@ the changes:
 > <action> by <model> in <harness> (via T3 Code)
 ```
 
-For example: `written by Claude Opus 5.5 in Claude Code and reviewed by GPT 6
-Astra (via T3 Code)`. Include subagent models that wrote or reviewed part of
-the change. Use the model name the harness reports. If model identity is
-unavailable, name the harness without guessing a model.
+For example: `written by Claude Opus 5.5 in Claude Code and reviewed by GPT 6.1
+Sol and Claude Fable 5.2 (via T3 Code)`. Include subagent models that wrote or
+reviewed part of the change. Use the model name the harness reports. If model
+identity is unavailable, name the harness without guessing a model.
 
 Before submission, check the title, description, quotes, and attachments for
 secrets and private details.
