@@ -130,6 +130,25 @@
         virtualisation.docker = {
           enable = true;
         };
+
+        # Docker can exit before deleting the overlay VXLAN links it moves back
+        # to the host network namespace on shutdown (moby/moby#49555). A
+        # leftover `vx-<vni>-<network>` link then blocks that overlay network
+        # with "error creating vxlan interface: file exists" until it is
+        # deleted by hand. Docker only creates these links in the host
+        # namespace while it runs, so any found before it starts are stale.
+        systemd.services.docker.serviceConfig.ExecStartPre = [
+          (pkgs.writeShellScript "docker-remove-stale-vxlan" ''
+            ${pkgs.iproute2}/bin/ip -br link show type vxlan | while read -r link _; do
+              case "$link" in
+                vx-*)
+                  echo "removing stale Docker overlay link $link"
+                  ${pkgs.iproute2}/bin/ip link delete "$link"
+                  ;;
+              esac
+            done
+          '')
+        ];
       };
   };
 }
