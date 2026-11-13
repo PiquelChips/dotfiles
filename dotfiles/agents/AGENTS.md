@@ -48,18 +48,3 @@ Only run code that you have changed.
 #### Pull Requests
 
 Use the `file-pr`, `babysit-pr` & `leaving-pr-comments` skills for PR work.
-
-#### Subagents
-
-These rules are not fixed, only general guidelines. They can be overriden if it
-is appropriate. They apply to subagents, not threads. New threads must always
-be started with Opus.
-
-**Claude 5.5**: main agent, use for implementation, writing.
-It's the main agent I will actually interact with it. It is an orchestrator.
-Opus should also be the only one to write user-facing text (documentation, ...)
-and make UIs. 
-
-**GPT 6.1 Sol**: Sol should be the main review agent. Use it for deep analysis,
-research & code review. Also prefer for iOS development.
-
