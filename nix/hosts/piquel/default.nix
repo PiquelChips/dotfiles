@@ -137,17 +137,19 @@
         # with "error creating vxlan interface: file exists" until it is
         # deleted by hand. Docker only creates these links in the host
         # namespace while it runs, so any found before it starts are stale.
+        # The `-` prefix keeps a failed cleanup from stopping Docker itself.
         systemd.services.docker.serviceConfig.ExecStartPre = [
-          (pkgs.writeShellScript "docker-remove-stale-vxlan" ''
+          "-${pkgs.writeShellScript "docker-remove-stale-vxlan" ''
             ${pkgs.iproute2}/bin/ip -br link show type vxlan | while read -r link _; do
               case "$link" in
-                vx-*)
+                # Docker names them `vx-%06x-<network ID>`.
+                vx-[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f]-?*)
                   echo "removing stale Docker overlay link $link"
                   ${pkgs.iproute2}/bin/ip link delete "$link"
                   ;;
               esac
             done
-          '')
+          ''}"
         ];
       };
   };
