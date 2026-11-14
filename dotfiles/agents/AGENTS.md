@@ -45,6 +45,13 @@ When choosing the tech stack for a project, make sure to use the `tech-stack` sk
 Also, don't just run tests every time you make a change, it's a waste of time.
 Only run code that you have changed.
 
+#### Issues
+
+piqueld and infra track issues in Linear (`sourceorigin` workspace, `PQD`
+team) through the Linear MCP server: new issues go to Triage with a Type label,
+and PRs say `Fixes PQD-123`. Other projects still use GitHub issues until they
+move.
+
 #### Pull Requests
 
 Use the `file-pr`, `babysit-pr` & `leaving-pr-comments` skills for PR work.
