@@ -1,4 +1,4 @@
-# piqueld runs on piquel-fr (sourceorigin-dev/infra). Here, only its CLI,
+# piqueld runs on ovh-1 (sourceorigin-dev/infra). Here, only its CLI,
 # pointed at that installation.
 { inputs, ... }:
 let
