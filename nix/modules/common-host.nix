@@ -77,6 +77,8 @@
           zlib
           tbb
           dotnetCorePackages.dotnet_9.sdk
+
+          deploy-rs
         ]
         ++ pkgs.lib.optionals pkgs.stdenv.hostPlatform.isLinux [
           cloudflared
