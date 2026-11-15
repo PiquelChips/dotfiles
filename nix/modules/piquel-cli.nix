@@ -17,7 +17,8 @@ let
       }
       {
         name = "vps";
-        address = "piquel.fr";
+        # piquel-fr's tailnet address: its SSH isn't public.
+        address = "100.88.40.104";
         username = "piquel";
       }
     ];
