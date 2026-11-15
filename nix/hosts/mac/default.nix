@@ -63,7 +63,10 @@ let
 
           ANI_CLI_DOWNLOAD_DIR = "$HOME/Movies/Anime";
         };
-        systemPackages = self.lib.dotfiles.commonPackages { inherit pkgs; };
+        systemPackages = self.lib.dotfiles.commonPackages { inherit pkgs; } ++ [
+          # Apple's OpenSSH can't use security keys such as the YubiKey.
+          pkgs.openssh
+        ];
       };
 
       environment.etc."gitconfig".text = lib.generators.toGitINI self.lib.dotfiles.gitConfig;
