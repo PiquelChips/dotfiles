@@ -14,6 +14,11 @@ let
       "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI="
       "piquel-pi-1:bKIz75gwV7RfJ6uT1YI+fUYbGk1uptOl9Vlu/jR+r0w="
     ];
+    # While a cache is unreachable, such as the Pi off the tailnet, build
+    # what it would have served instead of failing, and skip it for a
+    # minute; the short timeout keeps each try from stalling a build.
+    fallback = true;
+    connect-timeout = 5;
   };
 in
 {
