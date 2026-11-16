@@ -72,7 +72,10 @@
     networkmanager = {
       enable = true;
 
-      insertNameservers = [
+      # After Tailscale's MagicDNS, which answers tailnet names: ahead of it,
+      # Cloudflare would answer that they don't exist, and the lookup would
+      # stop there.
+      appendNameservers = [
         "1.1.1.1"
         "1.0.0.1"
       ];
