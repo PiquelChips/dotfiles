@@ -156,6 +156,7 @@ in
       specialArgs = { inherit inputs self; };
       modules = [
         self.darwinModules.agent-tools
+        self.darwinModules.binary-caches
         self.darwinModules.nvim
         self.darwinModules.zsh
         self.darwinModules.tmux

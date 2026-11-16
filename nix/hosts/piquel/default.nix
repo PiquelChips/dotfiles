@@ -4,6 +4,7 @@
     nixosConfigurations.piquel = inputs.nixpkgs.lib.nixosSystem {
       modules = [
         self.nixosModules.agent-tools
+        self.nixosModules.binary-caches
         self.nixosModules.nvim
         self.nixosModules.zsh
         self.nixosModules.tmux
