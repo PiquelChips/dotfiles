@@ -128,10 +128,11 @@
             openFirewall = true;
             # By default Tailscale's own firewall rules accept everything from
             # the tailnet ahead of NixOS's. This keeps its rules out of the way,
-            # so the tailnet only reaches the ports opened on `tailscale0`.
-            # Tailscale Serve (T3 Code) is answered by tailscaled itself, so it
-            # needs no port here. Logging in again with `tailscale up` must
-            # repeat this flag.
+            # so NixOS's firewall decides what the tailnet reaches: the ports
+            # open on every interface or on `tailscale0`. tailscaled still
+            # answers Tailscale Serve (T3 Code) and Taildrop itself, so they
+            # need no port. Logging in again with `tailscale up` must repeat
+            # this flag.
             extraSetFlags = [ "--netfilter-mode=nodivert" ];
           };
         };
