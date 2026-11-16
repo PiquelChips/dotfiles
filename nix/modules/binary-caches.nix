@@ -3,10 +3,16 @@
 # `nixConfig`, so the caches infra's hosts need are set here.
 let
   settings = {
-    # nixos-raspberrypi's kernels and firmware, for the Pi.
-    extra-substituters = [ "https://nixos-raspberrypi.cachix.org" ];
+    extra-substituters = [
+      # nixos-raspberrypi's kernels and firmware, for the Pi.
+      "https://nixos-raspberrypi.cachix.org"
+      # The Pi's own cache, on the tailnet: what nixosbtw has built
+      # (the pi-cache-push module).
+      "https://piquel-pi.tailfcb6ab.ts.net"
+    ];
     extra-trusted-public-keys = [
       "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI="
+      "piquel-pi-1:bKIz75gwV7RfJ6uT1YI+fUYbGk1uptOl9Vlu/jR+r0w="
     ];
   };
 in
