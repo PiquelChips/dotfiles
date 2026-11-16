@@ -122,8 +122,21 @@
             enable = true;
             interval = "weekly";
           };
-          tailscale.enable = true;
+          tailscale = {
+            enable = true;
+            # Allow Tailscale's UDP port, for direct connections.
+            openFirewall = true;
+            # By default Tailscale's own firewall rules accept everything from
+            # the tailnet ahead of NixOS's. This keeps its rules out of the way,
+            # so the tailnet only reaches the ports opened on `tailscale0`.
+            # Logging in again with `tailscale up` must repeat this flag.
+            extraSetFlags = [ "--netfilter-mode=nodivert" ];
+          };
         };
+
+        # Tailscale Serve's HTTPS listener, for what `tailscale serve` exposes
+        # here, such as T3 Code.
+        networking.firewall.interfaces.tailscale0.allowedTCPPorts = [ 443 ];
 
         fonts = {
           enableDefaultPackages = true;
