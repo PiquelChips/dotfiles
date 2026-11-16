@@ -16,7 +16,8 @@ let
     ];
     # While a cache is unreachable, such as the Pi off the tailnet, build
     # what it would have served instead of failing, and skip it for a
-    # minute; the short timeout keeps each try from stalling a build.
+    # minute. Nix retries a connection that times out, so the short timeout
+    # keeps that to about half a minute.
     fallback = true;
     connect-timeout = 5;
   };
