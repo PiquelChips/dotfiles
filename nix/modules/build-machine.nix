@@ -29,5 +29,8 @@
         };
       };
       networking.firewall.interfaces.tailscale0.allowedTCPPorts = [ buildkitPort ];
+      # BuildKit pushes to the Pi's registry by its tailnet name, which this
+      # machine's resolvers don't answer: Cloudflare's come first.
+      networking.hosts."100.96.91.58" = [ "piquel-pi.tailfcb6ab.ts.net" ];
     };
 }
