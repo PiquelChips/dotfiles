@@ -208,11 +208,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1795162262,
-        "narHash": "sha256-gNOVGlvOvn3d1WKnOP7f99ML5I8wHUEV7JTXGcnNz5w=",
+        "lastModified": 1795190394,
+        "narHash": "sha256-S8AmvSOVfld5Ouy/LFrOKTnzNqfcMkJH1DacsCijFvU=",
         "owner": "sourceorigin-dev",
         "repo": "piqueld",
-        "rev": "6db6277281f2cabcc2ff334aeddb11fb380d0e31",
+        "rev": "99ea0eb72d34dba7933fa279f9995f1f99ad260d",
         "type": "github"
       },
       "original": {
