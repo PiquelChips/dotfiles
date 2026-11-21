@@ -29,8 +29,9 @@
         };
       };
       networking.firewall.interfaces.tailscale0.allowedTCPPorts = [ buildkitPort ];
-      # BuildKit pushes to the Pi's registry by its tailnet name, which this
-      # machine's resolvers don't answer: Cloudflare's come first.
+      # BuildKit pushes to the Pi's registry by its tailnet name, and so does
+      # the pi-cache-push module to its Nix cache. This machine's resolvers
+      # don't answer it: Cloudflare's come first.
       networking.hosts."100.96.91.58" = [ "piquel-pi.tailfcb6ab.ts.net" ];
     };
 }

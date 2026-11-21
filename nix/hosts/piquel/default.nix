@@ -11,6 +11,7 @@
         self.nixosModules.piquel-cli
         self.nixosModules.piqueld
         self.nixosModules.build-machine
+        self.nixosModules.pi-cache-push
         self.nixosModules.secrets
         self.nixosModules.sccache
         self.nixosModules.rustup
