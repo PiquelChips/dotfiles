@@ -93,11 +93,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793418699,
-        "narHash": "sha256-+RpTlcdh9KqZ+ZiLkNSTvibQWm935EcIdBzRPCTFsrQ=",
+        "lastModified": 1795373241,
+        "narHash": "sha256-Gd1+Oaj8nS+p1qLpKk4MGv/qGh62+lTkX4262e2UDgc=",
         "owner": "nix-darwin",
         "repo": "nix-darwin",
-        "rev": "ff0e21a414d4547183396da1b44a66f2577b65e9",
+        "rev": "663d8b962a11cda261b6e9f14e03911fac94baf0",
         "type": "github"
       },
       "original": {
@@ -208,11 +208,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1795272798,
-        "narHash": "sha256-fOxm8/M9g82fb0R7hvyIZ9NnuzKezuV/hNqeALxdin8=",
+        "lastModified": 1795432196,
+        "narHash": "sha256-sYcj1pgc7QD88RnA2hf/utOYD7FOFHCPz5oXoPZa24c=",
         "owner": "sourceorigin-dev",
         "repo": "piqueld",
-        "rev": "a1a9129dbe3d6d103aaee702d40369cbdc3d0cf5",
+        "rev": "626fffb026d3ab82a1d7cc0229ae6095c91745e7",
         "type": "github"
       },
       "original": {
