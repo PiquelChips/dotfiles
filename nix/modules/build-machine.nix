@@ -11,12 +11,13 @@
 
     services.piqueld-builder = {
       enable = true;
-      # ovh-1 runs up to 5 builds here at once (its `build.parallel`).
+      # Room to keep the layers of all of ovh-1's applications cached.
       cacheSize = "100GB";
     };
 
-    # BuildKit pushes to the Pi's registry by its tailnet name, which this
-    # machine's resolvers don't answer: Cloudflare's come first. BuildKit
+    # BuildKit pushes to the Pi's registry by its tailnet name. Pushes failed
+    # with `no such host` while Cloudflare's resolvers came before
+    # Tailscale's (#39), so the name doesn't depend on their order. BuildKit
     # sees this through its copy of /etc.
     networking.hosts."100.96.91.58" = [ "piquel-pi.tailfcb6ab.ts.net" ];
   };
