@@ -17,8 +17,8 @@
 
     # BuildKit pushes to the Pi's registry by its tailnet name. Pushes failed
     # with `no such host` while Cloudflare's resolvers came before
-    # Tailscale's (#39), so the name doesn't depend on their order. BuildKit
-    # sees this through its copy of /etc.
+    # Tailscale's (#39): this entry keeps the name from depending on their
+    # order. BuildKit sees it through its copy of /etc.
     networking.hosts."100.96.91.58" = [ "piquel-pi.tailfcb6ab.ts.net" ];
   };
 }
