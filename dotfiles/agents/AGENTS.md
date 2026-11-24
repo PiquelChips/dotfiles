@@ -3,6 +3,29 @@ and writing code is simplicity. Keep everything as simple as possible.
 Don’t add complexity just because it looks architecturally impressive.
 Be ambitious.
 
+#### Scope: do what was asked, nothing more
+
+**Scope creep is the most common way an agent's work goes wrong. Watch for
+it at every step and push back on it, including when a reviewer or your own
+curiosity suggests it.**
+
+- **One task, one change.** Do the task you were given. A pull request is one
+  change and holds nothing else.
+- **No drive-by changes.** No refactors, renames, reformatting, dependency
+  bumps, "while I'm here" fixes or extra features the task didn't ask for.
+- **Found something else?** Say so in your report, or file an issue. Don't fix
+  it in this change.
+- **Review findings outside the change are follow-ups.** Reviewers, council
+  included, report only defects in the change and regressions it causes. A
+  finding about code the change doesn't touch goes to an issue, not into the
+  PR.
+- **Ask before widening.** If doing the task well really needs a wider change,
+  stop and ask me first, and say why.
+- **Check before handing back.** Reread your diff. Every hunk must be needed
+  for the task; remove any that isn't.
+- **Be ambitious inside the scope.** Finish the task completely and well.
+  Ambition is never a reason to widen it.
+
 #### Coding Preferences
 
 **General**:

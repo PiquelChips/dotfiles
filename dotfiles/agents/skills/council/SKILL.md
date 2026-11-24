@@ -5,6 +5,9 @@ description: Trigger this if the user says 'council'.
 
 # Council
 
+> **Scope.** Report only defects in the change and regressions it causes.
+> Anything else is a follow-up. See "Scope" in `AGENTS.md`.
+
 Before an audit, address outstanding PR comments, fix known issues, and run
 relevant checks. Give council the updated implementation; do not defer known
 fixes until reviews return. If the user wants to discard the implementation
