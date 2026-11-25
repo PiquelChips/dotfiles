@@ -19,14 +19,31 @@ Call `orchestrator_capabilities` to resolve the model IDs, then start one
 instead of substituting.
 
 Give each delegate the request and relevant context. For review or feedback,
-keep their work read-only. Collect their responses and summarize the useful
-findings, disagreements, and recommended next steps.
+delegates never push, comment, or edit your checkout. Collect their responses
+and summarize the useful findings, disagreements, and recommended next steps.
 
-Do not wait idle. When a result arrives, check its findings against the code
-at once and decide what to fix while the other delegates run. Do not edit
-files while a delegate still reviews the same checkout. If the user's
+Do not wait idle. When a result arrives, verify its findings at once and
+decide what to fix while the other delegates run. Code-review delegates work
+in their own worktrees, so you may fix findings meanwhile. Otherwise, do not
+edit files while a delegate still reviews the same checkout. If the user's
 instructions mark a delegate as non-blocking, do not wait for it; treat a
 late result as feedback and do not record its score.
+
+For a code review, agents do all of the verification; none of it falls to
+the user. Start each delegate with `isolation: "worktree"` at the head under
+review, so it can write and run repro tests without touching your checkout.
+The worktree starts from your commit, so commit the implementation first, or
+give the delegate the diff to apply. Add this to each brief:
+
+> Prove each finding with a run against the real code in your worktree: a
+> failing test, a repro script, or a command. Report the exact command, the
+> output it printed, and the output the intent requires. Mark a finding you
+> could not prove `unverified`.
+
+Rerun each proven finding's command before fixing it. Prove or disprove each
+unverified finding yourself, or send it back to the delegate that raised it.
+Never hand one to the user to judge. Drop disproved findings, with the reason
+in the summary.
 
 For a code review, ask each delegate for a score out of 10.
 Count each full review pass as one round.
