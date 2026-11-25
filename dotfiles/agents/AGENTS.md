@@ -14,10 +14,12 @@ Be ambitious.
 - Writing too much code makes code unclear & hard to maintain. For example,
   if every endpoint needs the same check, have the check run before the
   endpoint (like in middleware).
-- Comments are a great way to clarify functionality & how code is used.
-  Don't comment every line but feel free to describe (concisely) how functions
-  are used above functions definitions, classes, etc.
-- Keep comments & documentation up to date when you make changes.
+- Doc comments say what goes in and what comes out (or what happens), and
+  how to use the item, concisely. They don't justify the code.
+- No plain `//` comments, except the engineering standard's markers:
+  `// SAFETY:`, `// INVARIANT:` and `// wall-clock:`. A reason for an
+  exception goes in `#[expect(..., reason = "...")]`.
+- Keep documentation up to date when you make changes.
 - Keep code style & conventions consistent with already existing code.
 - Rust is my preferred language.
 - Do not leave "Co-authored by" notes in PR and commit descriptions.
