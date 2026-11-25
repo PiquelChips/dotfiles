@@ -50,6 +50,7 @@ Look beyond overlapping lines:
 - Would landing the PR restore an old behavior or create two ways to do the
   same thing?
 - Is the original benefit still large enough to justify the maintenance cost?
+  Use the `why` skill to find what that benefit was.
 
 Do not describe a PR as current merely because Git reports no conflicts.
 
