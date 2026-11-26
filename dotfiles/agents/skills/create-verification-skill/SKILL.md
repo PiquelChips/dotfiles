@@ -12,9 +12,7 @@ description: >-
 Every serious project needs a scripted way to drive the real app and prove
 behavior: launch it, exercise a feature the way a user would, and capture
 evidence. This skill generates that as a project-local skill,
-`.agents/skills/verify-<app>/`, tailored to the repository. The standard's
-`agent-files` rule requires that location, with `.claude/skills` a symlink to
-`../.agents/skills`: create the link if it's missing. Write for the next
+`.agents/skills/verify-<app>/`, tailored to the repository. Write for the next
 agent, not for a human: it will read the skill cold, mid-task, without having
 seen the app.
 
