@@ -7,8 +7,15 @@ description: File a concise pull request. Use when the user asks to file, open, 
 
 Before filing, check whether a PR for this branch already exists. Rebase onto
 the latest base branch (usually `origin/main`): stale branches conflict and
-waste a review round. Review the diff locally against the base branch to make
-sure its contents match the goal.
+waste a review round.
+
+If the repository has `.agents/skills/docs/references/doc-comment-review.md`
+and the diff adds or changes `///` or `//!` lines, give that brief to a fresh
+subagent (a native subagent or `delegate_task`) and apply the findings you
+accept.
+
+Review the diff locally against the base branch to make sure its contents
+match the goal.
 
 PR titles usually become commit messages, so follow the repository's title
 conventions. Look at recently merged PRs and Git history for examples. Use
