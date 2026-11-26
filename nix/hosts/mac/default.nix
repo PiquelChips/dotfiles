@@ -123,6 +123,7 @@ let
           "zen"
           "raycast"
           "nikitabobko/tap/aerospace"
+          "ladybird"
 
           # Dev
           "blender"
