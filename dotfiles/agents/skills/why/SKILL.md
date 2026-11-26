@@ -3,8 +3,10 @@ name: why
 description: >-
   Explain why something is built the way it is, from the record: design
   rationale, why we picked X, regressions, postmortems, data-backed
-  thresholds. Returns a cited read on decisions and tradeoffs. Use when the
-  user asks "why".
+  thresholds. Returns a cited read on decisions and tradeoffs. Use for
+  questions about past decisions, such as "why was this built this way?" or
+  "why did we pick X?". Not for why code fails or behaves as it does now:
+  debug that instead.
 ---
 
 # Why
