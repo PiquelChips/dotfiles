@@ -5,6 +5,9 @@ description: Use whenever leaving comments on GitHub.
 
 # Leaving PR Comments
 
+> **Scope.** Report only defects in the change and regressions it causes.
+> Anything else is a follow-up. See "Scope" in `AGENTS.md`.
+
 Prefix every agent-authored comment left on the user's behalf with this GitHub
 note callout:
 

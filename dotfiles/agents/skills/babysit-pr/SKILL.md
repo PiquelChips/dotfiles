@@ -5,6 +5,14 @@ description: Monitor a pull request through review and CI. Use when the user ask
 
 # Babysit PR
 
+> **Scope.** Do only what this skill's task asks. No drive-by refactors,
+> renames, reformatting or extra features. Note anything else in your report
+> or in an issue instead of fixing it. Ask the owner before widening the
+> change. Reread your diff before handing back and drop every hunk the task
+> doesn't need. See "Scope" in `AGENTS.md`.
+> When reviewing, report only defects in the change and regressions it
+> causes. Anything else is a follow-up.
+
 Many repos have AI review bots. They're helpful, even if they are not always
 right.
 

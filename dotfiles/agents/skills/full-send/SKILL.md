@@ -5,6 +5,12 @@ description: Trigger this if the user says 'full send'.
 
 # Full Send
 
+> **Scope.** Do only what this skill's task asks. No drive-by refactors,
+> renames, reformatting or extra features. Note anything else in your report
+> or in an issue instead of fixing it. Ask the owner before widening the
+> change. Reread your diff before handing back and drop every hunk the task
+> doesn't need. See "Scope" in `AGENTS.md`.
+
 If the user triggered this, it's because they are not watching this thread, and
 they want you to complete the work end-to-end autonomously. Your updates and
 your final message go unread until long after you stop. You own the work from

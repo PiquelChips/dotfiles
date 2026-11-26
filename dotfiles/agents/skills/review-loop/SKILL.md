@@ -5,6 +5,14 @@ description: Use when the user says "review loop".
 
 # review-loop
 
+> **Scope.** Do only what this skill's task asks. No drive-by refactors,
+> renames, reformatting or extra features. Note anything else in your report
+> or in an issue instead of fixing it. Ask the owner before widening the
+> change. Reread your diff before handing back and drop every hunk the task
+> doesn't need. See "Scope" in `AGENTS.md`.
+> When reviewing, report only defects in the change and regressions it
+> causes. Anything else is a follow-up.
+
 This is a workflow for making your code changes more correct before (or
 sometimes after) filing a pull request. tl;dr - have GPT 6.1 Sol, Claude Opus
 5.5, and Claude Fable 5.2 review your code in parallel, in a loop. Different

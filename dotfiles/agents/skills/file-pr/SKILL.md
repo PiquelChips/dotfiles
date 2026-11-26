@@ -5,6 +5,12 @@ description: File a concise pull request. Use when the user asks to file, open, 
 
 # File PR
 
+> **Scope.** Do only what this skill's task asks. No drive-by refactors,
+> renames, reformatting or extra features. Note anything else in your report
+> or in an issue instead of fixing it. Ask the owner before widening the
+> change. Reread your diff before handing back and drop every hunk the task
+> doesn't need. See "Scope" in `AGENTS.md`.
+
 Before filing, check whether a PR for this branch already exists. Rebase onto
 the latest base branch (usually `origin/main`): stale branches conflict and
 waste a review round. Review the diff locally against the base branch to make

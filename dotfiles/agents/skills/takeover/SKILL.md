@@ -5,6 +5,12 @@ description: Take over existing work. Use when the user asks to take over a PR, 
 
 # Takeover
 
+> **Scope.** Do only what this skill's task asks. No drive-by refactors,
+> renames, reformatting or extra features. Note anything else in your report
+> or in an issue instead of fixing it. Ask the owner before widening the
+> change. Reread your diff before handing back and drop every hunk the task
+> doesn't need. See "Scope" in `AGENTS.md`.
+
 Take responsibility for finishing the original goal while preserving the
 original contributors' credit. Do not defend an implementation just because
 another agent already built it.
