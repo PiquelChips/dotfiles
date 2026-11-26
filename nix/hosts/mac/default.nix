@@ -164,6 +164,7 @@ in
         self.darwinModules.piquel-cli
         self.darwinModules.piqueld
         self.darwinModules.sccache
+        self.darwinModules.cargo
         macModule
       ];
     };

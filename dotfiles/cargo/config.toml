@@ -1,0 +1,6 @@
+# Global Cargo config, linked to ~/.cargo/config.toml by nix/modules/cargo.nix.
+
+# Dependencies keep only line tables in dev builds: backtraces still show file
+# and line, but builds are faster and target/ much smaller.
+[profile.dev.package."*"]
+debug = "line-tables-only"
