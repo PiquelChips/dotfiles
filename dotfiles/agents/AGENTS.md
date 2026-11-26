@@ -16,10 +16,10 @@ Be ambitious.
   endpoint (like in middleware).
 - Doc comments say what goes in and what comes out (or what happens), and
   how to use the item, concisely. They don't justify the code.
-- No plain `//` comments, except the engineering standard's markers:
-  `// SAFETY:`, `// INVARIANT:`, `// wall-clock:` and `// EXTERNAL:`, which
-  holds a link to the issue, RFC or vendor doc behind a constraint we can't
-  change. A reason for an exception goes in `#[expect(..., reason = "...")]`.
+- No plain `//` comments, except the markers the engineering standard's
+  `rust-comments` rule allows, such as `// SAFETY:` (`cargo xtask standard
+  rules` lists them). A reason for an exception goes in
+  `#[expect(..., reason = "...")]`.
 - Keep documentation up to date when you make changes.
 - Keep code style & conventions consistent with already existing code.
 - Rust is my preferred language.
