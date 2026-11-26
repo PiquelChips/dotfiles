@@ -14,6 +14,7 @@
         self.nixosModules.secrets
         self.nixosModules.sccache
         self.nixosModules.rustup
+        self.nixosModules.cargo
         # Do not add for now, wait for easy access to nightly
         # Before activating, make sure to move the state directory to the configured location
         #self.nixosModules.t3-code
