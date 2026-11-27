@@ -75,6 +75,7 @@ reproduction, a screenshot. Use the most direct proof the change allows:
 - For UI and runtime behavior, run the app and look at the change. Green mocked
   tests do not prove that the user experience works. Attach screenshots to the
   PR when they help and you have a way to upload them.
+- When the repository has a `verify-<app>` skill, use it for runtime proof.
 
 When you cannot find a way to prove a change, you do not have full confidence.
 Ask the user.
